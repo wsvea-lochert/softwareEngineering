@@ -9,5 +9,6 @@ public class Main {
 	// write your code here
         int[] nums = IntStream.range(1, 101).toArray();
         Arrays.stream(nums).forEach(System.out::println);
+        System.out.println("test");
     }
 }
