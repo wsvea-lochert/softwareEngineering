@@ -10,8 +10,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-       /* Event soppturMedKarpe = new Event("Sopptur med Karpe","Musikk", "En fin konsert med bra musikk", 18, 150,
-                                                     LocalDate.of(2019, 06, 19), new Location("Halden", "B R A veien 6d"));*/
+        Event soppturMedKarpe = new Event("Sopptur med Karpe","Musikk", "En fin konsert med bra musikk", 18, 150,
+                                                     LocalDate.of(2019, 06, 19), new Location("Halden", "B R A veien 6d"));
+
+
+
 
         runApplication();
     }
@@ -21,17 +24,20 @@ public class Main {
         Scanner selection = new Scanner(System.in);
         int option = 0;
 
-        while(option != 3) {
-            System.out.print("(1) Lag nytt event // (2) Se alle events // (3) lukk applikasjonen // Skriv inn valg: ");
+        while(option != 4) {
+            System.out.print("(1) Lag nytt event // (2) book billett // (3) Print mine billetter // (4) lukk // Skriv inn valg: ");
             option = selection.nextInt();
             switch (option) {
                 case 1:
                     Event.CreateEvent();
                     break;
                 case 2:
-                    Event.printEventList();
+                    Event.bookTicket();
                     break;
                 case 3:
+                    Event.printMyTickets();
+                    break;
+                case 4:
                     break;
                 default:
                     System.out.print("Ugyldig valg.");
@@ -39,9 +45,4 @@ public class Main {
             }
         }
     }
-
-
-
-
-
 }

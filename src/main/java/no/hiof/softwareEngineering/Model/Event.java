@@ -1,8 +1,11 @@
 package no.hiof.softwareEngineering.Model;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Event {
     private String eventName;
@@ -12,10 +15,11 @@ public class Event {
     private int ticketAmount;
     private LocalDate date;
     private Location eventLocation;
+    private int eventIndex;
 
     private ArrayList<Ticket> availableTickets = new ArrayList<>();
-    ArrayList<Ticket> soldTickets = new ArrayList<>();
-    static ArrayList<Event> eventList = new ArrayList<>();
+    private ArrayList<Ticket> soldTickets = new ArrayList<>();
+    private static ArrayList<Event> eventList = new ArrayList<>();
 
     public Event(String eventName, String category, String description, int ageLimit, int ticketAmount, LocalDate date, Location eventLocation) {
         this.eventName = eventName;
@@ -25,9 +29,28 @@ public class Event {
         this.ticketAmount = ticketAmount;
         this.date = date;
         this.eventLocation = eventLocation;
+        this.eventIndex = createIndex();
 
         createTickets();
         eventList.add(this);
+    }
+
+    public Event() {
+    }
+
+    private int createIndex(){
+        int tempIndex = 1;
+
+        for(Event event : eventList){
+            if(event == null){
+                return 1;
+            }
+            else{
+                tempIndex = event.getEventIndex() + 1;
+            }
+        }
+
+        return tempIndex;
     }
 
     private void createTickets(){
@@ -52,6 +75,10 @@ public class Event {
     public static void CreateEvent(){
         Scanner userInput = new Scanner(System.in);
 
+
+        String regex = "^(?:[0-9]{2})?[0-9]{2}-[0-3]?[0-9]-[0-3]?[0-9]$";
+        Pattern pattern = Pattern.compile(regex);
+
         System.out.print("Event navn: ");
         String eventName = userInput.nextLine();
         System.out.print("Kategori: ");
@@ -61,6 +88,14 @@ public class Event {
 
         System.out.print("Dato(YYYY-MM-DD): ");
         String date = userInput.nextLine();
+        Matcher matcher = pattern.matcher(date);
+
+        while(!matcher.matches()){
+            System.out.print("Ugyldig input skriv inn på nytt: ");
+            date = userInput.nextLine();
+            matcher = pattern.matcher(date);
+        }
+
 
         System.out.print("By: ");
         String city = userInput.nextLine();
@@ -76,6 +111,87 @@ public class Event {
 
         Event event = new Event(eventName, category, description, ageLimit, tickets, LocalDate.parse(date), new Location(city, street));
         System.out.println(eventName + " er nå laget.");
+    }
+
+    public static void bookTicket(){
+        Event dummy = null;
+        Scanner userInput = new Scanner(System.in);
+        Scanner userInputString = new Scanner(System.in);
+
+        for (Event event : eventList){
+            System.out.println("(" + event.getEventIndex() + ") " + event);
+        }
+
+        System.out.print("Velg event: ");
+        int selection = userInput.nextInt();
+
+        for (Event event : eventList){
+            if (selection == event.getEventIndex()){
+                dummy = event;
+                break;
+            }
+        }
+        if (dummy == null){
+            System.out.println("Event ikke funnet.");
+            bookTicket();
+        }
+
+        System.out.print("Velg antall billetter: ");
+        int ticketSelected = userInput.nextInt();
+
+        while(ticketSelected > dummy.ticketAmount){
+            System.out.println("Du har valgt for mange billetter...");
+            System.out.print("Velgt antall billetter: ");
+            ticketSelected = userInput.nextInt();
+        }
+
+        System.out.print("Fornavn: ");
+        String firsname = userInputString.nextLine();
+        System.out.print("Etternavn: ");
+        String lastname = userInputString.nextLine();
+        System.out.print("Email: ");
+        String email = userInputString.nextLine();
+
+        Customer customer = new Customer(new Person(firsname, lastname), email);
+        dummy.ticketAmount = dummy.ticketAmount - ticketSelected;
+        ArrayList<Ticket> deleteList = new ArrayList<>();
+
+        for (Event event : eventList){
+            for (Ticket ticket : event.availableTickets){
+                if (event.equals(dummy)){
+                    if (ticketSelected == 0){
+                        break;
+                    }
+
+                    ticket.setCustomer(customer);
+                    event.soldTickets.add(ticket);
+                    deleteList.add(ticket);
+                    ticketSelected--;
+                }
+            }
+        }
+
+        for (Event event : eventList){
+            if (dummy.equals(event)){
+                event.availableTickets.removeAll(deleteList);
+            }
+        }
+
+
+    }
+
+    public static void printMyTickets(){
+        Scanner userInput = new Scanner(System.in);
+        System.out.print("Email som ble brukt til å booke: ");
+        String email = userInput.nextLine();
+
+        for (Event event : eventList){
+            for (Ticket ticket : event.soldTickets){
+                if (ticket.getCustomer().Email.equals(email)){
+                    System.out.println(ticket);
+                }
+            }
+        }
     }
 
     public String getEventName() {
@@ -134,7 +250,29 @@ public class Event {
         this.eventLocation = eventLocation;
     }
 
+    public int getEventIndex() {
+        return eventIndex;
+    }
 
+    public void setEventIndex(int eventIndex) {
+        this.eventIndex = eventIndex;
+    }
+
+    public ArrayList<Ticket> getAvailableTickets() {
+        return availableTickets;
+    }
+
+    public void setAvailableTickets(ArrayList<Ticket> availableTickets) {
+        this.availableTickets = availableTickets;
+    }
+
+    public ArrayList<Ticket> getSoldTickets() {
+        return soldTickets;
+    }
+
+    public void setSoldTickets(ArrayList<Ticket> soldTickets) {
+        this.soldTickets = soldTickets;
+    }
 
     @Override
     public String toString() {
