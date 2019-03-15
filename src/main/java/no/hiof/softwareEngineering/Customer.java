@@ -13,20 +13,23 @@ public class Customer extends Person{
         //Register new customer account
         System.out.print("Fornavn: ");
         firstName = input.nextLine();
+
         System.out.print("Etternavn: ");
         lastName = input.nextLine();
-        System.out.print("Email : ");
+
+        System.out.print("Email: ");
         email = input.nextLine();
+
         System.out.print("Gjenta email: ");
         confirmEmail = input.nextLine();
+
         System.out.print("Telefonnummer: ");
         phoneNo = input.nextLine();
-        System.out.print("Ønsket brukernavn: ");
-        userName = input.nextLine();
+
         System.out.print("Ønsket passord: ");
         password = input.nextLine();
+
         System.out.print("Gjenta passord: ");
         confirmpassword = input.nextLine();
     }
-
 }

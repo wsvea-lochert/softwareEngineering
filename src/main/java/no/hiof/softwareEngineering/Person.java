@@ -2,7 +2,6 @@ package no.hiof.softwareEngineering;
 
 public class Person {
 
-    public String userName;
     public String password;
     public String firstName;
     public String lastName;
@@ -12,33 +11,13 @@ public class Person {
     public String confirmEmail;
 
 
-    public Person() {
-    }
-
-    public Person(String userName, String password, String firstName, String lastName, String email, String phoneN0) {
-        this.userName = userName;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-
-    }
+    public Person() { }
 
     public Person(String userName, String password, String firstName, String lastName, String email) {
-        this.userName = userName;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public String getPassword() {

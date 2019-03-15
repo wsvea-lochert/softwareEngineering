@@ -1,5 +1,6 @@
 package no.hiof.softwareEngineering;
 
+import javax.sound.midi.Soundbank;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -11,14 +12,6 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        String firstName;
-        String lastName;
-        String userName;
-        String password;
-        String confirmpassword;
-        String email;
-        String confirmEmail;
-        String phoneNo;
         ArrayList <Customer> customerDb = new ArrayList <>();
 
         Scanner input = new Scanner(System.in);   // user input scanner
@@ -33,13 +26,16 @@ public class Main {
             customerFile = new File(filename);
         }
 
-
-
-        // Test
-        Customer customer = new Customer();
+        // Testkunde
+        /*Customer customer = new Customer();
         customer.createNewCustomerAccount();
 
-        System.out.println(customer.getEmail() + " " + customer.getFirstName());
+        System.out.println(customer.getEmail() + " " + customer.getFirstName());*/
+
+        Organizer org = new Organizer();
+        org.createNewOrganizerAccount();
+
+        System.out.println(org.getCompanyName());
 
 
     }

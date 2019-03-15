@@ -1,27 +1,52 @@
 package no.hiof.softwareEngineering;
 
+import java.util.Scanner;
+
 public class Organizer extends Person {
 
     private String companyName;
     private int orgNo;
-    private String invoiceChannel; //How to send the invoice  email / post
-    private String invoiceStreetAdress;
-    private int invoiceZipCode;
-    private String invoicePlace;
-
 
     //static ArrayList<Event> eventList = new ArrayList<>();
 
-    public Organizer (){
-        super();
-    }
+    public Organizer(){ }
 
-    public Organizer(String userName, String password, String firstName, String lastName, String email, String phoneNo,String companyName, int orgnr, String invoiceChannel) {
-        super(userName, password, firstName, lastName, email, phoneNo);
+    public Organizer(String password, String firstName, String lastName, String email, String phoneNo,String companyName, int orgnr) {
+        super(password, firstName, lastName, email, phoneNo);
         this.companyName = companyName;
         this.orgNo = orgnr;
-        this.invoiceChannel = invoiceChannel;
-       // eventList.add(this);
+    }
+
+    public void createNewOrganizerAccount() {
+        Scanner input = new Scanner(System.in);
+
+        //Register new organizer account
+        System.out.print("Firmanavn: ");
+        companyName = input.nextLine();
+
+        System.out.print("Organisasjonsnummer: ");
+        orgNo = Integer.parseInt(input.nextLine());
+
+        System.out.print("Fornavn: ");
+        firstName = input.nextLine();
+
+        System.out.print("Etternavn: ");
+        lastName = input.nextLine();
+
+        System.out.print("Email: ");
+        email = input.nextLine();
+
+        System.out.print("Gjenta email: ");
+        confirmEmail = input.nextLine();
+
+        System.out.print("Telefonnummer: ");
+        phoneNo = input.nextLine();
+
+        System.out.print("Ønsket passord: ");
+        password = input.nextLine();
+
+        System.out.print("Gjenta passord: ");
+        confirmpassword = input.nextLine();
     }
 
     public String getCompanyName() {
@@ -38,37 +63,5 @@ public class Organizer extends Person {
 
     public void setOrgNo(int orgNo) {
         this.orgNo = orgNo;
-    }
-
-    public String getInvoiceChannel() {
-        return invoiceChannel;
-    }
-
-    public void setInvoiceChannel(String invoiceChannel) {
-        this.invoiceChannel = invoiceChannel;
-    }
-
-    public String getInvoiceStreetAdress() {
-        return invoiceStreetAdress;
-    }
-
-    public void setInvoiceStreetAdress(String invoiceStreetAdress) {
-        this.invoiceStreetAdress = invoiceStreetAdress;
-    }
-
-    public int getInvoiceZipCode() {
-        return invoiceZipCode;
-    }
-
-    public void setInvoiceZipCode(int invoiceZipCode) {
-        this.invoiceZipCode = invoiceZipCode;
-    }
-
-    public String getInvoicePlace() {
-        return invoicePlace;
-    }
-
-    public void setInvoicePlace(String invoicePlace) {
-        this.invoicePlace = invoicePlace;
     }
 }
