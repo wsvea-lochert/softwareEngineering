@@ -33,26 +33,14 @@ public class Main {
             customerFile = new File(filename);
         }
 
-        //Register new customer account
-        System.out.print("Fornavn: ");
-        firstName = input.nextLine();
-        System.out.print("Etternavn: ");
-        lastName = input.nextLine();
-        System.out.print("Email : ");
-        email = input.nextLine();
-        System.out.print("Gjenta email: ");
-        confirmEmail = input.nextLine();
-        System.out.print("Telefonnummer: ");
-        phoneNo = input.nextLine();
-        System.out.print("Ønsket brukernavn: ");
-        userName = input.nextLine();
-        System.out.print("Ønsket passord: ");
-        password = input.nextLine();
-        System.out.print("Gjenta passord: ");
-        confirmpassword = input.nextLine();
+
 
         // Test
-        Customer customer = new Customer(userName, password, firstName, lastName, email, phoneNo);
+        Customer customer = new Customer();
+        customer.createNewCustomerAccount();
+
+        System.out.println(customer.getEmail() + " " + customer.getFirstName());
+
 
     }
 }

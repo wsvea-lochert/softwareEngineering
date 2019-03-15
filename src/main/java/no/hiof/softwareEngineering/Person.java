@@ -8,6 +8,9 @@ public class Person {
     public String lastName;
     public String email;
     public String phoneNo;
+    public String confirmpassword;
+    public String confirmEmail;
+
 
     public Person() {
     }
