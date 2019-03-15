@@ -51,6 +51,7 @@ public class Main {
         System.out.print("Gjenta passord: ");
         confirmpassword = input.nextLine();
 
+        // Test
         Customer customer = new Customer(userName, password, firstName, lastName, email, phoneNo);
 
     }
