@@ -1,6 +1,11 @@
 package no.hiof.softwareEngineering;
 
-public class Person {
+import java.util.Scanner;
+
+public abstract class Person {
+
+    Scanner input = new Scanner(System.in);
+
 
     public String password;
     public String firstName;
@@ -11,7 +16,8 @@ public class Person {
     public String confirmEmail;
 
 
-    public Person() { }
+    public Person() {
+    }
 
     public Person(String userName, String password, String firstName, String lastName, String email) {
         this.password = password;
@@ -60,4 +66,24 @@ public class Person {
     public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
     }
+
+    public String inputFirstName(String firstName) {
+    boolean isString;
+        System.out.print("Fornavn: ");
+        firstName = input.nextLine();
+        do {
+            if (firstName.length() > 1 && firstName.length() < 50) {
+                isString = true;
+                return firstName;
+            } else {
+                System.out.println("Sett inn et gyldig navn");
+                isString = false;
+                firstName = input.nextLine();
+            }
+        }
+        while (!(isString));
+        return firstName;
+    }
+
+
 }

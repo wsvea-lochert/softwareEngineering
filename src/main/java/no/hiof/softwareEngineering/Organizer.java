@@ -7,8 +7,6 @@ public class Organizer extends Person {
     private String companyName;
     private int orgNo;
 
-    //static ArrayList<Event> eventList = new ArrayList<>();
-
     public Organizer(){ }
 
     public Organizer(String password, String firstName, String lastName, String email, String phoneNo,String companyName, int orgnr) {
@@ -27,8 +25,9 @@ public class Organizer extends Person {
         System.out.print("Organisasjonsnummer: ");
         orgNo = Integer.parseInt(input.nextLine());
 
-        System.out.print("Fornavn: ");
-        firstName = input.nextLine();
+        //System.out.print("Fornavn: ");
+        //firstName = input.nextLine();
+        firstName = inputFirstName(firstName);
 
         System.out.print("Etternavn: ");
         lastName = input.nextLine();

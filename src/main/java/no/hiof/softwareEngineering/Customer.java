@@ -11,8 +11,9 @@ public class Customer extends Person{
         Scanner input = new Scanner(System.in);
 
         //Register new customer account
-        System.out.print("Fornavn: ");
-        firstName = input.nextLine();
+        //System.out.print("Fornavn: ");
+        //firstName = input.nextLine();
+        firstName = inputFirstName(firstName);
 
         System.out.print("Etternavn: ");
         lastName = input.nextLine();

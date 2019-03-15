@@ -30,12 +30,14 @@ public class Main {
         /*Customer customer = new Customer();
         customer.createNewCustomerAccount();
 
-        System.out.println(customer.getEmail() + " " + customer.getFirstName());*/
+        System.out.println(customer.getEmail() + " " + customer.getFirstName());
+        */
 
         Organizer org = new Organizer();
         org.createNewOrganizerAccount();
 
         System.out.println(org.getCompanyName());
+
 
 
     }
