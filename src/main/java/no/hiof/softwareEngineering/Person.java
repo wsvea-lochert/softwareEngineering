@@ -6,12 +6,11 @@ public abstract class Person {
 
     Scanner input = new Scanner(System.in);
 
-
     public String password;
     public String firstName;
     public String lastName;
     public String email;
-    public String phoneNo;
+    public int phoneNo;
     public String confirmpassword;
     public String confirmEmail;
 
@@ -19,11 +18,19 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(String userName, String password, String firstName, String lastName, String email) {
+    public Person(String password, String firstName, String lastName, String email) {
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+    }
+
+    public Person(String password, String firstName, String lastName, String email, int phoneNo) {
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNo = phoneNo;
     }
 
     public String getPassword() {
@@ -59,11 +66,11 @@ public abstract class Person {
     }
 
 
-    public String getPhoneNo() {
+    public int getPhoneNo() {
         return phoneNo;
     }
 
-    public void setPhoneNo(String phoneNo) {
+    public void setPhoneNo(int phoneNo) {
         this.phoneNo = phoneNo;
     }
 
@@ -76,13 +83,75 @@ public abstract class Person {
                 isString = true;
                 return firstName;
             } else {
-                System.out.println("Sett inn et gyldig navn");
+                System.out.println("Fornavnet kan maksimalt være på 50 tegn. Vennligst registrer fornavnet på nytt: ");
                 isString = false;
                 firstName = input.nextLine();
             }
         }
         while (!(isString));
         return firstName;
+    }
+
+    public String inputLastName(String lastName) {
+        boolean isString;
+        System.out.print("Etternavn: ");
+        lastName = input.nextLine();
+        do {
+            if (lastName.length() > 1 && lastName.length() < 50) {
+                isString = true;
+                return lastName;
+            } else {
+                System.out.println("Etternavnet kan maksimalt være på 50 tegn. Vennligst registrer etternavnet på nytt");
+                isString = false;
+                lastName = input.nextLine();
+            }
+        }
+        while (!(isString));
+        return lastName;
+    }
+
+    public String inputEmail(String email) {
+        boolean isString;
+        //String regexEmail = "^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}";
+        String regexEmail = "^[-0-9a-zA-Z.+_]{5}+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}";
+        System.out.print("Email: ");
+        email = input.nextLine();
+
+        do {
+            if (email.matches(regexEmail)){
+                isString = true;
+                return email ;
+
+            } else {
+                isString = false;
+                System.out.println("Email adressen var ikke gyldig. Vennligs registrer email adressen på nytt:  ");
+                email = input.nextLine();
+            }
+        }
+        while (!(isString));
+        return email;
+    }
+
+    public String inputConfirmEmail(String confirmEmail, String email) {
+        boolean isString;
+
+        System.out.print("Gjenta email adressen: ");
+        confirmEmail = input.nextLine();
+
+        do {
+            if (email == confirmEmail){
+                isString = true;
+                return confirmEmail ;
+
+            } else {
+                isString = false;
+                System.out.print("Denne adressen matcher ikke. Vennligst gjenta email adressen: ");
+                confirmEmail = input.nextLine();
+
+            }
+        }
+        while (!(isString));
+        return confirmEmail;
     }
 
 
