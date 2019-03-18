@@ -10,21 +10,17 @@ public class Customer extends Person{
     public void createNewCustomerAccount() {
         Scanner input = new Scanner(System.in);
 
-        //Register new customer account
-        System.out.print("Fornavn: ");
-        firstName = input.nextLine();
+        firstName = inputFirstName(firstName);
 
-        System.out.print("Etternavn: ");
-        lastName = input.nextLine();
+        lastName = inputLastName(lastName);
 
-        System.out.print("Email: ");
-        email = input.nextLine();
+        email = inputEmail(email);
 
         System.out.print("Gjenta email: ");
         confirmEmail = input.nextLine();
 
         System.out.print("Telefonnummer: ");
-        phoneNo = input.nextLine();
+        phoneNo = Integer.parseInt(input.nextLine());
 
         System.out.print("Ønsket passord: ");
         password = input.nextLine();
