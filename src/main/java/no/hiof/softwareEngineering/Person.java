@@ -2,7 +2,7 @@ package no.hiof.softwareEngineering;
 
 import java.util.Scanner;
 
-public abstract class Person {
+public class Person {
 
     Scanner input = new Scanner(System.in);
 
@@ -64,6 +64,7 @@ public abstract class Person {
 
     public String inputEmail(String email) {
         boolean isValidString = false;
+        //ToDo: fikse regex uttrykket - matcher bare hvis to tegn før @
         String regexEmail = "^[-0-9a-zA-Z.+_]{2}+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}";
         System.out.print("Email: ");
         email = input.nextLine();
@@ -73,19 +74,22 @@ public abstract class Person {
                 isValidString = true;
             }
             else {
-                System.out.println("Email adressen var ikke gyldig. Vennligs registrer email adressen på nytt:");
+                System.out.println("Email adressen var ikke gyldig. Vennligst registrer email adressen på nytt:");
                 email = input.nextLine();
             }
         }
         return email;
     }
 
+
     public String inputConfirmEmail(String confirmEmail, String email) {
+
         boolean isValidString = false;
 
         System.out.print("Gjenta email adressen: ");
         confirmEmail = input.nextLine();
 
+        //ToDo: while løkka må være feil da den ikke godtar at confirmEmail er det samme som email
         while(!isValidString) {
             if (email == confirmEmail){
                 isValidString = true;

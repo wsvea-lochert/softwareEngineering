@@ -6,25 +6,27 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static no.hiof.softwareEngineering.Organizer.organizerList;
+
 public class Main {
-    static final String CUSTOMER_FILENAME = "customerdb.txt";   // location of username-password database
+    //static final String CUSTOMER_FILENAME = "customerdb.txt";   /* location of customer database */
 
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        ArrayList <Customer> customerDb = new ArrayList <>();
+        //ArrayList <Customer> customerDb = new ArrayList <>();
 
-        Scanner input = new Scanner(System.in);   // user input scanner
-
-        File customerFile = new File(CUSTOMER_FILENAME);
+        //Til bruk hvis vi skal lage fil
+        //File customerFile = new File(CUSTOMER_FILENAME);
 
         //check if customer filename for file which holds all usernames and passwords is valid
-        while(!customerFile.exists() || customerFile.isDirectory()){ //while loop to locate file
+        /*while(!customerFile.exists() || customerFile.isDirectory()){ //while loop to locate file
             System.out.printf("Your file name \"%s\" was not found.", customerFile.getName());
             System.out.println("Please specify the name of your input file:");
             String filename = input.nextLine();
             customerFile = new File(filename);
         }
+        */
 
         // Testkunde
         /*Customer customer = new Customer();
@@ -34,11 +36,11 @@ public class Main {
         */
 
         // Testarrangangør
-        Organizer org = new Organizer();
-        org.createNewOrganizerAccount();
-
-        System.out.println(org.getCompanyName());
-
+        //ToDo: gjør om createNewOrganizerAccount() til static slik at objektet opprettes i Organizer
+        // Har forsøkt å gjøre det, men da må alt av variabler også gjøres static --> veldig rart!!!
+        Organizer organizer = new Organizer(); // Creating a new object
+        organizerList.add(organizer); // Adding it to the list
+        organizer.createNewOrganizerAccount();
 
 
     }
