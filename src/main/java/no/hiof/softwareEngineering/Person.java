@@ -33,6 +33,76 @@ public abstract class Person {
         this.phoneNo = phoneNo;
     }
 
+    public String inputFirstName(String firstName) {
+        System.out.print("Fornavn: ");
+        firstName = input.nextLine();
+
+        return checkStringLength(1, 50, firstName);
+    }
+
+    public String inputLastName(String lastName) {
+        System.out.print("Etternavn: ");
+        lastName = input.nextLine();
+
+        return checkStringLength(1, 50, lastName);
+    }
+
+    public String checkStringLength(int minlength, int maxlength, String inputstring) {
+        boolean isValidString = false;
+
+        while(!isValidString){
+            if (inputstring.length() >= minlength && inputstring.length() <= maxlength){
+                isValidString = true;
+            }
+            else{
+                System.out.println("Feil i input. Vennligst prøv igjen (max " + maxlength + " tegn): ");
+                inputstring = input.nextLine();
+            }
+        }
+        return inputstring;
+    }
+
+    public String inputEmail(String email) {
+        boolean isValidString = false;
+        String regexEmail = "^[-0-9a-zA-Z.+_]{2}+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}";
+        System.out.print("Email: ");
+        email = input.nextLine();
+
+        while(!isValidString) {
+            if (email.matches(regexEmail)){
+                isValidString = true;
+            }
+            else {
+                System.out.println("Email adressen var ikke gyldig. Vennligs registrer email adressen på nytt:");
+                email = input.nextLine();
+            }
+        }
+        return email;
+    }
+
+    public String inputConfirmEmail(String confirmEmail, String email) {
+        boolean isValidString = false;
+
+        System.out.print("Gjenta email adressen: ");
+        confirmEmail = input.nextLine();
+
+        while(!isValidString) {
+            if (email == confirmEmail){
+                isValidString = true;
+            }
+            else {
+                //TODO: må kunne endre første e-postadresse hvis man har skrevet feil
+                System.out.print("Denne adressen matcher ikke. Vennligst gjenta email adressen: ");
+                confirmEmail = input.nextLine();
+            }
+        }
+        return confirmEmail;
+    }
+
+    //TODO: sjekk for passord
+
+    //TODO: sjekk for telefonnummer
+
     public String getPassword() {
         return password;
     }
@@ -73,86 +143,4 @@ public abstract class Person {
     public void setPhoneNo(int phoneNo) {
         this.phoneNo = phoneNo;
     }
-
-    public String inputFirstName(String firstName) {
-    boolean isString;
-        System.out.print("Fornavn: ");
-        firstName = input.nextLine();
-        do {
-            if (firstName.length() > 1 && firstName.length() < 50) {
-                isString = true;
-                return firstName;
-            } else {
-                System.out.println("Fornavnet kan maksimalt være på 50 tegn. Vennligst registrer fornavnet på nytt: ");
-                isString = false;
-                firstName = input.nextLine();
-            }
-        }
-        while (!(isString));
-        return firstName;
-    }
-
-    public String inputLastName(String lastName) {
-        boolean isString;
-        System.out.print("Etternavn: ");
-        lastName = input.nextLine();
-        do {
-            if (lastName.length() > 1 && lastName.length() < 50) {
-                isString = true;
-                return lastName;
-            } else {
-                System.out.println("Etternavnet kan maksimalt være på 50 tegn. Vennligst registrer etternavnet på nytt");
-                isString = false;
-                lastName = input.nextLine();
-            }
-        }
-        while (!(isString));
-        return lastName;
-    }
-
-    public String inputEmail(String email) {
-        boolean isString;
-        //String regexEmail = "^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}";
-        String regexEmail = "^[-0-9a-zA-Z.+_]{5}+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}";
-        System.out.print("Email: ");
-        email = input.nextLine();
-
-        do {
-            if (email.matches(regexEmail)){
-                isString = true;
-                return email ;
-
-            } else {
-                isString = false;
-                System.out.println("Email adressen var ikke gyldig. Vennligs registrer email adressen på nytt:  ");
-                email = input.nextLine();
-            }
-        }
-        while (!(isString));
-        return email;
-    }
-
-    public String inputConfirmEmail(String confirmEmail, String email) {
-        boolean isString;
-
-        System.out.print("Gjenta email adressen: ");
-        confirmEmail = input.nextLine();
-
-        do {
-            if (email == confirmEmail){
-                isString = true;
-                return confirmEmail ;
-
-            } else {
-                isString = false;
-                System.out.print("Denne adressen matcher ikke. Vennligst gjenta email adressen: ");
-                confirmEmail = input.nextLine();
-
-            }
-        }
-        while (!(isString));
-        return confirmEmail;
-    }
-
-
 }

@@ -44,6 +44,10 @@ public class Organizer extends Person {
         confirmpassword = input.nextLine();
     }
 
+    //TODO: sjekk for firmanavn
+
+    //TODO: sjekk for organisasjonsnummer
+
     public String getCompanyName() {
         return companyName;
     }

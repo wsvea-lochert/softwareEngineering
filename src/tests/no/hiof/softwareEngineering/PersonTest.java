@@ -7,6 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class CustomerTest {
 
     @Test
-    void createNewCustomerAccount() {
+    void inputFirstNameTest() {
     }
 }
