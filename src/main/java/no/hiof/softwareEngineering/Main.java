@@ -2,7 +2,6 @@ package no.hiof.softwareEngineering;
 
 import no.hiof.softwareEngineering.Model.Event;
 import no.hiof.softwareEngineering.Model.Location;
-
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -10,8 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Event soppturMedKarpe = new Event("Sopptur med Karpe","Musikk", "En fin konsert med bra musikk", 18, 150,
-                                                     LocalDate.of(2019, 06, 19), new Location("Halden", "B R A veien 6d"));
+        Event soppturMedKarpe = new Event("Sopptur med Karpe","Musikk", "En fin konsert med bra musikk", 18, 150, LocalDate.of(2019, 06, 19), new Location("Halden", "B R A veien 6d"));
 
 
 

@@ -1,6 +1,5 @@
 package no.hiof.softwareEngineering.Model;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -113,56 +112,58 @@ public class Event {
         System.out.println(eventName + " er nå laget.");
     }
 
-    public static void bookTicket(){
-        Event dummy = null;
-        Scanner userInput = new Scanner(System.in);
-        Scanner userInputString = new Scanner(System.in);
+    private static Event findEvent(int eventToLookFor){
+        for (Event event : eventList){
+            if (eventToLookFor == event.getEventIndex()){
+                return event;
+            }
+        }
+        System.out.println("Event ikke funnet.");
+        bookTicket();
+        return null;
+    }
 
+    private static void PrintEventWithIndex(){
         for (Event event : eventList){
             System.out.println("(" + event.getEventIndex() + ") " + event);
         }
+    }
+
+    public static void bookTicket(){
+        Event dummy = null;
+        ArrayList<Ticket> deleteList = new ArrayList<>();
+        Scanner userInput = new Scanner(System.in);
+        Scanner userInputString = new Scanner(System.in);
+
+        PrintEventWithIndex();
 
         System.out.print("Velg event: ");
         int selection = userInput.nextInt();
 
-        for (Event event : eventList){
-            if (selection == event.getEventIndex()){
-                dummy = event;
-                break;
-            }
-        }
-        if (dummy == null){
-            System.out.println("Event ikke funnet.");
-            bookTicket();
-        }
+        dummy = findEvent(selection);
 
         System.out.print("Velg antall billetter: ");
         int ticketSelected = userInput.nextInt();
 
-        while(ticketSelected > dummy.ticketAmount){
-            System.out.println("Du har valgt for mange billetter...");
+        while(ticketSelected > dummy.ticketAmount && ticketSelected <= 0){
+            System.out.println("Du har valgt for mange billetter eller ingen billetter.");
             System.out.print("Velgt antall billetter: ");
             ticketSelected = userInput.nextInt();
         }
 
         System.out.print("Fornavn: ");
-        String firsname = userInputString.nextLine();
+        String firstname = userInputString.nextLine();
         System.out.print("Etternavn: ");
         String lastname = userInputString.nextLine();
         System.out.print("Email: ");
         String email = userInputString.nextLine();
 
-        Customer customer = new Customer(new Person(firsname, lastname), email);
+        Customer customer = new Customer(new Person(firstname, lastname), email);
         dummy.ticketAmount = dummy.ticketAmount - ticketSelected;
-        ArrayList<Ticket> deleteList = new ArrayList<>();
 
         for (Event event : eventList){
             for (Ticket ticket : event.availableTickets){
                 if (event.equals(dummy)){
-                    if (ticketSelected == 0){
-                        break;
-                    }
-
                     ticket.setCustomer(customer);
                     event.soldTickets.add(ticket);
                     deleteList.add(ticket);
@@ -176,8 +177,6 @@ public class Event {
                 event.availableTickets.removeAll(deleteList);
             }
         }
-
-
     }
 
     public static void printMyTickets(){
