@@ -32,6 +32,7 @@ public class Main {
 
         System.out.println(customer.getEmail() + " " + customer.getFirstName());*/
 
+        // Testarrangangør
         Organizer org = new Organizer();
         org.createNewOrganizerAccount();
 
