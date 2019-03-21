@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Customer extends Person{
 
-    public static ArrayList <Customer> customerList = new ArrayList<>();
+    private static ArrayList <Customer> customerList = new ArrayList<>();
 
     public Customer(){
         //customerList.add(this);
@@ -40,5 +40,9 @@ public class Customer extends Person{
         for (Customer customer : customerList){
             System.out.println(customer.getFirstName() + " " + customer.getEmail());
         }
+    }
+
+    public static ArrayList<Customer> getCustomerList() {
+        return customerList;
     }
 }

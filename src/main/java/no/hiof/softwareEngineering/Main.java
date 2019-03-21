@@ -6,8 +6,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static no.hiof.softwareEngineering.Customer.customerList;
-import static no.hiof.softwareEngineering.Organizer.organizerList;
+//import static no.hiof.softwareEngineering.Customer.customerList;
+//import static no.hiof.softwareEngineering.Organizer.organizerList;
 
 public class Main {
     //static final String CUSTOMER_FILENAME = "customerdb.txt";   /* location of customer database */
@@ -43,9 +43,13 @@ public class Main {
         // Testarrangangør
         //ToDo: gjør om createNewOrganizerAccount() til static slik at objektet opprettes i Organizer
         // Har forsøkt å gjøre det, men da må alt av variabler også gjøres static??
-        Organizer organizer = new Organizer(); // Creating a new object
-        organizerList.add(organizer); // Adding organizer to the list
-        organizer.createNewOrganizerAccount();
+        //Organizer organizer = new Organizer(); // Creating a new object
+        //Organizer.getOrganizerList().add(organizer); // Adding organizer to the list
+        //organizer.createNewOrganizerAccount();
+
+        //kjører login delen - Enis
+        Login.loginOptions();
+
 
 
     }

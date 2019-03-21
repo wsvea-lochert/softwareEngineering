@@ -8,7 +8,7 @@ public class Organizer extends Person {
     private static String companyName;
     private static int orgNo;
 
-    public static ArrayList <Organizer> organizerList = new ArrayList<>();
+    private static ArrayList<Organizer> organizerList = new ArrayList<>();
 
     public Organizer(){ }
 
@@ -71,6 +71,10 @@ public class Organizer extends Person {
 
     public String getCompanyName() {
         return companyName;
+    }
+
+    public static ArrayList<Organizer> getOrganizerList() {
+        return organizerList;
     }
 
     public void setCompanyName(String companyName) {
