@@ -65,7 +65,8 @@ public class Person {
     public String inputEmail(String email) {
         boolean isValidString = false;
         //ToDo: fikse regex uttrykket - matcher bare hvis to tegn før @
-        String regexEmail = "^[-0-9a-zA-Z.+_]{2}+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}";
+        //String regexEmail = "^[-0-9a-zA-Z.+_]{2}+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}";
+        String regexEmail = "^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}";
         System.out.print("Email: ");
         email = input.nextLine();
 

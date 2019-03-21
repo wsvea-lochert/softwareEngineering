@@ -5,10 +5,10 @@ import java.util.Scanner;
 
 public class Customer extends Person{
 
-    private static ArrayList <Customer> customerList = new ArrayList<>();
+    public static ArrayList <Customer> customerList = new ArrayList<>();
 
     public Customer(){
-        customerList.add(this);
+        //customerList.add(this);
     }
 
     public void createNewCustomerAccount() {
@@ -31,5 +31,14 @@ public class Customer extends Person{
 
         System.out.print("Gjenta passord: ");
         confirmpassword = input.nextLine();
+
+
+        Customer.printCustomerList();
+    }
+
+    public static void printCustomerList(){
+        for (Customer customer : customerList){
+            System.out.println(customer.getFirstName() + " " + customer.getEmail());
+        }
     }
 }

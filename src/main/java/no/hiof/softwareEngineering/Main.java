@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static no.hiof.softwareEngineering.Customer.customerList;
 import static no.hiof.softwareEngineering.Organizer.organizerList;
 
 public class Main {
@@ -29,17 +30,21 @@ public class Main {
         */
 
         // Testkunde
+        //ToDo: gjør om createNewCustomerAccount() til static slik at objektet opprettes i Organizer
+        // Har forsøkt å gjøre det, men da må alt av variabler også gjøres static??
         /*Customer customer = new Customer();
-        customer.createNewCustomerAccount();
+        customerList.add(customer);
+        customer.createNewCustomerAccount();*/
 
-        System.out.println(customer.getEmail() + " " + customer.getFirstName());
-        */
+
+        //System.out.println(customer.getEmail() + " " + customer.getFirstName());
+
 
         // Testarrangangør
         //ToDo: gjør om createNewOrganizerAccount() til static slik at objektet opprettes i Organizer
-        // Har forsøkt å gjøre det, men da må alt av variabler også gjøres static --> veldig rart!!!
+        // Har forsøkt å gjøre det, men da må alt av variabler også gjøres static??
         Organizer organizer = new Organizer(); // Creating a new object
-        organizerList.add(organizer); // Adding it to the list
+        organizerList.add(organizer); // Adding organizer to the list
         organizer.createNewOrganizerAccount();
 
 
