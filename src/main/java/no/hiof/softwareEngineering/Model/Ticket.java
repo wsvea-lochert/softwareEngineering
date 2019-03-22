@@ -44,6 +44,6 @@ public class Ticket {
 
     @Override
     public String toString() {
-        return "    Bilettkode: " + ticketCode + "\n    Pris: " + price + "\n   Billett eier: " + customer.getPerson().firstname + " " + customer.getPerson().lastname + "\n";
+        return "    Bilettkode: " + ticketCode + "\n    Pris: " + price + "\n     Billett eier: " + customer.getFirstName() + " " + customer.getLastName() + "\n";
     }
 }

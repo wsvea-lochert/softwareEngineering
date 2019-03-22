@@ -1,4 +1,4 @@
-package no.hiof.softwareEngineering;
+package no.hiof.softwareEngineering.Model;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -36,8 +36,6 @@ public class Organizer extends Person {
 
         super.setEmail(inputEmail());
         //ToDo: må legge inn validering på om email adressen allerede finnes i arrayen
-        /*System.out.print("Gjenta email: ");
-        confirmEmail = input.nextLine();*/
 
         super.setConfirmEmail(inputConfirmEmail(super.getEmail()));
 
@@ -46,6 +44,8 @@ public class Organizer extends Person {
         super.setPassword(inputPassword());
 
         super.setConfirmpassword(confirmPassword(super.getPassword()));
+
+
 
         //organizerList.add(new Organizer(password, firstName, lastName, email, phoneNo, companyName, orgNo));
         //Organizer organizer = new Organizer(password, firstName, lastName, email, phoneNo, companyName, orgNo);

@@ -1,52 +1,52 @@
 package no.hiof.softwareEngineering.Model;
 
-public class Customer {
-    Person person;
-    String Email;
-    String username;
-    String password;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-    public Customer(Person person, String email, String username, String password) {
-        this.person = person;
-        Email = email;
-        this.username = username;
-        this.password = password;
+public class Customer extends Person{
+
+    private static ArrayList <Customer> customerList = new ArrayList<>();
+
+    public Customer(){
+        //customerList.add(this);
+    }
+    public Customer(String password, String firstname, String lastname, String email){
+        super(password, firstname, lastname, email);
+        customerList.add(this);
     }
 
-    public Customer(Person person, String email) {
-        this.person = person;
-        Email = email;
+    public void createNewCustomerAccount() {
+        Scanner input = new Scanner(System.in);
+
+        super.setFirstName(inputFirstName());
+
+        super.setLastName(inputLastName());
+
+        super.setEmail(inputEmail());
+        //ToDo: må legge inn validering på om email adressen allerede finnes i arrayen
+        /*System.out.print("Gjenta email: ");
+        confirmEmail = input.nextLine();*/
+
+        super.setConfirmEmail(inputConfirmEmail(super.getEmail()));
+
+        super.setPhoneNo(inputPhonenumber());
+
+        super.setPassword(inputPassword());
+
+        super.setConfirmpassword(confirmPassword(super.getPassword()));
+
+        customerList.add(this);
+
+        printCustomerList();
     }
 
-    public Person getPerson() {
-        return person;
+    public static void printCustomerList(){
+        for (Customer customer : customerList){
+            System.out.println(customer.getFirstName() + " " + customer.getEmail());
+        }
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public static ArrayList<Customer> getCustomerList() {
+        return customerList;
     }
 }

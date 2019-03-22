@@ -151,14 +151,8 @@ public class Event {
             ticketSelected = userInput.nextInt();
         }
 
-        System.out.print("Fornavn: ");
-        String firstname = userInputString.nextLine();
-        System.out.print("Etternavn: ");
-        String lastname = userInputString.nextLine();
-        System.out.print("Email: ");
-        String email = userInputString.nextLine();
+        Customer customer = Login.customerLogin();
 
-        Customer customer = new Customer(new Person(firstname, lastname), email);
         dummy.ticketAmount = dummy.ticketAmount - ticketSelected;
 
         for (Event event : eventList){
@@ -186,7 +180,7 @@ public class Event {
 
         for (Event event : eventList){
             for (Ticket ticket : event.soldTickets){
-                if (ticket.getCustomer().Email.equals(email)){
+                if (ticket.getCustomer().getEmail().equals(email)){
                     System.out.println(ticket);
                 }
             }

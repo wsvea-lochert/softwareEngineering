@@ -1,4 +1,4 @@
-package no.hiof.softwareEngineering;
+package no.hiof.softwareEngineering.Model;
 
 import java.util.Scanner;
 
@@ -27,10 +27,10 @@ public abstract class Login {
         Organizer organizer;
 
         for(int i = 0; i < 3; i++){
-            System.out.println("Epost: ");
+            System.out.print("Epost: ");
             String inputEmail = scanner.nextLine();
 
-            System.out.println("Passord: ");
+            System.out.print("Passord: ");
             String inputPassword = scanner.nextLine();
 
             organizer = organizerValidation(inputEmail, inputPassword);
@@ -57,10 +57,10 @@ public abstract class Login {
         Customer customer;
 
         for(int i = 0; i < 3; i++){
-            System.out.println("Epost: ");
+            System.out.print("Epost: ");
             String inputEmail = scanner.nextLine();
 
-            System.out.println("Passord: ");
+            System.out.print("Passord: ");
             String inputPassword = scanner.nextLine();
 
             customer = customerValidation(inputEmail, inputPassword);

@@ -1,4 +1,4 @@
-package no.hiof.softwareEngineering;
+package no.hiof.softwareEngineering.Model;
 
 import java.security.SecureRandom;
 import java.util.Base64;
