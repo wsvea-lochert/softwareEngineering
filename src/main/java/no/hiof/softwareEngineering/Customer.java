@@ -20,18 +20,16 @@ public class Customer extends Person{
 
         email = inputEmail(email);
         //ToDo: må legge inn validering på om email adressen allerede finnes i arrayen
-        System.out.print("Gjenta email: ");
-        confirmEmail = input.nextLine();
+        /*System.out.print("Gjenta email: ");
+        confirmEmail = input.nextLine();*/
 
-        System.out.print("Telefonnummer: ");
-        phoneNo = Integer.parseInt(input.nextLine());
+        confirmEmail = inputConfirmEmail(email);
 
-        System.out.print("Ønsket passord: ");
-        password = input.nextLine();
+        phoneNo = inputPhonenumber();
 
-        System.out.print("Gjenta passord: ");
-        confirmpassword = input.nextLine();
+        password = inputPassword();
 
+        confirmpassword = confirmPassword(password);
 
         Customer.printCustomerList();
     }

@@ -43,15 +43,11 @@ public class Organizer extends Person {
         System.out.print("Gjenta email adressen: ");
         confirmEmail = input.nextLine();
 
+        phoneNo = inputPhonenumber();
 
-        System.out.print("Telefonnummer: ");
-        phoneNo = Integer.parseInt(input.nextLine());
+        password = inputPassword();
 
-        System.out.print("Ønsket passord: ");
-        password = input.nextLine();
-
-        System.out.print("Gjenta passord: ");
-        confirmpassword = input.nextLine();
+        confirmpassword = confirmPassword(password);
 
         //organizerList.add(new Organizer(password, firstName, lastName, email, phoneNo, companyName, orgNo));
         //Organizer organizer = new Organizer(password, firstName, lastName, email, phoneNo, companyName, orgNo);

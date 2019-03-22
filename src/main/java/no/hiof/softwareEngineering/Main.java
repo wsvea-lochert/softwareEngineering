@@ -32,9 +32,9 @@ public class Main {
         // Testkunde
         //ToDo: gjør om createNewCustomerAccount() til static slik at objektet opprettes i Organizer
         // Har forsøkt å gjøre det, men da må alt av variabler også gjøres static??
-        /*Customer customer = new Customer();
-        customerList.add(customer);
-        customer.createNewCustomerAccount();*/
+        Customer customer = new Customer();
+        //customerList.add(customer);
+        customer.createNewCustomerAccount();
 
 
         //System.out.println(customer.getEmail() + " " + customer.getFirstName());
@@ -48,7 +48,7 @@ public class Main {
         //organizer.createNewOrganizerAccount();
 
         //kjører login delen - Enis
-        Login.loginOptions();
+        //Login.loginOptions();
 
 
 

@@ -83,7 +83,7 @@ public class Person {
     }
 
 
-    public String inputConfirmEmail(String confirmEmail, String email) {
+    public String inputConfirmEmail(String email) {
 
         boolean isValidString = false;
 
@@ -92,21 +92,89 @@ public class Person {
 
         //ToDo: while løkka må være feil da den ikke godtar at confirmEmail er det samme som email
         while(!isValidString) {
-            if (email == confirmEmail){
-                isValidString = true;
-            }
-            else {
+            if (!email.equals(confirmEmail)){
                 //TODO: må kunne endre første e-postadresse hvis man har skrevet feil
                 System.out.print("Denne adressen matcher ikke. Vennligst gjenta email adressen: ");
                 confirmEmail = input.nextLine();
+            }
+            else {
+                isValidString = true;
             }
         }
         return confirmEmail;
     }
 
-    //TODO: sjekk for passord
+    //sjekk for passord
+    public String inputPassword() {
+        boolean isValidString = false;
 
-    //TODO: sjekk for telefonnummer
+        //regex hentet fra: https://riptutorial.com/regex/example/18996/a-password-containing-at-least-1-uppercase--1-lowercase--1-digit--1-special-character-and-have-a-length-of-at-least-of-10
+        String uppercase = "(?=.*[A-Z])";
+        String lowercase = "(?=.*[A-Z])";
+        String numbers = "(?=.*[0-9])";
+        String specChar = "(?=.*\\W)";
+
+        System.out.print("Ønsket passord (må inneholde min 8 tegn, store og små bokstaver og tall og/eller spesialtegn): ");
+        password = input.nextLine();
+
+        while(!isValidString) {
+            if (password.length() < 8) {
+                System.out.println("Passordet må inneholde minst 8 tegn.");
+                password = input.nextLine();
+            }
+            if (!password.matches(uppercase) || !password.matches(lowercase)){
+                System.out.println("Passordet må inneholde store og små bokstaver.");
+                password = input.nextLine();
+            }
+            if (!password.matches(numbers) && !password.matches(specChar)){
+                System.out.println("Passordet må inneholde tall og/eller spesialtegn.");
+                password = input.nextLine();
+            }
+
+            isValidString = true;
+        }
+        return password;
+    }
+
+    public String confirmPassword(String password) {
+        System.out.println("Gjenta passord: ");
+        confirmpassword = input.nextLine();
+
+        boolean isValidString = false;
+
+        while(!isValidString){
+            if (!confirmpassword.equals(password)){
+                //TODO: må kunne endre tidligere utfylt passord hvis skrevet feil?
+                System.out.println("Passordet er ikke det samme som i forrige felt.");
+                confirmpassword = input.nextLine();
+            }
+            else {
+                isValidString = true;
+            }
+        }
+        return confirmpassword;
+    }
+
+    //sjekk for telefonnummer
+    public int inputPhonenumber(){
+        System.out.println("Telefonnummer (8 siffer): ");
+        String phoneNo = input.nextLine();
+
+        String numberRegex = "(^[0-9]{8}$)";
+
+        boolean isValidString = false;
+
+        while(!isValidString){
+            if(!phoneNo.matches(numberRegex)){
+                System.out.println("Telefonnummeret er ikke gyldig.");
+                phoneNo = input.nextLine();
+            }
+            else {
+                isValidString = true;
+            }
+        }
+        return Integer.parseInt(phoneNo);
+    }
 
     public String getPassword() {
         return password;
