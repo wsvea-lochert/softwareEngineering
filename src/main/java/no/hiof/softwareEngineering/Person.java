@@ -122,17 +122,20 @@ public class Person {
             if (password.length() < 8) {
                 System.out.println("Passordet må inneholde minst 8 tegn.");
                 password = input.nextLine();
-            }
-            if (!password.matches(uppercase) || !password.matches(lowercase)){
-                System.out.println("Passordet må inneholde store og små bokstaver.");
-                password = input.nextLine();
-            }
-            if (!password.matches(numbers) && !password.matches(specChar)){
-                System.out.println("Passordet må inneholde tall og/eller spesialtegn.");
-                password = input.nextLine();
-            }
 
-            isValidString = true;
+                if (!password.contains(uppercase) || !password.contains(lowercase)){
+                    System.out.println("Passordet må inneholde store og små bokstaver.");
+                    password = input.nextLine();
+                }
+                else if (!password.contains(numbers) && !password.contains(specChar)){
+                    System.out.println("Passordet må inneholde tall og/eller spesialtegn.");
+                    password = input.nextLine();
+                }
+            }
+            else {
+                isValidString = true;
+
+            }
         }
         return password;
     }
