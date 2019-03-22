@@ -31,7 +31,9 @@ public class Customer extends Person{
 
         super.setConfirmpassword(confirmPassword(super.getPassword()));
 
-        Customer.printCustomerList();
+        customerList.add(this);
+
+        printCustomerList();
     }
 
     public static void printCustomerList(){
