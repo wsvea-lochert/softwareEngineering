@@ -16,7 +16,7 @@ public class Organizer extends Person {
         super(password, firstName, lastName, email, phoneNo);
         this.companyName = companyName;
         this.orgNo = orgnr;
-        //organizerList.add(this);
+        organizerList.add(this);
     }
 
     public void createNewOrganizerAccount() {

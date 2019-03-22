@@ -18,13 +18,12 @@ public class LoginCustomerTest {
 
     @Before
     public void setUp(){
-        this.customer = new Customer();
-        Customer.getCustomerList().add(customer);
+        this.customer = new Customer("enis123", "Enis", "Jasharaj", "enisj@hiof.no");
     }
 
     @Test
-    public void checkOrganizerLogin(){
-        mockUserInput.provideLines();
-        Assert.assertEquals(customer, Login.organizerLogin());
+    public void checkCustomerLogin(){
+        mockUserInput.provideLines("enisj@hiof.no", "enis123");
+        Assert.assertEquals(customer, Login.userLogin(Customer.getCustomerList()));
     }
 }

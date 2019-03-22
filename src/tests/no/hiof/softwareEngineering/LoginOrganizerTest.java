@@ -19,12 +19,11 @@ public class LoginOrganizerTest {
     @Before
     public void setUp(){
         this.organizer = new Organizer("enis123", "Enis", "Jasharaj", "enisj@hiof.no", 1234, "Juicy J AS", 1234);
-        Organizer.getOrganizerList().add(organizer);
     }
 
     @Test
     public void checkOrganizerLogin(){
         mockUserInput.provideLines("enisj@hiof.no", "enis123");
-        Assert.assertEquals(organizer, Login.organizerLogin());
+        Assert.assertEquals(organizer, Login.userLogin(Organizer.getOrganizerList()));
     }
 }

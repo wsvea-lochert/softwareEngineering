@@ -13,13 +13,13 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        Event test = new Event("asd", "asd", "asd", 2, 200, LocalDate.of(2019, 02,01), new Location("Halden", "asd"));
+        //Event test = new Event("asd", "asd", "asd", 2, 200, LocalDate.of(2019, 02,01), new Location("Halden", "asd"));
 
-        Customer testBruker = new Customer("admin", "admin", "admin", "admin");
+        //Customer testBruker = new Customer("admin", "admin", "admin", "admin");
         //Login.loginOptions();
 
-        Event.bookTicket();
-        Event.printMyTickets();
+       // Event.bookTicket();
+       // Event.printMyTickets();
 
         Login.loginOptions();
 

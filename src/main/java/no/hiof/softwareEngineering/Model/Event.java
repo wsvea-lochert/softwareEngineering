@@ -151,7 +151,7 @@ public class Event {
             ticketSelected = userInput.nextInt();
         }
 
-        Customer customer = Login.customerLogin();
+        Customer customer = Login.userLogin(Customer.getCustomerList());
 
         dummy.ticketAmount = dummy.ticketAmount - ticketSelected;
 

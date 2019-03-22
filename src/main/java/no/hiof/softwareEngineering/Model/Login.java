@@ -1,5 +1,6 @@
 package no.hiof.softwareEngineering.Model;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class Login {
@@ -11,20 +12,19 @@ public abstract class Login {
         int option = scanner.nextInt();
         while(option <= 2){
             if(option == 1) {
-                organizerLogin();
+                userLogin(Organizer.getOrganizerList());
                 break;
             } else if(option == 2) {
-                customerLogin();
+                userLogin(Customer.getCustomerList());
                 break;
             }
         }
         scanner.close();
     }
 
-    public static Organizer organizerLogin(){
-        System.out.println("Arrangør-innlogging");
+    public static <T extends Person> T userLogin(ArrayList<T> userList){
         Scanner scanner = new Scanner(System.in);
-        Organizer organizer;
+        T user;
 
         for(int i = 0; i < 3; i++){
             System.out.print("Epost: ");
@@ -33,10 +33,10 @@ public abstract class Login {
             System.out.print("Passord: ");
             String inputPassword = scanner.nextLine();
 
-            organizer = organizerValidation(inputEmail, inputPassword);
-            if(organizer != null){
+            user = loginValidation(inputEmail, inputPassword, userList);
+            if(user != null){
                 System.out.println("\nDu er nå logget inn.");
-                return organizer;
+                return user;
             } else
                 System.out.println("Feil epost og/eller passord, vennligst prøv igjen.");
         }
@@ -46,37 +46,8 @@ public abstract class Login {
         return null;
     }
 
-    public static Organizer organizerValidation(String email, String password){
-        return Organizer.getOrganizerList().stream().filter(org -> email.equals(org.getEmail()) && password.equals(org.getPassword())).findAny().orElse(null);
+    public static <T extends Person> T loginValidation(String email, String password, ArrayList<T> userList){
+        return userList.stream().filter(org -> email.equals(org.getEmail()) && password.equals(org.getPassword())).findFirst().orElse(null);
     }
 
-
-    public static Customer customerLogin(){
-        System.out.println("Kunnde-innlogging");
-        Scanner scanner = new Scanner(System.in);
-        Customer customer;
-
-        for(int i = 0; i < 3; i++){
-            System.out.print("Epost: ");
-            String inputEmail = scanner.nextLine();
-
-            System.out.print("Passord: ");
-            String inputPassword = scanner.nextLine();
-
-            customer = customerValidation(inputEmail, inputPassword);
-            if(customer != null){
-                System.out.println("Du er nå logget inn.");
-                return customer;
-            } else
-                System.out.println("Feil epost og/eller passord, vennligst prøv igjen.");
-        }
-
-        System.out.println("Alle forsøk er brukt opp, vennligst prøv igjen senere.");
-        scanner.close();
-        return null;
-    }
-
-    public static Customer customerValidation(String email, String password){
-        return Customer.getCustomerList().stream().filter(cust -> email.equals(cust.getEmail()) && password.equals(cust.getPassword())).findAny().orElse(null);
-    }
 }
