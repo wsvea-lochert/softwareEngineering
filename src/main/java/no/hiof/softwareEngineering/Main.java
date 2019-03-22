@@ -21,5 +21,7 @@ public class Main {
         Event.bookTicket();
         Event.printMyTickets();
 
+        Login.loginOptions();
+
     }
 }

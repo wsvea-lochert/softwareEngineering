@@ -35,7 +35,7 @@ public abstract class Login {
 
             organizer = organizerValidation(inputEmail, inputPassword);
             if(organizer != null){
-                System.out.println("Du er nå logget inn.");
+                System.out.println("\nDu er nå logget inn.");
                 return organizer;
             } else
                 System.out.println("Feil epost og/eller passord, vennligst prøv igjen.");
