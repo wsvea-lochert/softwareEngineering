@@ -6,13 +6,13 @@ public class Person {
 
     Scanner input = new Scanner(System.in);
 
-    public String password;
-    public String firstName;
-    public String lastName;
-    public String email;
-    public int phoneNo;
-    public String confirmpassword;
-    public String confirmEmail;
+    private String password;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private int phoneNo;
+    private String confirmpassword;
+    private String confirmEmail;
 
 
     public Person() {
@@ -33,14 +33,14 @@ public class Person {
         this.phoneNo = phoneNo;
     }
 
-    public String inputFirstName(String firstName) {
+    public String inputFirstName() {
         System.out.print("Fornavn: ");
         firstName = input.nextLine();
 
         return checkStringLength(1, 50, firstName);
     }
 
-    public String inputLastName(String lastName) {
+    public String inputLastName() {
         System.out.print("Etternavn: ");
         lastName = input.nextLine();
 
@@ -62,7 +62,7 @@ public class Person {
         return inputstring;
     }
 
-    public String inputEmail(String email) {
+    public String inputEmail() {
         boolean isValidString = false;
         //ToDo: fikse regex uttrykket - matcher bare hvis to tegn før @
         //String regexEmail = "^[-0-9a-zA-Z.+_]{2}+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}";
@@ -105,6 +105,7 @@ public class Person {
     }
 
     //sjekk for passord
+    //TODO: funker bare når bokstaver, tall og spes.tegn er i spesifikk rekkefølge, fiks
     public String inputPassword() {
         boolean isValidString = false;
 
@@ -137,7 +138,7 @@ public class Person {
     }
 
     public String confirmPassword(String password) {
-        System.out.println("Gjenta passord: ");
+        System.out.print("Gjenta passord: ");
         confirmpassword = input.nextLine();
 
         boolean isValidString = false;
@@ -157,7 +158,7 @@ public class Person {
 
     //sjekk for telefonnummer
     public int inputPhonenumber(){
-        System.out.println("Telefonnummer (8 siffer): ");
+        System.out.print("Telefonnummer (8 siffer): ");
         String phoneNo = input.nextLine();
 
         String numberRegex = "(^[0-9]{8}$)";
@@ -206,6 +207,22 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getConfirmEmail() {
+        return confirmEmail;
+    }
+
+    public void setConfirmEmail(String confirmEmail) {
+        this.confirmEmail = confirmEmail;
+    }
+
+    public String getConfirmpassword() {
+        return confirmpassword;
+    }
+
+    public void setConfirmpassword(String confirmpassword) {
+        this.confirmpassword = confirmpassword;
     }
 
 

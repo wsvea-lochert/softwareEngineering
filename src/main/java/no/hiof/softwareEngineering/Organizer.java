@@ -30,24 +30,22 @@ public class Organizer extends Person {
         System.out.print("Organisasjonsnummer: ");
         orgNo = Integer.parseInt(input.nextLine());
 
-        firstName = inputFirstName(firstName);
+        super.setFirstName(inputFirstName());
 
-        lastName = inputLastName(lastName);
+        super.setLastName(inputLastName());
 
-        email = inputEmail(email);
+        super.setEmail(inputEmail());
         //ToDo: må legge inn validering på om email adressen allerede finnes i arrayen
+        /*System.out.print("Gjenta email: ");
+        confirmEmail = input.nextLine();*/
 
-        // ToDo: må fikse koden
-        //confirmEmail = inputConfirmEmail(confirmEmail, email);
+        super.setConfirmEmail(inputConfirmEmail(super.getEmail()));
 
-        System.out.print("Gjenta email adressen: ");
-        confirmEmail = input.nextLine();
+        super.setPhoneNo(inputPhonenumber());
 
-        phoneNo = inputPhonenumber();
+        super.setPassword(inputPassword());
 
-        password = inputPassword();
-
-        confirmpassword = confirmPassword(password);
+        super.setConfirmpassword(confirmPassword(super.getPassword()));
 
         //organizerList.add(new Organizer(password, firstName, lastName, email, phoneNo, companyName, orgNo));
         //Organizer organizer = new Organizer(password, firstName, lastName, email, phoneNo, companyName, orgNo);

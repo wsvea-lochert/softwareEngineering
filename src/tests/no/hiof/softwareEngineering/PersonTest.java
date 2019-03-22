@@ -9,6 +9,11 @@ class PersonTest {
 
     @Test
     void checkStringLengthTest() {
+        Person test = new Person();
+        test.setFirstName("T");
+        String result = test.checkStringLength(1, 50, test.getFirstName());
+
+        assertEquals("T", result);
     }
 
     @Test
@@ -19,9 +24,9 @@ class PersonTest {
     void inputConfirmEmailTest() {
         Person testperson = new Person("abc123", "Test", "Testesen", "test@epost.com");
 
-        String confirmEmailWrongInput = "abc@epost.com";
-        testperson.inputConfirmEmail(confirmEmailWrongInput, testperson.getEmail());
+        String confirmEmailTestInput = "abc@epost.com";
+        testperson.inputConfirmEmail(testperson.getEmail());
 
-        assertEquals(testperson.getEmail(), confirmEmailWrongInput);
+        assertEquals(testperson.getEmail(), confirmEmailTestInput);
     }*/
 }

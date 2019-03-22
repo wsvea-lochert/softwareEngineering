@@ -14,22 +14,22 @@ public class Customer extends Person{
     public void createNewCustomerAccount() {
         Scanner input = new Scanner(System.in);
 
-        firstName = inputFirstName(firstName);
+        super.setFirstName(inputFirstName());
 
-        lastName = inputLastName(lastName);
+        super.setLastName(inputLastName());
 
-        email = inputEmail(email);
+        super.setEmail(inputEmail());
         //ToDo: må legge inn validering på om email adressen allerede finnes i arrayen
         /*System.out.print("Gjenta email: ");
         confirmEmail = input.nextLine();*/
 
-        confirmEmail = inputConfirmEmail(email);
+        super.setConfirmEmail(inputConfirmEmail(super.getEmail()));
 
-        phoneNo = inputPhonenumber();
+        super.setPhoneNo(inputPhonenumber());
 
-        password = inputPassword();
+        super.setPassword(inputPassword());
 
-        confirmpassword = confirmPassword(password);
+        super.setConfirmpassword(confirmPassword(super.getPassword()));
 
         Customer.printCustomerList();
     }
