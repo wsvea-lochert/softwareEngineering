@@ -1,5 +1,6 @@
 package no.hiof.softwareEngineering;
 
+import no.hiof.softwareEngineering.Model.Person;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 

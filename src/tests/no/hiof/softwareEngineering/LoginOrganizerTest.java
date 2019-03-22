@@ -1,5 +1,7 @@
 package no.hiof.softwareEngineering;
 
+import no.hiof.softwareEngineering.Model.Login;
+import no.hiof.softwareEngineering.Model.Organizer;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
