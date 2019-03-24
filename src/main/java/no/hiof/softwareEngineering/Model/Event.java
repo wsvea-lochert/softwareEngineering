@@ -1,5 +1,6 @@
 package no.hiof.softwareEngineering.Model;
 
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -71,9 +72,8 @@ public class Event {
         }
     }
 
-    public static void CreateEvent(){
+    public static void CreateEvent(Organizer organizer){
         Scanner userInput = new Scanner(System.in);
-
 
         String regex = "^(?:[0-9]{2})?[0-9]{2}-[0-3]?[0-9]-[0-3]?[0-9]$";
         Pattern pattern = Pattern.compile(regex);
@@ -95,7 +95,6 @@ public class Event {
             matcher = pattern.matcher(date);
         }
 
-
         System.out.print("By: ");
         String city = userInput.nextLine();
         System.out.print("Gate: ");
@@ -106,10 +105,18 @@ public class Event {
         System.out.print("Antall billetter: ");
         int tickets = userInput.nextInt();
 
-
-
         Event event = new Event(eventName, category, description, ageLimit, tickets, LocalDate.parse(date), new Location(city, street));
         System.out.println(eventName + " er nå laget.");
+
+        assignEventToOrganizer(event, organizer);
+    }
+
+    private static void assignEventToOrganizer(Event event, Organizer organizer){
+        for (Organizer org : Organizer.getOrganizerList()){
+            if (organizer.equals(org)){
+                org.addEvent(event);
+            }
+        }
     }
 
     private static Event findEvent(int eventToLookFor){
@@ -125,27 +132,26 @@ public class Event {
 
     private static void PrintEventWithIndex(){
         for (Event event : eventList){
-            System.out.println("(" + event.getEventIndex() + ") " + event);
+            System.out.println("Arrangement nummer (" + event.getEventIndex() + ") \n" + event);
         }
     }
 
     public static void bookTicket(){
-        Event dummy = null;
+        Event selectedEvent = null;
         ArrayList<Ticket> deleteList = new ArrayList<>();
         Scanner userInput = new Scanner(System.in);
-        Scanner userInputString = new Scanner(System.in);
 
         PrintEventWithIndex();
 
         System.out.print("Velg event: ");
         int selection = userInput.nextInt();
 
-        dummy = findEvent(selection);
+        selectedEvent = findEvent(selection);
 
         System.out.print("Velg antall billetter: ");
         int ticketSelected = userInput.nextInt();
 
-        while(ticketSelected > dummy.ticketAmount && ticketSelected <= 0){
+        while(ticketSelected > selectedEvent.ticketAmount && ticketSelected <= 0){
             System.out.println("Du har valgt for mange billetter eller ingen billetter.");
             System.out.print("Velgt antall billetter: ");
             ticketSelected = userInput.nextInt();
@@ -153,21 +159,30 @@ public class Event {
 
         Customer customer = Login.userLogin(Customer.getCustomerList());
 
-        dummy.ticketAmount = dummy.ticketAmount - ticketSelected;
+        if (customer != null){
+            selectedEvent.ticketAmount = selectedEvent.ticketAmount - ticketSelected;
 
-        for (Event event : eventList){
-            for (Ticket ticket : event.availableTickets){
-                if (event.equals(dummy)){
-                    ticket.setCustomer(customer);
-                    event.soldTickets.add(ticket);
-                    deleteList.add(ticket);
-                    ticketSelected--;
+            for (Event event : eventList){
+                for (Ticket ticket : event.availableTickets){
+                    if (event.equals(selectedEvent) && ticketSelected != 0){
+                        ticket.setCustomer(customer);
+                        event.soldTickets.add(ticket);
+                        deleteList.add(ticket);
+                        ticketSelected--;
+                    }
                 }
             }
+            removeSoldTickets(selectedEvent, deleteList); //refactor
+        }
+        else{
+            System.out.println("Noe gikk vist feil, prøv igjen snart.");
         }
 
+    }
+
+    private static void removeSoldTickets(Event selectedEvent, ArrayList<Ticket> deleteList){
         for (Event event : eventList){
-            if (dummy.equals(event)){
+            if (selectedEvent.equals(event)){
                 event.availableTickets.removeAll(deleteList);
             }
         }
@@ -187,89 +202,13 @@ public class Event {
         }
     }
 
-    public String getEventName() {
-        return eventName;
-    }
-
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getAgeLimit() {
-        return ageLimit;
-    }
-
-    public void setAgeLimit(int ageLimit) {
-        this.ageLimit = ageLimit;
-    }
-
-    public int getTicketAmount() {
-        return ticketAmount;
-    }
-
-    public void setTicketAmount(int ticketAmount) {
-        this.ticketAmount = ticketAmount;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public Location getEventLocation() {
-        return eventLocation;
-    }
-
-    public void setEventLocation(Location eventLocation) {
-        this.eventLocation = eventLocation;
-    }
-
-    public int getEventIndex() {
+    private int getEventIndex() {
         return eventIndex;
-    }
-
-    public void setEventIndex(int eventIndex) {
-        this.eventIndex = eventIndex;
-    }
-
-    public ArrayList<Ticket> getAvailableTickets() {
-        return availableTickets;
-    }
-
-    public void setAvailableTickets(ArrayList<Ticket> availableTickets) {
-        this.availableTickets = availableTickets;
-    }
-
-    public ArrayList<Ticket> getSoldTickets() {
-        return soldTickets;
-    }
-
-    public void setSoldTickets(ArrayList<Ticket> soldTickets) {
-        this.soldTickets = soldTickets;
     }
 
     @Override
     public String toString() {
-        return "==========================================\n    Navn: " + eventName
+        return    "========= " + "Arrangement nummer " + eventIndex + " =========\n    Navn: " + eventName
                 + "\n    kategori: " + category + "\n    Beskrivelse: "
                 + description + "\n    Aldersgrense: " + ageLimit + "\n    Ledige biletter: "
                 + ticketAmount + "\n    Dato: " + date.getDayOfMonth() + "." + date.getMonthValue()

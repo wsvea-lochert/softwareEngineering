@@ -5,14 +5,15 @@ import java.util.Scanner;
 
 public class Organizer extends Person {
 
-    private static String companyName;
-    private static int orgNo;
+    private String companyName;
+    private int orgNo;
+    private ArrayList<Event> eventList = new ArrayList<>();
 
     private static ArrayList<Organizer> organizerList = new ArrayList<>();
 
     public Organizer(){ }
 
-    public Organizer(String password, String firstName, String lastName, String email, int phoneNo,String companyName, int orgnr) {
+    public Organizer(String password, String firstName, String lastName, String email, int phoneNo, String companyName, int orgnr) {
         super(password, firstName, lastName, email, phoneNo);
         this.companyName = companyName;
         this.orgNo = orgnr;
@@ -45,18 +46,23 @@ public class Organizer extends Person {
 
         super.setConfirmpassword(confirmPassword(super.getPassword()));
 
+        organizerList.add(this);
+       // Organizer.printOrganizerList();
+    }
 
-
-        //organizerList.add(new Organizer(password, firstName, lastName, email, phoneNo, companyName, orgNo));
-        //Organizer organizer = new Organizer(password, firstName, lastName, email, phoneNo, companyName, orgNo);
-
-        Organizer.printOrganizerList();
+    public static void createOrganizer(){
+        Organizer newOrganizerAccount = new Organizer();
+        newOrganizerAccount.createNewOrganizerAccount();
     }
 
     public static void printOrganizerList(){
         for (Organizer organizer : organizerList){
-            System.out.println(organizer.getCompanyName() + " " + organizer.getEmail());
+            System.out.println(organizer.getCompanyName() + " " + organizer.getEmail() + " " + organizer.getOrgNo());
         }
+    }
+
+    public void printEventList(){
+        System.out.println(eventList);
     }
 
     //TODO: sjekk for firmanavn
@@ -81,5 +87,17 @@ public class Organizer extends Person {
 
     public void setOrgNo(int orgNo) {
         this.orgNo = orgNo;
+    }
+
+    public ArrayList<Event> getEventList() {
+        return eventList;
+    }
+
+    public void setEventList(ArrayList<Event> eventList) {
+        this.eventList = eventList;
+    }
+
+    public void addEvent(Event event){
+        eventList.add(event);
     }
 }
