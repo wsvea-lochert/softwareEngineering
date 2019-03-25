@@ -5,7 +5,6 @@ import no.hiof.softwareEngineering.Model.Event;
 import java.util.Scanner;
 
 public class CustomerDriver {
-
     public static void runCustomerPart() {
         int option = 0;
         Scanner input = new Scanner(System.in);
