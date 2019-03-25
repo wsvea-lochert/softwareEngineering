@@ -1,4 +1,4 @@
-package no.hiof.softwareEngineering;
+package no.hiof.softwareEngineering.Controller;
 
 import no.hiof.softwareEngineering.Model.Event;
 import no.hiof.softwareEngineering.Model.Login;

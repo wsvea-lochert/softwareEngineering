@@ -1,7 +1,7 @@
 package no.hiof.softwareEngineering.Model;
 
-import no.hiof.softwareEngineering.CustomerDriver;
-import no.hiof.softwareEngineering.OrganizerDriver;
+import no.hiof.softwareEngineering.Controller.CustomerDriver;
+import no.hiof.softwareEngineering.Controller.OrganizerDriver;
 
 import java.util.ArrayList;
 import java.util.Scanner;
