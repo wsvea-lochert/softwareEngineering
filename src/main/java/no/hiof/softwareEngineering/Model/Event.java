@@ -15,12 +15,12 @@ public class Event {
     private LocalDate date;
     private Location eventLocation;
     private int eventIndex;
+    private int eventOwner;
 
     private ArrayList<Ticket> availableTickets = new ArrayList<>();
     private ArrayList<Ticket> soldTickets = new ArrayList<>();
-    private static ArrayList<Event> eventList = new ArrayList<>();
 
-    public Event(String eventName, String category, String description, int ageLimit, int ticketAmount, LocalDate date, Location eventLocation) {
+    public Event(String eventName, String category, String description, int ageLimit, int ticketAmount, LocalDate date, Location eventLocation, int eventIndex, int eventOwner) {
         this.eventName = eventName;
         this.category = category;
         this.description = description;
@@ -28,28 +28,14 @@ public class Event {
         this.ticketAmount = ticketAmount;
         this.date = date;
         this.eventLocation = eventLocation;
-        this.eventIndex = createIndex();
+        this.eventIndex = eventIndex;
+        this.eventOwner = eventOwner;
 
-        createTickets();
-        eventList.add(this);
+        //createTickets();
+        //eventList.add(this);
     }
 
     public Event() {
-    }
-
-    private int createIndex(){
-        int tempIndex = 1;
-
-        for(Event event : eventList){
-            if(event == null){
-                return 1;
-            }
-            else{
-                tempIndex = event.getEventIndex() + 1;
-            }
-        }
-
-        return tempIndex;
     }
 
     private void createTickets(){
@@ -62,59 +48,6 @@ public class Event {
     public void printAvailableTickets(){
         for (Ticket t : availableTickets){
             System.out.println(t + "\n");
-        }
-    }
-
-    public static void printEventList(){
-        for (Event e : eventList){
-            System.out.println(e);
-        }
-    }
-
-    public static void CreateEvent(Organizer organizer){
-        Scanner userInput = new Scanner(System.in);
-
-        String regex = "^(?:[0-9]{2})?[0-9]{2}-[0-3]?[0-9]-[0-3]?[0-9]$";
-        Pattern pattern = Pattern.compile(regex);
-
-        System.out.print("Event navn: ");
-        String eventName = userInput.nextLine();
-        System.out.print("Kategori: ");
-        String category = userInput.nextLine();
-        System.out.print("Beskrivelse: ");
-        String description = userInput.nextLine();
-
-        System.out.print("Dato(YYYY-MM-DD): ");
-        String date = userInput.nextLine();
-        Matcher matcher = pattern.matcher(date);
-
-        while(!matcher.matches()){
-            System.out.print("Ugyldig input skriv inn på nytt: ");
-            date = userInput.nextLine();
-            matcher = pattern.matcher(date);
-        }
-
-        System.out.print("By: ");
-        String city = userInput.nextLine();
-        System.out.print("Gate: ");
-        String street = userInput.nextLine();
-
-        System.out.print("Aldersgrense: ");
-        int ageLimit = userInput.nextInt();
-        System.out.print("Antall billetter: ");
-        int tickets = userInput.nextInt();
-
-        Event event = new Event(eventName, category, description, ageLimit, tickets, LocalDate.parse(date), new Location(city, street));
-        System.out.println(eventName + " er nå laget.");
-
-        assignEventToOrganizer(event, organizer);
-    }
-
-    private static void assignEventToOrganizer(Event event, Organizer organizer){
-        for (Organizer org : Organizer.getOrganizerList()){
-            if (organizer.equals(org)){
-                org.addEvent(event);
-            }
         }
     }
 
@@ -201,7 +134,7 @@ public class Event {
         }
     }
 
-    private int getEventIndex() {
+    public int getEventIndex() {
         return eventIndex;
     }
 
