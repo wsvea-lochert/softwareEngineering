@@ -1,5 +1,7 @@
 package no.hiof.softwareEngineering.Model;
 
+import no.hiof.softwareEngineering.Controller.Login;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
