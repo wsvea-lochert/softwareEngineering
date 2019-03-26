@@ -10,9 +10,4 @@ public class CustomerDriver {
         customerList.add(customer);
     }
 
-    public static void printCustomerList(){
-        for (Customer customer : customerList){
-            System.out.println(customer.getFirstname() + " " + customer.getEmail());
-        }
-    }
 }

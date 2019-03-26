@@ -11,12 +11,6 @@ public class OrganizerDriver{
         organizerList.add(organizer);
     }
 
-    public void printOrganizerList(){
-        for (Organizer organizer : organizerList){
-            System.out.println(organizer.getCompanyName() + " " + organizer.getEmail() + " " + organizer.getOrgNo());
-        }
-    }
-
     public void printEventList(){
         System.out.println(eventList);
     }
