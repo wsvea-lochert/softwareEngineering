@@ -3,15 +3,13 @@ package no.hiof.softwareEngineering.Controller;
 import no.hiof.softwareEngineering.Model.Event;
 import no.hiof.softwareEngineering.Model.Location;
 import no.hiof.softwareEngineering.Model.Organizer;
-
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.regex.Pattern;
+import static no.hiof.softwareEngineering.Lists.ListManager.eventList;
 
 public class EventManager {
 
-    public static ArrayList<Event> eventList = new ArrayList<>();
+
 
     public void CreateEvent(Organizer organizer, String eventName, String category, String description, String date, String city, String street, int ageLimit, int tickets, int eventOwner){
         Scanner userInput = new Scanner(System.in);
