@@ -1,56 +1,31 @@
 package no.hiof.softwareEngineering.Model;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+public class Customer {
+    private String firstname;
+    private String lastname;
+    private String email;
+    private String password;
 
-public class Customer extends Person{
-
-    private static ArrayList <Customer> customerList = new ArrayList<>();
-
-    public Customer(){ }
-
-    public Customer(String password, String firstname, String lastname, String email){
-        super(password, firstname, lastname, email);
-        customerList.add(this);
+    public Customer(String firstname, String lastname, String email, String password) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
     }
 
-    private void createNewCustomerAccount() {
-        Scanner input = new Scanner(System.in);
-
-        super.setFirstName(inputFirstName());
-
-        super.setLastName(inputLastName());
-
-        super.setEmail(inputEmail());
-        //ToDo: må legge inn validering på om email adressen allerede finnes i arrayen
-
-        super.setConfirmEmail(inputConfirmEmail(super.getEmail()));
-
-        super.setPhoneNo(inputPhonenumber());
-
-        super.setPassword(inputPassword());
-
-        super.setConfirmpassword(confirmPassword(super.getPassword()));
-
-        customerList.add(this);
-        System.out.println("Brukerkonto er nå laget.");
-
-        printCustomerList();
+    public String getFirstname() {
+        return firstname;
     }
 
-    //driver funksjon for createNewCustomerAccount()
-    public static void createAccount(){
-        Customer newCustomerAccount = new Customer();
-        newCustomerAccount.createNewCustomerAccount();
+    public String getLastname() {
+        return lastname;
     }
 
-    private static void printCustomerList(){
-        for (Customer customer : customerList){
-            System.out.println(customer.getFirstName() + " " + customer.getEmail());
-        }
+    public String getEmail() {
+        return email;
     }
 
-    public static ArrayList<Customer> getCustomerList() {
-        return customerList;
+    public String getPassword() {
+        return password;
     }
 }
