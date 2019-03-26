@@ -14,13 +14,13 @@ public class CustomerDriver {
             option = input.nextInt();
             switch (option) {
                 case 1:
-                    Event.printEventList();
+                    //Event.printEventList();
                     break;
                 case 2:
-                    Event.bookTicket();
+                    //Event.bookTicket();
                     break;
                 case 3:
-                    Event.printMyTickets();
+                   // Event.printMyTickets();
                     break;
                 case 4:
                     //System.exit(0);

@@ -3,25 +3,22 @@ package no.hiof.softwareEngineering.Controller;
 import no.hiof.softwareEngineering.Model.Event;
 import no.hiof.softwareEngineering.Model.Location;
 import no.hiof.softwareEngineering.Model.Organizer;
+import no.hiof.softwareEngineering.Model.Ticket;
+
 import java.time.LocalDate;
-import java.util.Scanner;
+import java.util.ArrayList;
 import static no.hiof.softwareEngineering.Lists.ListManager.eventList;
 
 public class EventManager {
 
-
-
-    public void CreateEvent(Organizer organizer, String eventName, String category, String description, String date, String city, String street, int ageLimit, int tickets, int eventOwner){
-        Scanner userInput = new Scanner(System.in);
+    public void CreateEvent(String eventName, String category, String description, String date, String city, String street, int ageLimit, int tickets, int eventOwner){
 
        /* String regex = "^(?:[0-9]{2})?[0-9]{2}-[0-3]?[0-9]-[0-3]?[0-9]$";
         Pattern pattern = Pattern.compile(regex);*/
 
-        Event event = new Event(eventName, category, description, ageLimit, tickets, LocalDate.parse(date), new Location(city, street), createIndex(), organizer.getOrgNo());
+        Event event = new Event(eventName, category, description, ageLimit, tickets, LocalDate.parse(date), new Location(city, street), createIndex(), eventOwner);
+        createTickets(tickets, eventName, event.getAvailableTickets());
         eventList.add(event);
-
-
-       // assignEventToOrganizer(event, organizer);
     }
 
     private int createIndex(){
@@ -39,11 +36,10 @@ public class EventManager {
         return tempIndex;
     }
 
-    private static void assignEventToOrganizer(Event event, Organizer organizer){
-        for (Organizer org : Organizer.getOrganizerList()){
-            if (organizer.equals(org)){
-                org.addEvent(event);
-            }
+    private void createTickets(int ticketAmount, String eventName, ArrayList<Ticket> availableTickets){
+        for (int i = 1; i < ticketAmount+1; i++){
+            Ticket ticket = new Ticket(eventName + i, 200 );
+            availableTickets.add(ticket);
         }
     }
 

@@ -4,17 +4,17 @@ package no.hiof.softwareEngineering.Model;
 public class Ticket {
     private String ticketCode;
     private double price;
-    private Customer customer;
+    private String customerEmail;
 
     public Ticket(String ticketCode, double price) {
         this.ticketCode = ticketCode;
         this.price = price;
     }
 
-    public Ticket(String ticketCode, double price, Customer customer){
+    public Ticket(String ticketCode, double price, String customerEmail){
         this.ticketCode = ticketCode;
         this.price = price;
-        this.customer = customer;
+        this.customerEmail = customerEmail;
     }
 
 
@@ -34,12 +34,12 @@ public class Ticket {
         this.price = price;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public String getCustomerEmail() {
+        return customerEmail;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
     }
 
     @Override
