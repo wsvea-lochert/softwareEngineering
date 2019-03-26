@@ -3,7 +3,6 @@ package no.hiof.softwareEngineering.Controller;
 
 import no.hiof.softwareEngineering.Model.Customer;
 import no.hiof.softwareEngineering.Model.Event;
-import no.hiof.softwareEngineering.Model.Login;
 import no.hiof.softwareEngineering.Model.Ticket;
 import java.util.ArrayList;
 import static no.hiof.softwareEngineering.Lists.ListManager.eventList;
