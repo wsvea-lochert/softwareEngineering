@@ -20,12 +20,15 @@ public class CustomerView {
             option = input.nextInt();
             switch (option) {
                 case 1:
+                    printEventWithIndex();
                     //Event.printEventList();
                     break;
                 case 2:
+                    book(customer);
                     //book()
                     break;
                 case 3:
+                    printMyTickets(customer.getEmail());
                     // Event.printMyTickets();
                     break;
                 case 4:
@@ -41,7 +44,7 @@ public class CustomerView {
 
     public static void book(Customer customer){
         Event selectedEvent = null;
-        PrintEventWithIndex();
+        printEventWithIndex();
 
         System.out.print("Velg event: ");
         int selection = input.nextInt();

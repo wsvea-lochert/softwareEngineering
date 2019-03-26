@@ -20,9 +20,9 @@ public class Booking {
         return null;
     }
 
-    public static void PrintEventWithIndex(){
+    public static void printEventWithIndex(){
         for (Event event : eventList){
-            System.out.println("Arrangement nummer (" + event.getEventIndex() + ") \n" + event);
+            System.out.println(event);
         }
     }
 
@@ -58,13 +58,11 @@ public class Booking {
     }
 
     public static void printMyTickets(String email){
-        for (Event event : eventList){
             for (Ticket ticket : soldTickets){
                 if (ticket.getCustomerEmail().equals(email)){
                     System.out.println(ticket);
                 }
             }
-        }
     }
 
 }

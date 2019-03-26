@@ -6,8 +6,7 @@ import no.hiof.softwareEngineering.View.MainView;
 
 import java.time.LocalDate;
 
-import static no.hiof.softwareEngineering.Lists.ListManager.eventList;
-import static no.hiof.softwareEngineering.Lists.ListManager.organizerList;
+import static no.hiof.softwareEngineering.Lists.ListManager.*;
 
 public class Main {
 
@@ -17,6 +16,7 @@ public class Main {
         Organizer TestOrganizer = new Organizer("admin", "admin", "admin", "admin");
         organizerList.add(TestOrganizer);
         eventList.add(TestEvent);
+        customerList.add(testCustomer);
 
         MainView run = new MainView();
         run.userOptions();
