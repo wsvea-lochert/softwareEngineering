@@ -5,6 +5,9 @@ import no.hiof.softwareEngineering.Model.Customer;
 
 import java.util.Scanner;
 
+import static no.hiof.softwareEngineering.View.CustomerView.runCustomerPart;
+import static no.hiof.softwareEngineering.View.OrganizerView.runOrganizer;
+
 public class MainView {
 
     public void userOptions(){
@@ -17,11 +20,11 @@ public class MainView {
             switch (option){
                 case 1: //Organizer part
                     // userLogin(Organizer.getOrganizerList());
-                    OrganizerView.runOrganizer();
+                    runOrganizer();
                     break;
                 case 2: //Customer part
                     //userLogin(Customer.getCustomerList());
-                    LoginView.customerLogin();
+                    runCustomerPart();
                     break;
                 case 3:
                     registerCustomerAccont();

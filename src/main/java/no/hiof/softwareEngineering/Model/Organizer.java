@@ -1,6 +1,8 @@
 package no.hiof.softwareEngineering.Model;
 
 
+
+
 public class Organizer{
     private String orgNo;
     private String companyName;
