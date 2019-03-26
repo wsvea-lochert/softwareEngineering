@@ -21,10 +21,10 @@ public class MainView {
                     break;
                 case 2: //Customer part
                     //userLogin(Customer.getCustomerList());
-                    CustomerDriver.runCustomerPart();
+                    LoginView.customerLogin();
                     break;
                 case 3:
-                    Customer.createAccount();
+                    registerCustomerAccont();
                     break;
                 case 4:
                     registerOrganizerAccont();
@@ -57,6 +57,25 @@ public class MainView {
         String password = input.nextLine();
 
         OrganizerDriver.createNewOrganizerAccount(orgNumber, companyName, email, password);
+    }
+
+    private void registerCustomerAccont(){
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Fornavn ");
+        String firstname = input.nextLine();
+
+        //Register new organizer account
+        System.out.print("Etternavn: ");
+        String lastname = input.nextLine();
+
+        System.out.print("Epostadresse: ");
+        String email = input.nextLine();
+
+        System.out.print("Passord: ");
+        String password = input.nextLine();
+
+        OrganizerDriver.createNewOrganizerAccount(firstname,lastname, email, password);
     }
 
 }

@@ -8,6 +8,35 @@ import java.util.Scanner;
 import static no.hiof.softwareEngineering.Controller.Booking.*;
 
 public class CustomerView {
+
+    public static void runCustomerPart() {
+        int option = 0;
+        Customer customer = LoginView.customerLogin();
+
+        Scanner input = new Scanner(System.in);
+
+        while (option < 4) {
+            System.out.print("\n(1) Se alle eventer // (2) Bestill billett // (3) Se mine billetter // (4)  Tilbake: ");
+            option = input.nextInt();
+            switch (option) {
+                case 1:
+                    //Event.printEventList();
+                    break;
+                case 2:
+                    //book()
+                    break;
+                case 3:
+                    // Event.printMyTickets();
+                    break;
+                case 4:
+                    //System.exit(0);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     static Scanner input = new Scanner(System.in);
 
     public static void book(Customer customer){

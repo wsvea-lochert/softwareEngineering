@@ -1,5 +1,6 @@
 package no.hiof.softwareEngineering.Lists;
 
+import no.hiof.softwareEngineering.Model.Customer;
 import no.hiof.softwareEngineering.Model.Event;
 import no.hiof.softwareEngineering.Model.Ticket;
 import no.hiof.softwareEngineering.Model.Organizer;
@@ -12,4 +13,6 @@ public class ListManager {
     public static ArrayList<Ticket> soldTickets = new ArrayList<>();
 
     public static ArrayList<Organizer> organizerList = new ArrayList<>();
+
+    public static ArrayList<Customer> customerList = new ArrayList<>();
 }
