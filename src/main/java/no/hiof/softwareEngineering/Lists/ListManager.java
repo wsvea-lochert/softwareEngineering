@@ -9,4 +9,5 @@ public class ListManager {
 
     public static ArrayList<Event> eventList = new ArrayList<>();
     public static ArrayList<Ticket> soldTickets = new ArrayList<>();
+    
 }
