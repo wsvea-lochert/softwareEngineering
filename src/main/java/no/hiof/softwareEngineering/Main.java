@@ -1,10 +1,9 @@
 package no.hiof.softwareEngineering;
 
+import no.hiof.softwareEngineering.Controller.Login;
 import no.hiof.softwareEngineering.Model.*;
 
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.stream.IntStream;
 
 public class Main {
 

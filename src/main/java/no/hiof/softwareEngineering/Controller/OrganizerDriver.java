@@ -1,31 +1,24 @@
 package no.hiof.softwareEngineering.Controller;
 
-import no.hiof.softwareEngineering.Model.Event;
-import no.hiof.softwareEngineering.Model.Login;
 import no.hiof.softwareEngineering.Model.Organizer;
-import java.util.Scanner;
+import static no.hiof.softwareEngineering.Lists.ListManager.organizerList;
+import static no.hiof.softwareEngineering.Lists.ListManager.eventList;
 
-public class OrganizerDriver {
-    public static void runOrganizer() {
-        int option = 0;
-        Scanner input = new Scanner(System.in);
-        Organizer admin = Login.userLogin(Organizer.getOrganizerList());
+public class OrganizerDriver{
 
-        while (option < 5 && admin != null) {
-            System.out.print("\n(1) Se mine arrangement // (2) Opprett arrangement // (3)  Tilbake: ");
-            option = input.nextInt();
-            switch (option) {
-                case 1:
-                    admin.printEventList();
-                    break;
-                case 2:
-                    Event.CreateEvent(admin);
-                    break;
-                case 3:
-                    break;
-                default:
-                    break;
-            }
+    public static void createNewOrganizerAccount(String orgNo, String companyName, String email, String password) {
+        Organizer organizer = new Organizer(orgNo, companyName, email, password);
+        organizerList.add(organizer);
+    }
+
+    public void printOrganizerList(){
+        for (Organizer organizer : organizerList){
+            System.out.println(organizer.getCompanyName() + " " + organizer.getEmail() + " " + organizer.getOrgNo());
         }
     }
+
+    public void printEventList(){
+        System.out.println(eventList);
+    }
+
 }

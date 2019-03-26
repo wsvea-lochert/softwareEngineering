@@ -1,9 +1,9 @@
 package no.hiof.softwareEngineering.View;
 
+import no.hiof.softwareEngineering.Controller.Login;
 import no.hiof.softwareEngineering.Model.Organizer;
-import no.hiof.softwareEngineering.Model.Person;
 
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class LoginView {
@@ -19,7 +19,7 @@ public class LoginView {
             System.out.print("Passord: ");
             String inputPassword = scanner.nextLine();
 
-            user = loginValidation(inputEmail, inputPassword, userList);
+            user = Login.loginValidation(inputEmail, inputPassword);
             if(user != null){
                 // System.out.println("\nDu er nå logget inn.");
                 return user;
