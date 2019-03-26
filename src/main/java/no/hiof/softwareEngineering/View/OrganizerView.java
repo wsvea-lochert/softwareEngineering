@@ -13,14 +13,12 @@ public class OrganizerView {
         int option = 0;
         Organizer admin = LoginView.userLogin();
 
-
-
         while (option < 5 && admin != null) {
             System.out.print("\n(1) Se mine arrangement // (2) Opprett arrangement // (3)  Tilbake: ");
             option = input.nextInt();
             switch (option){
                 case 1:
-                   // OrganizerDriver.printEventList();
+                    printEventList(admin);
                     break;
                 case 2:
                     createEventInput(admin);
@@ -33,7 +31,7 @@ public class OrganizerView {
         }
     }
 
-    public static void createEventInput(Organizer organizer){
+    private static void createEventInput(Organizer organizer){
         String regex = "^(?:[0-9]{2})?[0-9]{2}-[0-3]?[0-9]-[0-3]?[0-9]$";
         Pattern pattern = Pattern.compile(regex);
 

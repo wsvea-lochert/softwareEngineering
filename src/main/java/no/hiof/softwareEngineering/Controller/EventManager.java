@@ -2,6 +2,7 @@ package no.hiof.softwareEngineering.Controller;
 
 import no.hiof.softwareEngineering.Model.Event;
 import no.hiof.softwareEngineering.Model.Location;
+import no.hiof.softwareEngineering.Model.Organizer;
 import no.hiof.softwareEngineering.Model.Ticket;
 
 import java.time.LocalDate;
@@ -42,9 +43,11 @@ public class EventManager {
         }
     }
 
-    public static void printEventList(){
+    public static void printEventList(Organizer organizer){
         for (Event e : eventList){
-            System.out.println(e);
+            if (e.getEventOwner().equals(organizer.getOrgNo())){
+                System.out.println(e);
+            }
         }
     }
 }
