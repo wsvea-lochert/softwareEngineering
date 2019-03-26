@@ -14,12 +14,12 @@ public class Event {
     private LocalDate date;
     private Location eventLocation;
     private int eventIndex;
-    private int eventOwner;
+    private String eventOwner;
 
     private ArrayList<Ticket> availableTickets = new ArrayList<>();
 
 
-    public Event(String eventName, String category, String description, int ageLimit, int ticketAmount, LocalDate date, Location eventLocation, int eventIndex, int eventOwner) {
+    public Event(String eventName, String category, String description, int ageLimit, int ticketAmount, LocalDate date, Location eventLocation, int eventIndex, String eventOwner) {
         this.eventName = eventName;
         this.category = category;
         this.description = description;
@@ -71,7 +71,7 @@ public class Event {
         return eventLocation;
     }
 
-    public int getEventOwner() {
+    public String getEventOwner() {
         return eventOwner;
     }
 
@@ -107,7 +107,7 @@ public class Event {
         this.eventIndex = eventIndex;
     }
 
-    public void setEventOwner(int eventOwner) {
+    public void setEventOwner(String eventOwner) {
         this.eventOwner = eventOwner;
     }
 
