@@ -42,10 +42,12 @@ public class MainView {
         scanner.close();
     }
 
+    // ToDo: legge inn diverse sjekker på input. Se hva som ligger på Person
+    // ToDo: Sjekk på om mailadressen ligger inne allerede?
+
     private void registerOrganizerAccont(){
         Scanner input = new Scanner(System.in);
 
-        //gyldig orgnr er 9 siffer
         System.out.print("Firmanavn: ");
         String companyName = input.nextLine();
 
@@ -62,13 +64,15 @@ public class MainView {
         OrganizerDriver.createNewOrganizerAccount(orgNumber, companyName, email, password);
     }
 
+    // ToDo: legge inn diverse sjekker på input. Se hva som ligger på Person
+    // ToDo: Sjekk på om mailadressen ligger inne allerede?
+
     private void registerCustomerAccont(){
         Scanner input = new Scanner(System.in);
 
         System.out.print("Fornavn ");
         String firstname = input.nextLine();
 
-        //Register new organizer account
         System.out.print("Etternavn: ");
         String lastname = input.nextLine();
 

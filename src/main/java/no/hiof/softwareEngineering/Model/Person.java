@@ -33,6 +33,8 @@ public class Person {
         this.phoneNo = phoneNo;
     }
 
+    // ToDo: Fjerne alt nedenfor når det er lagt inn i MainView
+
     public String inputFirstName() {
         System.out.print("Fornavn: ");
         firstName = input.nextLine();
