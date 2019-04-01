@@ -1,12 +1,11 @@
 package no.hiof.softwareEngineering.Controller;
 
-
 import no.hiof.softwareEngineering.Model.Customer;
 import no.hiof.softwareEngineering.Model.Event;
 import no.hiof.softwareEngineering.Model.Ticket;
 import java.util.ArrayList;
-import static no.hiof.softwareEngineering.Lists.ListManager.eventList;
-import static no.hiof.softwareEngineering.Lists.ListManager.soldTickets;
+
+import static no.hiof.softwareEngineering.Lists.ListManager.*;
 
 public class Booking {
 
@@ -33,7 +32,7 @@ public class Booking {
             selectedEvent.setTicketAmount(selectedEvent.getTicketAmount() - ticketSelected);
 
             for (Event event : eventList){
-                for (Ticket ticket : event.getAvailableTickets()){
+                for (Ticket ticket : availableTickets){
                     if (event.equals(selectedEvent) && ticketSelected != 0){
                         ticket.setCustomerEmail(customer.getEmail());
                         deleteList.add(ticket);
@@ -52,17 +51,9 @@ public class Booking {
     private static void removeSoldTickets(Event selectedEvent, ArrayList<Ticket> deleteList){
         for (Event event : eventList){
             if (selectedEvent.equals(event)){
-                event.getAvailableTickets().removeAll(deleteList);
+                availableTickets.removeAll(deleteList);
             }
         }
-    }
-
-    public static void printMyTickets(String email){
-            for (Ticket ticket : soldTickets){
-                if (ticket.getCustomerEmail().equals(email)){
-                    System.out.println(ticket);
-                }
-            }
     }
 
 }

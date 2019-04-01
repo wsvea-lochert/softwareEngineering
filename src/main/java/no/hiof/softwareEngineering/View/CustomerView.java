@@ -2,12 +2,13 @@ package no.hiof.softwareEngineering.View;
 
 import no.hiof.softwareEngineering.Model.Customer;
 import no.hiof.softwareEngineering.Model.Event;
-
 import java.util.Scanner;
-
 import static no.hiof.softwareEngineering.Controller.Booking.*;
+import static no.hiof.softwareEngineering.Controller.EventManager.printMyTickets;
+
 
 public class CustomerView {
+    static Scanner input = new Scanner(System.in);
 
     public static void runCustomerPart() {
         int option = 0;
@@ -28,7 +29,7 @@ public class CustomerView {
                     //book()
                     break;
                 case 3:
-                    printMyTickets(customer.getEmail());
+                    printMyTicketsInput();
                     // Event.printMyTickets();
                     break;
                 case 4:
@@ -40,33 +41,31 @@ public class CustomerView {
         }
     }
 
-    static Scanner input = new Scanner(System.in);
-
     public static void book(Customer customer){
         Event selectedEvent = null;
         printEventWithIndex();
 
         System.out.print("Velg event: ");
         int selection = input.nextInt();
+        selectedEvent = findEvent(selection);
 
         System.out.print("Velg antall billetter: ");
         int ticketSelected = input.nextInt();
-
-        selectedEvent = findEvent(selection);
 
         while(ticketSelected > selectedEvent.getTicketAmount() && ticketSelected <= 0){
             System.out.println("Du har valgt for mange billetter eller ingen billetter.");
             System.out.print("Velgt antall billetter: ");
             ticketSelected = input.nextInt();
         }
-
+        bookTicket(selectedEvent, customer, ticketSelected);
     }
 
     public static void printMyTicketsInput(){
+        //input.close();
+        Scanner inpt = new Scanner(System.in);
         System.out.print("Email som ble brukt til å booke: ");
-        String email = input.nextLine();
+        String email = inpt.nextLine();
 
         printMyTickets(email);
     }
-
 }

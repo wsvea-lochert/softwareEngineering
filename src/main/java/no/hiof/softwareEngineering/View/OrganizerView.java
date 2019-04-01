@@ -13,7 +13,7 @@ public class OrganizerView {
         int option = 0;
         Organizer admin = LoginView.userLogin();
 
-        while (option < 5 && admin != null) {
+        while (option < 3 && admin != null) {
             System.out.print("\n(1) Se mine arrangement // (2) Opprett arrangement // (3)  Tilbake: ");
             option = input.nextInt();
             switch (option){

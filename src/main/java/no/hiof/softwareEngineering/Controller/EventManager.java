@@ -4,10 +4,9 @@ import no.hiof.softwareEngineering.Model.Event;
 import no.hiof.softwareEngineering.Model.Location;
 import no.hiof.softwareEngineering.Model.Organizer;
 import no.hiof.softwareEngineering.Model.Ticket;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
-import static no.hiof.softwareEngineering.Lists.ListManager.eventList;
+import static no.hiof.softwareEngineering.Lists.ListManager.*;
 
 public class EventManager {
 
@@ -17,7 +16,7 @@ public class EventManager {
         Pattern pattern = Pattern.compile(regex);*/
 
         Event event = new Event(eventName, category, description, ageLimit, tickets, LocalDate.parse(date), new Location(city, street), createIndex(), eventOwner);
-        createTickets(tickets, eventName, event.getAvailableTickets());
+        createTickets(tickets, eventName, availableTickets);
         eventList.add(event);
     }
 
@@ -45,9 +44,17 @@ public class EventManager {
 
     public static void printEventList(Organizer organizer){
         for (Event e : eventList){
-            if (e.getEventOwner().equals(organizer.getOrgNo())){
-                System.out.println(e);
+            if (e.getEventOwner().equals(organizer.getOrgNo()))
+            System.out.println(e);
+        }
+    }
+
+    public static void printMyTickets(String email){
+        for (Ticket ticket : soldTickets){
+            if (ticket.getCustomerEmail().equals(email)){
+                System.out.println(ticket);
             }
         }
     }
+
 }
