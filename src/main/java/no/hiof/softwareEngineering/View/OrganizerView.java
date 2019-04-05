@@ -11,7 +11,7 @@ public class OrganizerView {
 
     public static void runOrganizer() {
         int option = 0;
-        Organizer admin = LoginView.userLogin();
+        Organizer admin = LoginView.organizerLogin();
 
         while (option < 3 && admin != null) {
             System.out.print("\n(1) Se mine arrangement // (2) Opprett arrangement // (3)  Tilbake: ");

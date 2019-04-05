@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class LoginView {
 
-    public static Organizer userLogin(){
+    public static Organizer organizerLogin(){
         Scanner scanner = new Scanner(System.in);
         Organizer user;
 
@@ -20,7 +20,7 @@ public class LoginView {
             System.out.print("Passord: ");
             String inputPassword = scanner.nextLine();
 
-            user = Login.loginValidation(inputEmail, inputPassword);
+            user = Login.organizerValidation(inputEmail, inputPassword);
             if(user != null){
                 // System.out.println("\nDu er nå logget inn.");
                 return user;
