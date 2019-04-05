@@ -1,9 +1,7 @@
 package no.hiof.softwareEngineering.Model;
 
-import no.hiof.softwareEngineering.Controller.Login;
-
 import java.time.LocalDate;
-import java.util.ArrayList;
+
 
 public class Event {
     private String eventName;
@@ -15,8 +13,6 @@ public class Event {
     private Location eventLocation;
     private int eventIndex;
     private String eventOwner;
-
-    private ArrayList<Ticket> availableTickets = new ArrayList<>();
 
 
     public Event(String eventName, String category, String description, int ageLimit, int ticketAmount, LocalDate date, Location eventLocation, int eventIndex, String eventOwner) {
@@ -37,10 +33,6 @@ public class Event {
 
     public int getEventIndex() {
         return eventIndex;
-    }
-
-    public ArrayList<Ticket> getAvailableTickets() {
-        return availableTickets;
     }
 
     public String getEventName() {
@@ -111,9 +103,6 @@ public class Event {
         this.eventOwner = eventOwner;
     }
 
-    public void setAvailableTickets(ArrayList<Ticket> availableTickets) {
-        this.availableTickets = availableTickets;
-    }
 
     @Override
     public String toString() {
