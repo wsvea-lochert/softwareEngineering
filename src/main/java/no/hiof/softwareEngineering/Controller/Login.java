@@ -1,6 +1,5 @@
 package no.hiof.softwareEngineering.Controller;
 
-
 import no.hiof.softwareEngineering.Model.Customer;
 import no.hiof.softwareEngineering.Model.Organizer;
 import static no.hiof.softwareEngineering.Lists.ListManager.organizerList;

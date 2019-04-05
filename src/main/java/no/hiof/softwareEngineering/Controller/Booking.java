@@ -4,7 +4,6 @@ import no.hiof.softwareEngineering.Model.Customer;
 import no.hiof.softwareEngineering.Model.Event;
 import no.hiof.softwareEngineering.Model.Ticket;
 import java.util.ArrayList;
-
 import static no.hiof.softwareEngineering.Lists.ListManager.*;
 
 public class Booking {
