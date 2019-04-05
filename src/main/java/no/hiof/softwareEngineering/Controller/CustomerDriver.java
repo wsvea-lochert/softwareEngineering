@@ -9,5 +9,4 @@ public class CustomerDriver {
         Customer customer = new Customer(firstname, lastname, email, password);
         customerList.add(customer);
     }
-
 }

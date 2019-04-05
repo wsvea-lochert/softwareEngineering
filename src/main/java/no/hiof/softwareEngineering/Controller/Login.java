@@ -7,7 +7,7 @@ import static no.hiof.softwareEngineering.Lists.ListManager.organizerList;
 import static no.hiof.softwareEngineering.Lists.ListManager.customerList;
 
 public abstract class Login {
-    public static Organizer loginValidation(String email, String password){
+    public static Organizer organizerValidation(String email, String password){
         return organizerList.stream().filter(org -> email.equals(org.getEmail()) && password.equals(org.getPassword())).findFirst().orElse(null);
     }
 
