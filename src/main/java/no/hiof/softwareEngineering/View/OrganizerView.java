@@ -35,14 +35,12 @@ public class OrganizerView {
         Scanner stringInput = new Scanner(System.in);
         String regex = "^(?:[0-9]{2})?[0-9]{2}-[0-3]?[0-9]-[0-3]?[0-9]$";
         Pattern pattern = Pattern.compile(regex);
-
         System.out.print("Event navn: ");
         String eventName = stringInput.nextLine();
         System.out.print("Kategori: ");
         String category = stringInput.nextLine();
         System.out.print("Beskrivelse: ");
         String description = stringInput.nextLine();
-
         System.out.print("Dato(YYYY-MM-DD): ");
         String date = stringInput.nextLine();
         Matcher matcher = pattern.matcher(date);

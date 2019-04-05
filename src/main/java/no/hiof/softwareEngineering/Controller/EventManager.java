@@ -18,6 +18,7 @@ public class EventManager {
         Event event = new Event(eventName, category, description, ageLimit, tickets, LocalDate.parse(date), new Location(city, street), createIndex(), eventOwner);
         createTickets(tickets, eventName, availableTickets);
         eventList.add(event);
+        System.out.println("Event laget.");
     }
 
     private static int createIndex(){
