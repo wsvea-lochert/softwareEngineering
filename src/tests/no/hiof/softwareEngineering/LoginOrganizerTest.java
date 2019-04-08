@@ -2,6 +2,7 @@ package no.hiof.softwareEngineering;
 
 import no.hiof.softwareEngineering.Model.Organizer;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,6 +18,11 @@ public class LoginOrganizerTest {
     public void setUp(){
         organizer = new Organizer("MS AS", "martinos@hiof.no", "martin123", "Martin", "Skåksrud");
         organizerList.add(organizer);
+    }
+
+    @AfterEach
+    public void tearDown(){
+        organizerList.clear();
     }
 
     @Test

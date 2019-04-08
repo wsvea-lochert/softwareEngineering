@@ -47,7 +47,7 @@ public class Booking {
         }
     }
 
-    private static void removeSoldTickets(Event selectedEvent, ArrayList<Ticket> deleteList){
+    public static void removeSoldTickets(Event selectedEvent, ArrayList<Ticket> deleteList){
         for (Event event : eventList){
             if (selectedEvent.equals(event)){
                 availableTickets.removeAll(deleteList);

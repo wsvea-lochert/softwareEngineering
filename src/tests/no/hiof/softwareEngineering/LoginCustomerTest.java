@@ -2,6 +2,7 @@ package no.hiof.softwareEngineering;
 
 import no.hiof.softwareEngineering.Model.Customer;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,6 +18,11 @@ public class LoginCustomerTest {
     public void setUp(){
         customer = new Customer("Enis", "Jasharaj", "enisj@hiof.no", "enis123");
         customerList.add(customer);
+    }
+
+    @AfterEach
+    public void tearDown(){
+        customerList.clear();
     }
 
     @Test
