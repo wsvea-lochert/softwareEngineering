@@ -2,6 +2,11 @@ package no.hiof.softwareEngineering.View;
 import no.hiof.softwareEngineering.Controller.CustomerDriver;
 import no.hiof.softwareEngineering.Controller.OrganizerDriver;
 import java.util.Scanner;
+import no.hiof.softwareEngineering.Model.Event;
+import java.util.ArrayList;
+
+import static no.hiof.softwareEngineering.Controller.SearchEvent.searchCategory;
+import static no.hiof.softwareEngineering.Controller.SearchEvent.searchEvents;
 import static no.hiof.softwareEngineering.View.CustomerView.runCustomerPart;
 import static no.hiof.softwareEngineering.View.OrganizerView.runOrganizer;
 
@@ -11,8 +16,8 @@ public class MainView {
         Scanner scanner = new Scanner(System.in);
         int option = 0;
 
-        while(option < 5){
-            System.out.print("\n(1) Arrangør seksjon // (2) Kunde seksjon // (3) Registrer kunde konto // (4) Registrer ny arrangør // (5) Avslutt: ");
+        while(option < 6){
+            System.out.print("\n(1) Arrangør seksjon // (2) Kunde seksjon // (3) Registrer kunde konto // (4) Registrer ny arrangør // (5) Søk etter arrangement og kategori // (6) Avslutt: ");
             option = scanner.nextInt();
             switch (option){
                 case 1: //Organizer part
@@ -30,6 +35,9 @@ public class MainView {
                     registerAccount(option);
                     break;
                 case 5:
+                    search();
+                    break;
+                case 6:
                     break;
                 default:
                     System.out.println("Ikke gyldig valg.");
@@ -65,10 +73,73 @@ public class MainView {
             System.out.print("Fornavn ");
             String firstname = input.nextLine();
 
+
             System.out.print("Etternavn: ");
             String lastname = input.nextLine();
 
             CustomerDriver.createNewCustomerAccount(firstname,lastname, email, password);
+        }
+    }
+
+    private void search(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Skriv inn '1' for å søke etter arrangement, eller '2' for å søke etter kategori");
+
+        try{
+            int option = scanner.nextInt();
+
+            if(option == 1)
+                searchAfterEvents();
+
+            else if(option == 2)
+                searchAfterCategorys();
+            else
+                System.out.println("Skriv inn 1 eller 2!");
+        }
+        catch(Exception exc){
+            System.out.println("Skriv inn et tall!");
+            search();
+        }
+    }
+
+    private void searchAfterEvents(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Søk etter arrangement: ");
+
+        String searchStr = scanner.nextLine();
+
+        ArrayList<Event> matches = searchEvents(searchStr);
+
+        if(!matches.isEmpty()){
+            System.out.println("Følgende arrangment ble funnet:");
+            for (Event evt : matches){
+                System.out.println(evt.getEventName());
+            }
+        }
+        else {
+            System.out.println("Fant ingen arrangement, vennligst prøv igjen med andre søkeord.");
+            search();
+        }
+
+    }
+
+    private void searchAfterCategorys(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Søk etter arrangment i kategori: ");
+
+        String searchStr = scanner.nextLine();
+
+        ArrayList<Event> matches = searchCategory(searchStr);
+
+        if(!matches.isEmpty()){
+            System.out.println("Følgende arrangment ble funnet:");
+            for (Event evt : matches){
+                System.out.println(evt.getEventName());
+            }
+        }
+        else {
+            System.out.println("Fant ingen arrangement med dette kategoriet, vennligst prøv igjen med andre søkeord.");
+            search();
         }
     }
 }
