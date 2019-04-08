@@ -1,4 +1,5 @@
 package no.hiof.softwareEngineering.View;
+import no.hiof.softwareEngineering.Controller.CustomerDriver;
 import no.hiof.softwareEngineering.Controller.OrganizerDriver;
 import java.util.Scanner;
 import static no.hiof.softwareEngineering.View.CustomerView.runCustomerPart;
@@ -67,8 +68,7 @@ public class MainView {
             System.out.print("Etternavn: ");
             String lastname = input.nextLine();
 
-
-            OrganizerDriver.createNewOrganizerAccount(firstname,lastname, email, password);
+            CustomerDriver.createNewCustomerAccount(firstname,lastname, email, password);
         }
     }
 }
