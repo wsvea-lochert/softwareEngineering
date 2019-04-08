@@ -24,10 +24,10 @@ public class MainView {
                     runCustomerPart();
                     break;
                 case 3:
-                    registerCustomerAccont();
+                    NewUserView.receiveNewCustomerInput();
                     break;
                 case 4:
-                    registerOrganizerAccont();
+                    NewUserView.receiveNewOrganizerInput();
                     break;
                 case 5:
                     break;
@@ -42,6 +42,7 @@ public class MainView {
     // ToDo: legge inn diverse sjekker på input. Se hva som ligger på Person
     // ToDo: Sjekk på om mailadressen ligger inne allerede?
 
+    /*
     private void registerOrganizerAccont(){
         Scanner input = new Scanner(System.in);
 
@@ -78,6 +79,6 @@ public class MainView {
         String password = input.nextLine();
 
         OrganizerDriver.createNewOrganizerAccount(firstname,lastname, email, password);
-    }
+    }*/
 
 }
