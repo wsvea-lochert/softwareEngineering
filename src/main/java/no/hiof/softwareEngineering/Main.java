@@ -2,6 +2,10 @@ package no.hiof.softwareEngineering;
 
 import no.hiof.softwareEngineering.Model.*;
 import no.hiof.softwareEngineering.View.MainView;
+import no.hiof.softwareEngineering.View.NewUserView;
+
+import java.time.LocalDate;
+
 import static no.hiof.softwareEngineering.Controller.EventManager.createEvent;
 import static no.hiof.softwareEngineering.Lists.ListManager.*;
 

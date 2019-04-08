@@ -24,10 +24,10 @@ public class MainView {
                     runCustomerPart();
                     break;
                 case 3:
-                    registerAccount(option);
+                    registerCustomerAccont();
                     break;
                 case 4:
-                    registerAccount(option);
+                    registerOrganizerAccont();
                     break;
                 case 5:
                     break;
@@ -42,7 +42,7 @@ public class MainView {
     // ToDo: legge inn diverse sjekker på input. Se hva som ligger på Person
     // ToDo: Sjekk på om mailadressen ligger inne allerede?
 
-    private void registerAccount(int option){
+    private void registerOrganizerAccont(){
         Scanner input = new Scanner(System.in);
 
         System.out.print("Epostadresse: ");
@@ -68,7 +68,16 @@ public class MainView {
             System.out.print("Etternavn: ");
             String lastname = input.nextLine();
 
-            CustomerDriver.createNewCustomerAccount(firstname,lastname, email, password);
-        }
+        System.out.print("Etternavn: ");
+        String lastname = input.nextLine();
+
+        System.out.print("Epostadresse: ");
+        String email = input.nextLine();
+
+        System.out.print("Passord: ");
+        String password = input.nextLine();
+
+        OrganizerDriver.createNewOrganizerAccount(firstname,lastname, email, password);
     }
+
 }

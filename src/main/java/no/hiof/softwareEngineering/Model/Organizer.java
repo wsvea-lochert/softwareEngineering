@@ -1,8 +1,5 @@
 package no.hiof.softwareEngineering.Model;
 
-
-
-
 public class Organizer {
     private String orgNo;
     private String companyName;
@@ -37,5 +34,21 @@ public class Organizer {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setOrgNo(String orgNo) {
+        this.orgNo = orgNo;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
