@@ -1,6 +1,9 @@
 package no.hiof.softwareEngineering.View;
 import no.hiof.softwareEngineering.Controller.CustomerDriver;
 import no.hiof.softwareEngineering.Controller.OrganizerDriver;
+import no.hiof.softwareEngineering.Model.Customer;
+import no.hiof.softwareEngineering.Model.Person;
+
 import java.util.Scanner;
 import static no.hiof.softwareEngineering.View.CustomerView.runCustomerPart;
 import static no.hiof.softwareEngineering.View.NewUserView.receiveNewCustomerInput;
@@ -48,8 +51,19 @@ public class MainView {
     private void registerOrganizerAccont(){
         Scanner input = new Scanner(System.in);
 
+        System.out.print("Firmanavn: ");
+        String companyName = input.nextLine();
+
+        //Register new organizer account
+        System.out.print("Organisasjonsnummer: ");
+        String orgNumber = input.nextLine();
+
         System.out.print("Epostadresse: ");
         String email = input.nextLine();
+
+        Person.inputEmail(email);
+
+
 
         System.out.print("Passord: ");
         String password = input.nextLine();
