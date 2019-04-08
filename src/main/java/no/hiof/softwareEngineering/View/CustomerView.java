@@ -22,18 +22,14 @@ public class CustomerView {
             switch (option) {
                 case 1:
                     printEventWithIndex();
-                    //Event.printEventList();
                     break;
                 case 2:
                     book(customer);
-                    //book()
                     break;
                 case 3:
                     printMyTicketsInput();
-                    // Event.printMyTickets();
                     break;
                 case 4:
-                    //System.exit(0);
                     break;
                 default:
                     break;
