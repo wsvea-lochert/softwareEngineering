@@ -1,8 +1,4 @@
 package no.hiof.softwareEngineering.View;
-import no.hiof.softwareEngineering.Controller.CustomerDriver;
-import no.hiof.softwareEngineering.Controller.OrganizerDriver;
-import no.hiof.softwareEngineering.Model.Customer;
-import no.hiof.softwareEngineering.Model.Person;
 
 import java.util.Scanner;
 import no.hiof.softwareEngineering.Model.Event;
@@ -51,66 +47,6 @@ public class MainView {
         }
         scanner.close();
     }
-
-    // ToDo: legge inn diverse sjekker på input. Se hva som ligger på Person
-    // ToDo: Sjekk på om mailadressen ligger inne allerede?
-
-    /*
-    private void registerOrganizerAccont(){
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Firmanavn: ");
-        String companyName = input.nextLine();
-
-        //Register new organizer account
-        System.out.print("Organisasjonsnummer: ");
-        String orgNumber = input.nextLine();
-
-        System.out.print("Epostadresse: ");
-        String email = input.nextLine();
-
-        Person.inputEmail(email);
-
-
-
-        System.out.print("Passord: ");
-        String password = input.nextLine();
-
-        if(option == 4){
-            System.out.print("Firmanavn: ");
-            String companyName = input.nextLine();
-
-            //Register new organizer account
-            System.out.print("Organisasjonsnummer: ");
-            String orgNumber = input.nextLine();
-
-            OrganizerDriver.createNewOrganizerAccount(orgNumber, companyName, email, password);
-        }
-        else if (option == 3){
-            System.out.print("Fornavn ");
-            String firstname = input.nextLine();
-
-
-            System.out.print("Etternavn: ");
-            String lastname = input.nextLine();
-
-            CustomerDriver.createNewCustomerAccount(firstname,lastname, email, password);
-        }
-    }
-
-
-        System.out.print("Etternavn: ");
-        String lastname = input.nextLine();
-
-        System.out.print("Epostadresse: ");
-        String email = input.nextLine();
-
-        System.out.print("Passord: ");
-        String password = input.nextLine();
-
-        OrganizerDriver.createNewOrganizerAccount(firstname,lastname, email, password);
-
-    }*/
 
     private void search(){
         Scanner scanner = new Scanner(System.in);

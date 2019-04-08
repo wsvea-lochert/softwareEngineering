@@ -5,6 +5,9 @@ import no.hiof.softwareEngineering.Model.Organizer;
 import no.hiof.softwareEngineering.View.NewUserView;
 import java.util.regex.Matcher;
 
+import static no.hiof.softwareEngineering.Lists.ListManager.customerList;
+import static no.hiof.softwareEngineering.Lists.ListManager.organizerList;
+
 public class NewUserAccount {
 
     public static void receivesNewCustomer(Customer customer) {
@@ -32,7 +35,13 @@ public class NewUserAccount {
             receivesNewCustomer(customer);
         }
 
-        CustomerDriver.createNewCustomerAccount(customer);
+        createNewCustomerAccount(customer);
+    }
+
+    public static void createNewCustomerAccount(Customer customer){
+
+        customerList.add(customer);
+        System.out.println("Din kundekonto er opprettet!");
     }
 
     public static void receivesNewOrganizer(Organizer organizer) {
@@ -48,7 +57,13 @@ public class NewUserAccount {
             receivesNewOrganizer(organizer);
         }
 
-        OrganizerDriver.createNewOrganizerAccount(organizer);
+        createNewOrganizerAccount(organizer);
+    }
+
+    public static void createNewOrganizerAccount(Organizer organizer) {
+
+        organizerList.add(organizer);
+        System.out.println("Din arrangørkonto er opprettet!");
     }
 
     public static boolean checkStringLength(int minlength, int maxlength, String inputstring) {

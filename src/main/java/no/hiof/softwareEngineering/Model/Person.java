@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class Person {
 
-    static Scanner input = new Scanner(System.in);
+    //TODO: denne klassen skal fjernes etterhvert og brukes kun til referanse
+
+    /*static Scanner input = new Scanner(System.in);
 
     private String password;
     private String firstName;
@@ -237,5 +239,5 @@ public class Person {
 
     public void setPhoneNo(int phoneNo) {
         this.phoneNo = phoneNo;
-    }
+    }*/
 }
