@@ -146,12 +146,10 @@ public class MainView {
             for (Event evt : matches){
                 System.out.println("Arrangment index: " + evt.getEventIndex() + "\nNavn: " + evt.getEventName());
             }
-        }
-        else {
+        } else {
             System.out.println("Fant ingen arrangement, vennligst prøv igjen med andre søkeord.");
             search();
         }
-
     }
 
     private void searchAfterCategorys(){
