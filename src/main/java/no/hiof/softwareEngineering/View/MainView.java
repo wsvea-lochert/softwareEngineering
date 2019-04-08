@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import static no.hiof.softwareEngineering.Controller.SearchEvent.searchCategory;
 import static no.hiof.softwareEngineering.Controller.SearchEvent.searchEvents;
 import static no.hiof.softwareEngineering.View.CustomerView.runCustomerPart;
+import static no.hiof.softwareEngineering.View.NewUserView.receiveNewCustomerInput;
+import static no.hiof.softwareEngineering.View.NewUserView.receiveNewOrganizerInput;
 import static no.hiof.softwareEngineering.View.OrganizerView.runOrganizer;
 
 public class MainView {
@@ -32,10 +34,10 @@ public class MainView {
                     runCustomerPart();
                     break;
                 case 3:
-                    NewUserView.receiveNewCustomerInput();
+                    receiveNewCustomerInput();
                     break;
                 case 4:
-                    NewUserView.receiveNewOrganizerInput();
+                    receiveNewOrganizerInput();
                     break;
                 case 5:
                     search();
