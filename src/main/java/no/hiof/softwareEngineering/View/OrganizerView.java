@@ -61,7 +61,7 @@ public class OrganizerView {
         System.out.print("Antall billetter: ");
         int tickets = input.nextInt();
 
-        createEvent(eventName, category, description, date, city, street, ageLimit, tickets, organizer.getOrgNo());
+        createEvent(eventName, category, description, date, city, street, ageLimit, tickets, organizer.getCompanyName());
     }
 
 }

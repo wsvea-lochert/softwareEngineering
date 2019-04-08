@@ -8,8 +8,8 @@ import static no.hiof.softwareEngineering.Lists.ListManager.eventList;
 public class OrganizerDriver{
 
     //ToDo: Det vil komme flere felt relatert til Person
-    public static void createNewOrganizerAccount(String orgNo, String companyName, String email, String password) {
-        Organizer organizer = new Organizer(orgNo, companyName, email, password);
+    public static void createNewOrganizerAccount(String companyName, String email, String password, String firstname, String lastname) {
+        Organizer organizer = new Organizer(companyName, email, password, firstname, lastname);
         organizerList.add(organizer);
     }
 

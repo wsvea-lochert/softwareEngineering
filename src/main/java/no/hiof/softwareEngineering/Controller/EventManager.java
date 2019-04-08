@@ -45,7 +45,7 @@ public class EventManager {
 
     public static void printEventList(Organizer organizer){
         for (Event e : eventList){
-            if (e.getEventOwner().equals(organizer.getOrgNo()))
+            if (e.getEventOwner().equals(organizer.getCompanyName()))
             System.out.println(e);
         }
     }

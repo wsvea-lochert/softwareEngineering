@@ -10,37 +10,29 @@ public class NewUserView {
     private static Scanner input = new Scanner(System.in);
 
     public static void receiveNewCustomerInput() {
-        System.out.print("Fornavn: ");
-        String firstname = input.nextLine();
-
-        System.out.print("Etternavn: ");
-        String lastname = input.nextLine();
-
-        System.out.print("E-post: ");
-        String email = input.nextLine();
-
-        System.out.print("Passord (min 8 tegn, store og små bokstaver, tall og/eller spesialtegn): ");
-        String password = input.nextLine();
+        String firstname = generalInputReceiver("Fornavn: ");
+        String lastname = generalInputReceiver("Etternavn: ");
+        String email = generalInputReceiver("E-post: ");
+        String password = generalInputReceiver("Passord (min 8 tegn, store og små bokstaver, tall og/eller spesialtegn): ");
 
         Customer customer = new Customer(firstname, lastname, email, password);
         NewUserAccount.receivesNewCustomer(customer);
     }
 
     public static void receiveNewOrganizerInput() {
-        System.out.print("Organisasjonsnummer: ");
-        String orgNo = input.nextLine();
+        String companyName = generalInputReceiver("Firmanavn: ");
+        String firstname = generalInputReceiver("Fornavn: ");
+        String lastname = generalInputReceiver("Etternavn: ");
+        String email = generalInputReceiver("E-post: ");
+        String password = generalInputReceiver("Passord (min 8 tegn, store og små bokstaver, tall og/eller spesialtegn): ");
 
-        System.out.print("Firmanavn: ");
-        String companyName = input.nextLine();
-
-        System.out.print("E-post: ");
-        String email = input.nextLine();
-
-        System.out.print("Passord (min 8 tegn, store og små bokstaver, tall og/eller spesialtegn): ");
-        String password = input.nextLine();
-
-        Organizer organizer = new Organizer(orgNo, companyName, email, password);
+        Organizer organizer = new Organizer(companyName, email, password, firstname, lastname);
         NewUserAccount.receivesNewOrganizer(organizer);
+    }
+
+    public static String generalInputReceiver(String message) {
+        System.out.print(message);
+        return input.nextLine();
     }
 
     public static String updateInput() {
