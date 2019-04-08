@@ -142,7 +142,7 @@ public class MainView {
         if(!matches.isEmpty()){
             System.out.println("Følgende arrangment ble funnet:");
             for (Event evt : matches){
-                System.out.println(evt.getEventName());
+                System.out.println("Arrangment index: " + evt.getEventIndex() + "\nNavn: " + evt.getEventName());
             }
         }
         else {
@@ -163,7 +163,7 @@ public class MainView {
         if(!matches.isEmpty()){
             System.out.println("Følgende arrangment ble funnet:");
             for (Event evt : matches){
-                System.out.println(evt.getEventName());
+                System.out.println("Arrangment index: " + evt.getEventIndex() + "\nNavn: " + evt.getEventName());
             }
         }
         else {
