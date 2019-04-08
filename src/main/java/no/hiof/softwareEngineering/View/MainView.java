@@ -1,6 +1,9 @@
 package no.hiof.softwareEngineering.View;
 import no.hiof.softwareEngineering.Controller.CustomerDriver;
 import no.hiof.softwareEngineering.Controller.OrganizerDriver;
+import no.hiof.softwareEngineering.Model.Customer;
+import no.hiof.softwareEngineering.Model.Person;
+
 import java.util.Scanner;
 import no.hiof.softwareEngineering.Model.Event;
 import java.util.ArrayList;
@@ -29,10 +32,10 @@ public class MainView {
                     runCustomerPart();
                     break;
                 case 3:
-                    registerAccount(option);
+                    NewUserView.receiveNewCustomerInput();
                     break;
                 case 4:
-                    registerAccount(option);
+                    NewUserView.receiveNewOrganizerInput();
                     break;
                 case 5:
                     search();
@@ -50,11 +53,23 @@ public class MainView {
     // ToDo: legge inn diverse sjekker på input. Se hva som ligger på Person
     // ToDo: Sjekk på om mailadressen ligger inne allerede?
 
-    private void registerAccount(int option){
+    /*
+    private void registerOrganizerAccont(){
         Scanner input = new Scanner(System.in);
+
+        System.out.print("Firmanavn: ");
+        String companyName = input.nextLine();
+
+        //Register new organizer account
+        System.out.print("Organisasjonsnummer: ");
+        String orgNumber = input.nextLine();
 
         System.out.print("Epostadresse: ");
         String email = input.nextLine();
+
+        Person.inputEmail(email);
+
+
 
         System.out.print("Passord: ");
         String password = input.nextLine();
@@ -80,6 +95,20 @@ public class MainView {
             CustomerDriver.createNewCustomerAccount(firstname,lastname, email, password);
         }
     }
+
+
+        System.out.print("Etternavn: ");
+        String lastname = input.nextLine();
+
+        System.out.print("Epostadresse: ");
+        String email = input.nextLine();
+
+        System.out.print("Passord: ");
+        String password = input.nextLine();
+
+        OrganizerDriver.createNewOrganizerAccount(firstname,lastname, email, password);
+
+    }*/
 
     private void search(){
         Scanner scanner = new Scanner(System.in);

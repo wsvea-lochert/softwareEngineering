@@ -9,4 +9,11 @@ public class CustomerDriver {
         Customer customer = new Customer(firstname, lastname, email, password);
         customerList.add(customer);
     }
+
+    public static void createNewCustomerAccount(Customer customer){
+
+        customerList.add(customer);
+        System.out.println("Din kundekonto er opprettet!");
+    }
+
 }
