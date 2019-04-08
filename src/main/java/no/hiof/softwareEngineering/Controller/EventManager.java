@@ -21,7 +21,7 @@ public class EventManager {
         System.out.println("Event laget.");
     }
 
-    private static int createIndex(){
+    public static int createIndex(){
         int tempIndex = 1;
 
         for(Event event : eventList){
@@ -36,7 +36,7 @@ public class EventManager {
         return tempIndex;
     }
 
-    private static void createTickets(int ticketAmount, String eventName, ArrayList<Ticket> availableTickets){
+    public static void createTickets(int ticketAmount, String eventName, ArrayList<Ticket> availableTickets){
         for (int i = 1; i < ticketAmount+1; i++){
             Ticket ticket = new Ticket(eventName + i, 200 );
             availableTickets.add(ticket);
