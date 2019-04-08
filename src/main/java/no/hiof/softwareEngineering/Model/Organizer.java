@@ -1,5 +1,6 @@
 package no.hiof.softwareEngineering.Model;
 
+
 public class Organizer {
     private String companyName;
     private String email;

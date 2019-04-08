@@ -10,7 +10,7 @@ import static no.hiof.softwareEngineering.Controller.EventManager.printMyTickets
 public class CustomerView {
     static Scanner input = new Scanner(System.in);
 
-    public static void runCustomerPart() {
+    public static void runCustomerPart(){
         int option = 0;
         Customer customer = LoginView.customerLogin();
 
@@ -19,7 +19,7 @@ public class CustomerView {
         while (option < 4) {
             System.out.print("\n(1) Se alle eventer // (2) Bestill billett // (3) Se mine billetter // (4)  Tilbake: ");
             option = input.nextInt();
-            switch (option) {
+            switch (option){
                 case 1:
                     printEventWithIndex();
                     break;

@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class Person {
 
-    Scanner input = new Scanner(System.in);
+    static Scanner input = new Scanner(System.in);
 
     private String password;
     private String firstName;
     private String lastName;
-    private String email;
+    private static String email;
     private int phoneNo;
     private String confirmpassword;
     private String confirmEmail;
@@ -64,13 +64,13 @@ public class Person {
         return inputstring;
     }
 
-    public String inputEmail() {
+    public static String inputEmail(String email) {
         boolean isValidString = false;
         //ToDo: fikse regex uttrykket - matcher bare hvis to tegn før @
         //String regexEmail = "^[-0-9a-zA-Z.+_]{2}+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}";
         String regexEmail = "^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}";
-        System.out.print("Email: ");
-        email = input.nextLine();
+        //System.out.print("Email: ");
+        //email = input.nextLine();
 
         while(!isValidString) {
             if (email.matches(regexEmail)){
