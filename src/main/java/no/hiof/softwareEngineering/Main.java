@@ -7,6 +7,7 @@ import no.hiof.softwareEngineering.View.MainView;
 import no.hiof.softwareEngineering.View.NewUserView;
 import static no.hiof.softwareEngineering.Controller.EventManager.createEvent;
 import static no.hiof.softwareEngineering.Lists.ListManager.*;
+import static no.hiof.softwareEngineering.View.PaymentView.runPayment;
 
 public class Main {
 
@@ -17,6 +18,7 @@ public class Main {
         Organizer TestOrganizer = new Organizer("admin", "admin@admin.no", "adminABC123", "admin", "admin");
         organizerList.add(TestOrganizer);
         customerList.add(testCustomer);*/
+        runPayment();
         MainView run = new MainView();
         run.userOptions();
     }
