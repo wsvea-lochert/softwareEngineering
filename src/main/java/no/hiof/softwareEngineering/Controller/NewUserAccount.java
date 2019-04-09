@@ -9,53 +9,10 @@ import static no.hiof.softwareEngineering.Lists.ListManager.organizerList;
 
 public class NewUserAccount {
 
-    public static void receivesNewCustomer(Customer customer) {
-        if (!checkStringLength(1, 50, customer.getFirstname())) {
-            System.out.println("Feil i input: fornavn. Prøv på nytt.");
-            String updatedFirstname = NewUserView.updateInput();
-            customer.setFirstname(updatedFirstname);
-            receivesNewCustomer(customer);
-        }
-        else if (!checkStringLength(1, 50, customer.getLastname())) {
-            System.out.println("Feil i input: etternavn. Prøv på nytt.");
-            String updatedLastname = NewUserView.updateInput();
-            customer.setLastname(updatedLastname);
-            receivesNewCustomer(customer);
-        }
-        else if (!checkEmail(customer.getEmail())) {
-            System.out.println("Feil i input: e-post. Prøv på nytt.");
-            String updatedEmail = NewUserView.updateInput();
-            customer.setEmail(updatedEmail);
-            receivesNewCustomer(customer);
-        }
-        else if (!checkPassword(customer.getPassword())) {
-            String updatedPassword = NewUserView.updateInput();
-            customer.setPassword(updatedPassword);
-            receivesNewCustomer(customer);
-        }
-
-        createNewCustomerAccount(customer);
-    }
 
     public static void createNewCustomerAccount(Customer customer){
         customerList.add(customer);
         System.out.println("Din kundekonto er opprettet!");
-    }
-
-    public static void receivesNewOrganizer(Organizer organizer) {
-        if (!checkEmail(organizer.getEmail())) {
-            System.out.println("Feil i input: e-post. Prøv på nytt.");
-            String updatedEmail = NewUserView.updateInput();
-            organizer.setEmail(updatedEmail);
-            receivesNewOrganizer(organizer);
-        }
-        else if (!checkPassword(organizer.getPassword())) {
-            String updatedPassword = NewUserView.updateInput();
-            organizer.setPassword(updatedPassword);
-            receivesNewOrganizer(organizer);
-        }
-
-        createNewOrganizerAccount(organizer);
     }
 
     public static void createNewOrganizerAccount(Organizer organizer) {
@@ -93,7 +50,7 @@ public class NewUserAccount {
         String specChar = "(?=.*\\W)";
 
         if (password.length() < 8) {
-            System.out.println("Passordet må inneholde minst 8 tegn.");
+            System.out.print("Passordet må inneholde minst 8 tegn: ");
             return false;
         }
         /*else if (!password.matches(uppercase) || !password.matches(lowercase)){
