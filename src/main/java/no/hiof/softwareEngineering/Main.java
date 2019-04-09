@@ -17,7 +17,6 @@ public class Main {
         Organizer TestOrganizer = new Organizer("admin", "admin@admin.no", "adminABC123", "admin", "admin");
         organizerList.add(TestOrganizer);
         customerList.add(testCustomer);*/
-
         MainView run = new MainView();
         run.userOptions();
     }
