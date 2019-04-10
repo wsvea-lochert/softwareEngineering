@@ -11,7 +11,7 @@ import static no.hiof.softwareEngineering.Controller.NewUserAccount.*;
 public class NewUserView {
     private static Scanner input = new Scanner(System.in);
 
-    public static String reciveString(String message){
+    public static String receiveString(String message){
         System.out.print(message);
         String checkString = input.nextLine();
         while(!NewUserAccount.checkStringLength(1, 50, checkString)){
@@ -21,7 +21,7 @@ public class NewUserView {
         return checkString;
     }
 
-    public static String reciveEmail(){
+    public static String receiveEmail(){
         System.out.print("E-post: ");
         String email = input.nextLine();
         while(!checkEmail(email)){
@@ -31,7 +31,7 @@ public class NewUserView {
         return email;
     }
 
-    public static String recivePassword(){
+    public static String receivePassword(){
         System.out.print("Passord (min 8 tegn, store og små bokstaver, tall og/eller spesialtegn): ");
         String password = input.nextLine();
         while(!checkPassword(password)){
@@ -41,21 +41,21 @@ public class NewUserView {
     }
 
     public static void receiveNewCustomerInput() {
-        String firstname = reciveString("Fornavn: ");
-        String lastname = reciveString("Etternavn: ");
-        String email = reciveEmail();
-        String password = recivePassword();
+        String firstname = receiveString("Fornavn: ");
+        String lastname = receiveString("Etternavn: ");
+        String email = receiveEmail();
+        String password = receivePassword();
 
         Customer customer = new Customer(firstname, lastname, email, password);
         createNewCustomerAccount(customer);
     }
 
     public static void receiveNewOrganizerInput() {
-        String companyName = reciveString("Firmanavn: ");
-        String firstname = reciveString("Fornavn: ");
-        String lastname = reciveString("Etternavn: ");
-        String email = reciveEmail();
-        String password = recivePassword();
+        String companyName = receiveString("Firmanavn: ");
+        String firstname = receiveString("Fornavn: ");
+        String lastname = receiveString("Etternavn: ");
+        String email = receiveEmail();
+        String password = receivePassword();
 
         Organizer organizer = new Organizer(companyName, email, password, firstname, lastname);
         createNewOrganizerAccount(organizer);
