@@ -16,13 +16,11 @@ public class NewUserAccount {
     }
 
     public static void createNewOrganizerAccount(Organizer organizer) {
-
         organizerList.add(organizer);
         System.out.println("Din arrangørkonto er opprettet!");
     }
 
     public static boolean checkStringLength(int minlength, int maxlength, String inputstring) {
-
         if (inputstring.length() >= minlength && inputstring.length() <= maxlength){
             return true;
         }
