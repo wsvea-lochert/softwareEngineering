@@ -29,7 +29,7 @@ public class PaymentView {
     }
 
     public static boolean resciveDate(){
-        System.out.print("date: ");
+        System.out.print("Utløpsdato(mm/åå): ");
         String tempDate = input.nextLine();
 
         while(!checkDatePattern(tempDate)){
