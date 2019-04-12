@@ -56,10 +56,10 @@ public class MainView {
             int option = scanner.nextInt();
 
             if(option == 1)
-                searchAfterEvents();
+                searchForEventName();
 
             else if(option == 2)
-                searchAfterCategorys();
+                searchForCategories();
             else
                 System.out.println("Skriv inn 1 eller 2!");
         }
@@ -69,7 +69,7 @@ public class MainView {
         }
     }
 
-    private void searchAfterEvents(){
+    private void searchForEventName(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Søk etter arrangement: ");
 
@@ -88,7 +88,7 @@ public class MainView {
         }
     }
 
-    private void searchAfterCategorys(){
+    private void searchForCategories(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Søk etter arrangment i kategori: ");
 
