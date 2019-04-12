@@ -1,11 +1,6 @@
 package no.hiof.softwareEngineering.View;
 
-import java.sql.SQLOutput;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import static no.hiof.softwareEngineering.Controller.Payment.*;
 
