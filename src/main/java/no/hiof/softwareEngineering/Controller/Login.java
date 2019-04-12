@@ -7,10 +7,20 @@ import static no.hiof.softwareEngineering.Lists.ListManager.customerList;
 
 public abstract class Login {
     public static Organizer organizerValidation(String email, String password){
-        return organizerList.stream().filter(org -> email.equals(org.getEmail()) && password.equals(org.getPassword())).findFirst().orElse(null);
+        return organizerList.stream()
+                .filter
+                        (org -> email.equals(org.getEmail())
+                                && password.equals(org.getPassword()))
+                .findFirst()
+                .orElse(null);
     }
 
     public static Customer userValidation(String email, String password){
-        return customerList.stream().filter(cust -> email.equals(cust.getEmail()) && password.equals(cust.getPassword())).findFirst().orElse(null);
+        return customerList.stream()
+                .filter
+                        (cust -> email.equals(cust.getEmail())
+                                && password.equals(cust.getPassword()))
+                .findFirst()
+                .orElse(null);
     }
 }

@@ -13,10 +13,6 @@ public class PaymentView {
     static Scanner input = new Scanner(System.in);
 
     public static boolean runPayment(){
-       // String cardnumber = resciveCardNumber();
-        //String cardDate = resciveDate();
-      //  resciveCVC();
-
         return resciveCardNumber() && resciveDate() && resciveCVC();
     }
 
@@ -59,8 +55,4 @@ public class PaymentView {
         }
         return true;
     }
-
-
-
-
 }
