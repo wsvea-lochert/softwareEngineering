@@ -30,6 +30,8 @@ public class EventManagerTest {
 
         bookTicket(eventList.get(1), customer, 2);
 
+        markTicketAsUsed("sopptur1", organizer);
+
     }
 
     @AfterEach
@@ -55,11 +57,11 @@ public class EventManagerTest {
 
     @Test
     public void checkIfTicketControlWorks(){
-        Assertions.assertTrue(controllTicket("Biltur1", organizer));
+        Assertions.assertFalse(controllTicket("Sopptur2", organizer));
     }
 
     @Test
     public void checkIfTicketControlFailsCorrectly(){
-        Assertions.assertTrue(controllTicket("Biltur3", organizer));
+        Assertions.assertTrue(controllTicket("Sopptur1", organizer));
     }
 }

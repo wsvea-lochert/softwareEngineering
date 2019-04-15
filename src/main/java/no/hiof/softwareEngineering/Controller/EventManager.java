@@ -74,14 +74,7 @@ public class EventManager {
         for (Event event : eventList){
             for (Ticket ticket : soldTickets){
                 if (ticket.getTicketCode().equals(code) && ticket.getEventIndexforTickets() == event.getEventIndex() && event.getEventOwner().equals(organizer.getCompanyName())){
-                    if (ticket.isStatus()){
-                        //ticket is used
-                        return false;
-                    }
-                    else{
-                        //Ticked is not used
-                        return true;
-                    }
+                    return ticket.isStatus();
                 }
                 else{
                     //error, ticket may not have been generated.
@@ -90,6 +83,16 @@ public class EventManager {
             }
         }
         return false;
+    }
+
+    public static void markTicketAsUsed(String code, Organizer organizer){
+        for (Event event : eventList){
+            for (Ticket ticket : soldTickets){
+                if (ticket.getTicketCode().equals(code) && ticket.getEventIndexforTickets() == event.getEventIndex() && event.getEventOwner().equals(organizer.getCompanyName())){
+                    ticket.setStatus(true);
+                }
+            }
+        }
     }
 
 }
