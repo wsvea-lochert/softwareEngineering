@@ -14,7 +14,7 @@
 - Java
 
 ## Requirements to run the application
-#### Important to know that this is the tools and versions we have used for this project, other may or may not work, so it is recommended to use exactly the tools and versions that are stated below:
+#### It is mportant to know that this is the tools and versions we have used for this project, other may or may not work, so it is recommended to use exactly the tools and versions that are stated below here:
 - Java version 11
 - Junit 5
 - Maven 3.3.9
