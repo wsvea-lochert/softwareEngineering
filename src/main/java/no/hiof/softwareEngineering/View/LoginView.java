@@ -25,11 +25,15 @@ public class LoginView {
             if(user != null){
                 // System.out.println("\nDu er nå logget inn.");
                 return user;
-            } else
+            } else if(i == 2){
+                System.out.println("Alle forsøk er brukt opp, vennligst prøv igjen senere.");
+                MainView run = new MainView();
+                run.userOptions();
+            } else {
                 System.out.println("Feil epost og/eller passord, vennligst prøv igjen.");
+            }
         }
 
-        System.out.println("Alle forsøk er brukt opp, vennligst prøv igjen senere.");
         scanner.close();
         return null;
     }
@@ -49,11 +53,15 @@ public class LoginView {
             if(user != null){
                 // System.out.println("\nDu er nå logget inn.");
                 return user;
-            } else
+            } else if(i == 2){
+                System.out.println("Alle forsøk er brukt opp, vennligst prøv igjen senere.");
+                MainView run = new MainView();
+                run.userOptions();
+            } else {
                 System.out.println("Feil epost og/eller passord, vennligst prøv igjen.");
+            }
         }
 
-        System.out.println("Alle forsøk er brukt opp, vennligst prøv igjen senere.");
         scanner.close();
         return null;
     }
