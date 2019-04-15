@@ -14,9 +14,11 @@
 - Java
 
 ## Requirements to run the application
+#### Important to know that this is the tools and versions we have used for this project, other may or may not work, so it is recommended to use exactly the tools and versions that are stated below:
 - Java version 11
 - Junit 5
-- Maven
+- Maven 3.3.9
+
 <hr>
 
 <img height="87" width="421" src="https://blogg.hiof.no/fremmedsprak/files/2015/02/logo_hiof_sort.png"> </img>
