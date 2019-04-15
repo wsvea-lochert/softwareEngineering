@@ -8,6 +8,7 @@ import static no.hiof.softwareEngineering.Lists.ListManager.*;
 
 public class Booking {
 
+
     public static Event findEvent(int eventToLookFor){
         for (Event event : eventList){
             if (eventToLookFor == event.getEventIndex()){

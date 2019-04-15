@@ -44,4 +44,5 @@ public class EventManagerTest {
     public void checkIfCreateTicketsWorks(){
         Assertions.assertEquals(200, availableTickets.size());
     }
+
 }

@@ -15,6 +15,9 @@ import static no.hiof.softwareEngineering.Lists.ListManager.*;
 
 public class BookingTest {
 
+    /* 1. Booking Event testings */
+
+
     private Customer customer;
     private ArrayList<Ticket> deleteList = new ArrayList<>();
 
@@ -33,10 +36,15 @@ public class BookingTest {
         soldTickets.clear();
     }
 
+    /* 1A. Finding events */
+
     @Test
     public void checkIfFindEventWorks(){
         Assertions.assertEquals(eventList.get(0), findEvent(1));
     }
+
+
+    /* 1B. Check if ticket amount decreases properly. */
 
     @Test
     public void checkIfTicketAmmountDecreasesProperly(){
@@ -44,6 +52,7 @@ public class BookingTest {
         Assertions.assertEquals(8, eventList.get(0).getTicketAmount());
     }
 
+    /* 1C. Check if available tickets are removed from availableTickets list*/
     @Test
     public void checkIfTicketsAreRemovedFromAvailableTicketsList(){
         deleteList.add(0, availableTickets.get(3));
@@ -52,6 +61,7 @@ public class BookingTest {
         Assertions.assertEquals(9, availableTickets.size());
     }
 
+    /* 1D. Check if sold list is updated correctly when tickets are sold */
     @Test
     public void checkIfTicketIsAddedToSoldTicketsListWhenPaymentIsAccepted(){
         bookTicket(eventList.get(0), customer, 2);
