@@ -2,7 +2,6 @@ package no.hiof.softwareEngineering;
 
 import no.hiof.softwareEngineering.Model.Customer;
 import no.hiof.softwareEngineering.Model.Organizer;
-import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,21 +24,24 @@ public class EventManagerTest {
                 "2019-10-20", "Halden", "BRA veien 6d", "0", "0", "Juicy", "144");
 
         createEvent("Biltur", "Friluft", "Koselig biltur",
-                "2019-10-20", "Oslo", "Karrestadveien 12", "18", "4", "Juicy", "200");
+                "2019-10-20", "Oslo", "Karrestadveien 12", "18", "0", "Juicy", "200");
 
         createTickets("200", "Sopptur", availableTickets, "200", 1);
 
         bookTicket(eventList.get(0), customer, 2);
-
-        markTicketAsUsed("Sopptur1", organizer);
-
-        System.out.println(soldTickets);
     }
 
     @AfterEach
     public void tearDown(){
         eventList.clear();
         availableTickets.clear();
+        soldTickets.clear();
+    }
+
+    @Test
+    public void checkIfMarkTicketMethodWorks(){
+        markTicketAsUsed("Sopptur1", organizer);
+        Assertions.assertTrue(soldTickets.get(0).isStatus());
     }
 
     @Test
@@ -54,16 +56,17 @@ public class EventManagerTest {
 
     @Test
     public void checkIfCreateTicketsWorks(){
-        Assertions.assertEquals(202, availableTickets.size());
-    }
-
-    @Test
-    public void checkIfTicketControlWorks(){
-        Assertions.assertFalse(controllTicket("Sopptur2", organizer));
+        Assertions.assertEquals(198, availableTickets.size());
     }
 
     @Test
     public void checkIfTicketControlFailsCorrectly(){
+        Assertions.assertFalse(controllTicket("Sopptur2", organizer));
+    }
+
+    @Test
+    public void checkIfTicketControlWorks(){
+        markTicketAsUsed("Sopptur1", organizer);
         Assertions.assertTrue(controllTicket("Sopptur1", organizer));
     }
 }
