@@ -1,6 +1,6 @@
 # softwareEngineering
 
-#### A flexsible booking application.
+#### Prototype for a flexsible booking application.
 ## Developers
 
 - Martin Skåksrud
@@ -14,9 +14,9 @@
 - Java
 
 ## Requirements to run the application
-- Java version 11 installed on your computer
-- Maven 4
-- Junit 5 for testing
+- Java version 11
+- Junit 5
+- Maven
 <hr>
 
 <img height="87" width="421" src="https://blogg.hiof.no/fremmedsprak/files/2015/02/logo_hiof_sort.png"> </img>
