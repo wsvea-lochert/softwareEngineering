@@ -70,22 +70,26 @@ public class EventManager {
         }
     }
 
-    public static void controllTicket(String code, Organizer organizer){
+    public static boolean controllTicket(String code, Organizer organizer){
         for (Event event : eventList){
             for (Ticket ticket : soldTickets){
                 if (ticket.getTicketCode().equals(code) && ticket.getEventIndexforTickets() == event.getEventIndex() && event.getEventOwner().equals(organizer.getCompanyName())){
                     if (ticket.isStatus()){
-                        System.out.println("Billetten har blitt brukt.");
+                        //ticket is used
+                        return false;
                     }
                     else{
-                        System.out.println("Billetten har ikke blitt brukt.");
+                        //Ticked is not used
+                        return true;
                     }
                 }
                 else{
-                    System.out.println("Noe gikk galt, du er enten ikke arrangøren for dette eller billettkoden er feil");
+                    //error, ticket may not have been generated.
+                    return false;
                 }
             }
         }
+        return false;
     }
 
 }

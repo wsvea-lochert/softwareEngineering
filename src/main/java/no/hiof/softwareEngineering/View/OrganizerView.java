@@ -121,7 +121,11 @@ public class OrganizerView {
         Scanner userInput = new Scanner(System.in);
         System.out.print("Billett kode:");
         String ticketCode = userInput.nextLine();
-        controllTicket(ticketCode, organizer);
+        if(controllTicket(ticketCode, organizer)){
+            System.out.println("Billetten har ikke blitt brukt opp.");
+        } else{
+            System.out.println("Billetten har blitt brukt opp.");
+        }
     }
 
 }
