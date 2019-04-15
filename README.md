@@ -8,11 +8,11 @@
 - Junit 5
 - Maven 3.3.9
 
-## Table of contents for UNIT TESTS
-### BookingTest - Class
+## Table of contents for UNIT TESTS, contains classes and method index.
+### 1 - BookingTest
 #### BookingTest is used for testing methods accociated with the Booking Class. Finding events, booking tickets, removing the booked tickets from available tickets and adding tickets to sold tickets list is some of the functioanlity that is tested.
 
-##### Here is a list of all the tests in BookingTest:
+##### Here is the index for all unit tests in BookingTest:
 - 1A - Finding events
 - 1B - Check if ticket amount decreases properly
 - 1C - Check if available tickets are removed from availableTickets list
