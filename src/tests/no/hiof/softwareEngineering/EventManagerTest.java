@@ -28,10 +28,11 @@ public class EventManagerTest {
 
         createTickets("200", "Sopptur", availableTickets, "200", 1);
 
-        bookTicket(eventList.get(1), customer, 2);
+        bookTicket(eventList.get(0), customer, 2);
 
-        markTicketAsUsed("sopptur1", organizer);
+        markTicketAsUsed("Sopptur1", organizer);
 
+        System.out.println(soldTickets);
     }
 
     @AfterEach
