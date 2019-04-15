@@ -2,6 +2,7 @@ package no.hiof.softwareEngineering;
 
 import no.hiof.softwareEngineering.Model.Customer;
 import no.hiof.softwareEngineering.Model.Organizer;
+import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,7 +31,7 @@ public class EventManagerTest {
 
         bookTicket(eventList.get(1), customer, 2);
 
-        markTicketAsUsed("sopptur1", organizer);
+        markTicketAsUsed("Sopptur2", organizer);
 
     }
 
@@ -62,6 +63,6 @@ public class EventManagerTest {
 
     @Test
     public void checkIfTicketControlFailsCorrectly(){
-        Assertions.assertTrue(controllTicket("Sopptur1", organizer));
+        Assertions.assertTrue(controllTicket("Sopptur2", organizer));
     }
 }

@@ -40,8 +40,8 @@ public class EventManager {
         int tickets = Integer.parseInt(ticketAmount);
         int rightPrice = Integer.parseInt(price);
         for (int i = 1; i < tickets+1; i++){
-            Ticket ticket = new Ticket(eventName + i, rightPrice, eventIndex);
-            ticket.setStatus(false);
+            Ticket ticket = new Ticket(eventName + i, rightPrice, eventIndex, false);
+            //ticket.setStatus(false);
             availableTickets.add(ticket);
         }
     }
@@ -90,7 +90,9 @@ public class EventManager {
             for (Ticket ticket : soldTickets){
                 if (ticket.getTicketCode().equals(code) && ticket.getEventIndexforTickets() == event.getEventIndex() && event.getEventOwner().equals(organizer.getCompanyName())){
                     ticket.setStatus(true);
+                    System.out.println(ticket);
                 }
+
             }
         }
     }

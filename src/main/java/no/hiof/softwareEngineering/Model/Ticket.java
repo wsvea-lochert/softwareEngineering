@@ -8,17 +8,18 @@ public class Ticket {
     private int eventIndexforTickets;
     private boolean status;
 
-    public Ticket(String ticketCode, double price, int eventIndexforTickets) {
+    public Ticket(String ticketCode, double price, int eventIndexforTickets, boolean status) {
         this.ticketCode = ticketCode;
         this.price = price;
         this.eventIndexforTickets = eventIndexforTickets;
+        this.status = status;
     }
 
-    public Ticket(String ticketCode, double price, String customerEmail){
+   /* public Ticket(String ticketCode, double price, String customerEmail){
         this.ticketCode = ticketCode;
         this.price = price;
         this.customerEmail = customerEmail;
-    }
+    }*/
 
 
     public String getTicketCode() {

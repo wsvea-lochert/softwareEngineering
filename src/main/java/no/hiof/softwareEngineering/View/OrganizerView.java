@@ -13,8 +13,8 @@ public class OrganizerView {
         int option = 0;
         Organizer admin = LoginView.organizerLogin();
 
-        while (option < 4 && admin != null) {
-            System.out.print("\n(1) Se mine arrangement // (2) Opprett arrangement // (3) Kontroller billett // (4)  Tilbake: ");
+        while (option < 5 && admin != null) {
+            System.out.print("\n(1) Se mine arrangement // (2) Opprett arrangement // (3) Kontroller billett // (4) Marker billett som brukt // (5)  Tilbake: ");
             option = input.nextInt();
             switch (option){
                 case 1:
@@ -27,6 +27,9 @@ public class OrganizerView {
                     controllTicketInput(admin);
                     break;
                 case 4:
+                    markTicketInput(admin);
+                    break;
+                case 5:
                     break;
                 default:
                     break;
@@ -119,13 +122,20 @@ public class OrganizerView {
 
     private static void controllTicketInput(Organizer organizer){
         Scanner userInput = new Scanner(System.in);
-        System.out.print("Billett kode:");
+        System.out.print("Billett kode: ");
         String ticketCode = userInput.nextLine();
-        if(controllTicket(ticketCode, organizer)){
+        if(!controllTicket(ticketCode, organizer)){
             System.out.println("Billetten har ikke blitt brukt opp.");
         } else{
             System.out.println("Billetten har blitt brukt opp.");
         }
+    }
+
+    private static void markTicketInput(Organizer organizer){
+        Scanner userInput = new Scanner(System.in);
+        System.out.print("Billett kode: ");
+        String ticketCode = userInput.nextLine();
+        markTicketAsUsed(ticketCode, organizer);
     }
 
 }
