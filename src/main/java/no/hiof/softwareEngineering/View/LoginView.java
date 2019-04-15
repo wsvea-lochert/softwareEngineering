@@ -14,6 +14,7 @@ public class LoginView {
         Organizer user;
 
         for(int i = 0; i < 3; i++){
+            System.out.println( "Login " );
             System.out.print("Epost: ");
             String inputEmail = scanner.nextLine();
 

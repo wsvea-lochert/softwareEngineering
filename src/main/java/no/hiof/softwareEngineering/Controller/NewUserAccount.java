@@ -38,6 +38,7 @@ public class NewUserAccount {
         else {
             return false;
         }
+
     }
 
     public static boolean checkPassword(String password) {

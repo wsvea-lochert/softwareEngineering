@@ -23,13 +23,14 @@ public class SearchEventTest {
     @BeforeEach
     public void setUp(){
         eventList.add(new Event("Sopptur med Grete", "Friluft",
-                                    "Ta med riktige klær og godt humør", 0, 200,
+                                    "Ta med riktige klær og godt humør",
+                "0", "200",
                                     LocalDate.parse("2019-03-29"), new Location("Halden", "BRA veien 6d"), 21,
                                     "admin"));
 
         eventList.add(new Event("Halden Marathon", "Friluft",
                                 "50 kilometer med ren glede!",
-                                16, 1000, LocalDate.parse("2019-03-29"),
+                                "16", "1000", LocalDate.parse("2019-03-29"),
                                 new Location("Halden", "BRA veien 6d"), 22,
                                 "admin"));
     }

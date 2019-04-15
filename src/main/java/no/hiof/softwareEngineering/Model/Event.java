@@ -7,15 +7,15 @@ public class Event {
     private String eventName;
     private String category;
     private String description;
-    private int ageLimit;
-    private int ticketAmount;
+    private String ageLimit;
+    private String ticketAmount;
     private LocalDate date;
     private Location eventLocation;
     private int eventIndex;
     private String eventOwner;
 
 
-    public Event(String eventName, String category, String description, int ageLimit, int ticketAmount, LocalDate date, Location eventLocation, int eventIndex, String eventOwner) {
+    public Event(String eventName, String category, String description, String ageLimit, String ticketAmount, LocalDate date, Location eventLocation, int eventIndex, String eventOwner) {
         this.eventName = eventName;
         this.category = category;
         this.description = description;
@@ -47,12 +47,12 @@ public class Event {
         return description;
     }
 
-    public int getAgeLimit() {
+    public String getAgeLimit() {
         return ageLimit;
     }
 
     public int getTicketAmount() {
-        return ticketAmount;
+        return Integer.parseInt( ticketAmount );
     }
 
     public LocalDate getDate() {
@@ -79,12 +79,12 @@ public class Event {
         this.description = description;
     }
 
-    public void setAgeLimit(int ageLimit) {
+    public void setAgeLimit(String ageLimit) {
         this.ageLimit = ageLimit;
     }
 
     public void setTicketAmount(int ticketAmount) {
-        this.ticketAmount = ticketAmount;
+        this.ticketAmount = String.valueOf( ticketAmount );
     }
 
     public void setDate(LocalDate date) {

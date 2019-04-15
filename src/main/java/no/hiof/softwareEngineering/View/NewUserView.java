@@ -19,6 +19,7 @@ public class NewUserView {
             checkString = input.nextLine();
         }
         return checkString;
+
     }
 
     public static String receiveEmail(){

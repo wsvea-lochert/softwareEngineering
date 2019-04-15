@@ -21,7 +21,7 @@ public class BookingTest {
     @BeforeEach
     public void setUp(){
         createEvent("Sopptur med Grete", "Friluft", "Ta med riktige klær og godt humør",
-                "2019-03-29", "Halden", "BRA veien 6d", 0, 10, "admin");
+                "2019-03-29", "Halden", "BRA veien 6d", "0", "10", "admin");
 
         customer = new Customer("Enis", "Jasharaj", "enisj@hiof.no", "enis123");
     }

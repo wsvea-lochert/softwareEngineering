@@ -10,7 +10,7 @@ import static no.hiof.softwareEngineering.Lists.ListManager.*;
 
 public class EventManager {
 
-    public static void createEvent(String eventName, String category, String description, String date, String city, String street, int ageLimit, int tickets, String eventOwner){
+    public static void createEvent(String eventName, String category, String description, String date, String city, String street, String ageLimit, String tickets, String eventOwner){
 
        /* String regex = "^(?:[0-9]{2})?[0-9]{2}-[0-3]?[0-9]-[0-3]?[0-9]$";
         Pattern pattern = Pattern.compile(regex);*/
@@ -36,8 +36,9 @@ public class EventManager {
         return tempIndex;
     }
 
-    public static void createTickets(int ticketAmount, String eventName, ArrayList<Ticket> availableTickets){
-        for (int i = 1; i < ticketAmount+1; i++){
+    public static void createTickets(String ticketAmount, String eventName, ArrayList<Ticket> availableTickets){
+        int tickets = Integer.parseInt(ticketAmount);
+        for (int i = 1; i < tickets+1; i++){
             Ticket ticket = new Ticket(eventName + i, 200 );
             availableTickets.add(ticket);
         }

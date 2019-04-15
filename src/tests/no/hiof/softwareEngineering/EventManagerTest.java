@@ -15,12 +15,12 @@ public class EventManagerTest {
     @BeforeEach
     public void setUp(){
         createEvent("Sopptur med Grete", "Friluft", "Ta med riktige klær og godt humør",
-                "2019-03-29", "Halden", "BRA veien 6d", 0, 0, "admin");
+                "2019-03-29", "Halden", "BRA veien 6d", "0", "0", "admin");
 
         createEvent("Biltur med Johnny", "Friluft", "Koselig biltur",
-                "2019-04-24", "Oslo", "Karrestadveien 12", 18, 0, "admin");
+                "2019-04-24", "Oslo", "Karrestadveien 12", "18", "0", "admin");
 
-        createTickets(200, "Biltur med Johnny", availableTickets);
+        createTickets("200", "Biltur med Johnny", availableTickets);
 
     }
 
