@@ -12,10 +12,10 @@
 ### BookingTest - Class
 #### BookingTest is used for testing methods accociated with the Booking Class. Finding events, booking tickets and removing the booked tickets from available tickets.
 
-- 1A. Finding events
-- 1B. Check if ticket amount decreases properly
-- 1C. Check if available tickets are removed from availableTickets list
-- 1D. Check if sold list is updated correctly when tickets are sold
+- 1A - Finding events
+- 1B - Check if ticket amount decreases properly
+- 1C - Check if available tickets are removed from availableTickets list
+- 1D - Check if sold list is updated correctly when tickets are sold
 
 ## Developers
 
