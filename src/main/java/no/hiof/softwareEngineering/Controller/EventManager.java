@@ -90,7 +90,6 @@ public class EventManager {
             for (Ticket ticket : soldTickets){
                 if (ticket.getTicketCode().equals(code) && ticket.getEventIndexforTickets() == event.getEventIndex() && event.getEventOwner().equals(organizer.getCompanyName())){
                     ticket.setStatus(true);
-                    System.out.println(ticket);
                 }
 
             }

@@ -64,6 +64,6 @@ public class EventManagerTest {
 
     @Test
     public void checkIfTicketControlFailsCorrectly(){
-        Assertions.assertTrue(controllTicket("Sopptur2", organizer));
+        Assertions.assertTrue(controllTicket("Sopptur1", organizer));
     }
 }
