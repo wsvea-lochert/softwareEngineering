@@ -21,6 +21,12 @@ public class Booking {
     public static void printEventWithIndex(){
         for (Event event : eventList){
             System.out.println(event);
+            for (Ticket ticket : availableTickets){
+                if (ticket.getEventIndexforTickets() == event.getEventIndex()){
+                    System.out.println("Billett pris: " + ticket.getPrice() + "\n");
+                    break;
+                }
+            }
         }
     }
 
@@ -32,7 +38,7 @@ public class Booking {
 
             for (Event event : eventList){
                 for (Ticket ticket : availableTickets){
-                    if (event.equals(selectedEvent) && ticketSelected != 0){
+                    if (event.equals(selectedEvent) && ticketSelected != 0 && ticket.getEventIndexforTickets() == event.getEventIndex()){
                         ticket.setCustomerEmail(customer.getEmail());
                         deleteList.add(ticket);
                         soldTickets.add(ticket);
@@ -40,19 +46,15 @@ public class Booking {
                     }
                 }
             }
-            removeSoldTickets(selectedEvent, deleteList); //refactor
+            removeSoldTickets(deleteList); //refactor
         }
         else{
             System.out.println("Noe gikk galt.");
         }
     }
 
-    public static void removeSoldTickets(Event selectedEvent, ArrayList<Ticket> deleteList){
-        for (Event event : eventList){
-            if (selectedEvent.equals(event)){
-                availableTickets.removeAll(deleteList);
-            }
-        }
+    public static void removeSoldTickets(ArrayList<Ticket> deleteList){
+        availableTickets.removeAll(deleteList);
     }
 
 }

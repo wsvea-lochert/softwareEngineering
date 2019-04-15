@@ -20,7 +20,6 @@ public class PaymentView {
             cvc = input.nextInt();
         }
         return true;
-        //return cvc;
     }
 
     public static boolean resciveDate(){

@@ -13,8 +13,8 @@ public class OrganizerView {
         int option = 0;
         Organizer admin = LoginView.organizerLogin();
 
-        while (option < 3 && admin != null) {
-            System.out.print("\n(1) Se mine arrangement // (2) Opprett arrangement // (3)  Tilbake: ");
+        while (option < 4 && admin != null) {
+            System.out.print("\n(1) Se mine arrangement // (2) Opprett arrangement // (3) Kontroller billett // (4)  Tilbake: ");
             option = input.nextInt();
             switch (option){
                 case 1:
@@ -24,6 +24,9 @@ public class OrganizerView {
                     createEventInput(admin);
                     break;
                 case 3:
+                    controllTicketInput(admin);
+                    break;
+                case 4:
                     break;
                 default:
                     break;
@@ -99,7 +102,26 @@ public class OrganizerView {
             matcherOnlyNum2 = patternOnlyNum.matcher(ageLimit);
         }
 
-        createEvent(eventName, category, description, date, city, street, ageLimit, tickets, organizer.getCompanyName());
+        System.out.print("Pris per bilett: ");
+        String price = stringInput.nextLine();
+        Matcher matcherOnlyNum3 = patternOnlyNum.matcher(ageLimit);
+
+        while(!matcherOnlyNum3.matches()){
+            System.out.print("Ugyldig input skriv inn på nytt: ");
+            price = stringInput.nextLine();
+            matcherOnlyNum3 = patternOnlyNum.matcher(ageLimit);
+        }
+
+
+
+        createEvent(eventName, category, description, date, city, street, ageLimit, tickets, organizer.getCompanyName(), price);
+    }
+
+    private static void controllTicketInput(Organizer organizer){
+        Scanner userInput = new Scanner(System.in);
+        System.out.print("Billett kode:");
+        String ticketCode = userInput.nextLine();
+        controllTicket(ticketCode, organizer);
     }
 
 }
