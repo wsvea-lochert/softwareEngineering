@@ -16,6 +16,7 @@
 ## Requirements to run the application
 - Java version 11 installed on your computer
 - Maven 4
+- Junit 5 for testing
 <hr>
 
 <img height="87" width="421" src="https://blogg.hiof.no/fremmedsprak/files/2015/02/logo_hiof_sort.png"> </img>
