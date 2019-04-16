@@ -12,6 +12,8 @@ import static no.hiof.softwareEngineering.Lists.ListManager.customerList;
 
 public class LoginCustomerTest {
 
+    /* 3. Tests for Login class */
+
     private Customer customer;
 
     @BeforeEach
@@ -25,10 +27,15 @@ public class LoginCustomerTest {
         customerList.clear();
     }
 
+
+    /* 3A - Returning the correct object */
+
     @Test
     public void checkIfUserLoginReturnsObjectIfFounnd(){
         Assertions.assertEquals(customer, userValidation("enisj@hiof.no", "enis123"));
     }
+
+    /* 3B - Returning null if no object is found */
 
     @Test
     public void checkIfUserLoginReturnsNullWhenNotFound(){

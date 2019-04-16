@@ -1,5 +1,6 @@
 package no.hiof.softwareEngineering.View;
 
+import no.hiof.softwareEngineering.Model.Event;
 import no.hiof.softwareEngineering.Model.Organizer;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -18,7 +19,7 @@ public class OrganizerView {
             option = input.nextInt();
             switch (option){
                 case 1:
-                    printEventList(admin);
+                    showEventData(admin);
                     break;
                 case 2:
                     createEventInput(admin);
@@ -34,6 +35,12 @@ public class OrganizerView {
                 default:
                     break;
             }
+        }
+    }
+
+    private static void showEventData(Organizer admin){
+        for(Event e : returnMyEvents(admin)){
+            System.out.println(e);
         }
     }
 

@@ -15,7 +15,7 @@ import static no.hiof.softwareEngineering.Lists.ListManager.*;
 
 public class BookingTest {
 
-    /* 1. Booking Event testings */
+    /* 1. Tests for Booking class */
 
 
     private Customer customer;

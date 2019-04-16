@@ -13,6 +13,9 @@ import static no.hiof.softwareEngineering.Controller.EventManager.*;
 import static no.hiof.softwareEngineering.Lists.ListManager.*;
 
 public class EventManagerTest {
+
+    /* 2. Tests for EventManagerClass  */
+
     private Organizer organizer;
 
     @BeforeEach
@@ -38,36 +41,54 @@ public class EventManagerTest {
         soldTickets.clear();
     }
 
+    /* 2A - Marking tickets as used */
+
     @Test
     public void checkIfMarkTicketMethodWorks(){
         markTicketAsUsed("Sopptur1", organizer);
         Assertions.assertTrue(soldTickets.get(0).isStatus());
     }
 
+    /* 2B - Creating events */
+
     @Test
     public void checkIfEventIsAddedToListWhenCreateEventMethodIsCalled(){
         Assertions.assertEquals(eventList.size(), 2);
     }
+
+    /* 2C - Unique ID for events */
 
     @Test
     public void checkIfCreateIndexWorks(){
        Assertions.assertEquals(createIndex(), 3);
     }
 
+    /* 2D - Creating tickets */
+
     @Test
     public void checkIfCreateTicketsWorks(){
         Assertions.assertEquals(198, availableTickets.size());
     }
+
+    /* 2E - Ticket controll - failing correctly */
 
     @Test
     public void checkIfTicketControlFailsCorrectly(){
         Assertions.assertFalse(controllTicket("Sopptur2", organizer));
     }
 
+    /* 2F - Ticket controll - working correctly */
+
     @Test
     public void checkIfTicketControlWorks(){
         markTicketAsUsed("Sopptur1", organizer);
         Assertions.assertTrue(controllTicket("Sopptur1", organizer));
+    }
+
+    /* 2G - Showing data about my events */
+    @Test
+    public void checkIfEventStatisticsWorks(){
+        Assertions.assertEquals(eventList.get(0), returnMyEvents(organizer).get(0));
     }
 
 }

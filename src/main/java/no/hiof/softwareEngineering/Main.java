@@ -1,13 +1,11 @@
 package no.hiof.softwareEngineering;
 
-import java.time.LocalDate;
-
 import no.hiof.softwareEngineering.Model.*;
 import no.hiof.softwareEngineering.View.MainView;
-import no.hiof.softwareEngineering.View.NewUserView;
+
 import static no.hiof.softwareEngineering.Controller.EventManager.createEvent;
 import static no.hiof.softwareEngineering.Lists.ListManager.*;
-import static no.hiof.softwareEngineering.View.PaymentView.runPayment;
+
 
 public class Main {
 

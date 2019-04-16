@@ -18,6 +18,9 @@ import static no.hiof.softwareEngineering.Lists.ListManager.eventList;
 
 public class SearchEventTest {
 
+
+    /* 7. Tests for SearchEvent class */
+
     private ArrayList<Event> emptyDummyArray = new ArrayList<>();
 
     @BeforeEach
@@ -40,20 +43,28 @@ public class SearchEventTest {
         eventList.clear();
     }
 
+    /* 7A - Check if an array of Event objects are returned */
+
     @Test
     public void checkIfSearchEventByEventNameReturnsArrayOfEventObjects(){
         Assertions.assertEquals(eventList.get(0), searchEvents("sopptur").get(0));
     }
+
+    /* 7B - Check if empty array is returned when no matches are found */
 
     @Test
     public void checkIfSearchEventByEventNameReturnsEmptyArrayIfNoMatches(){
         Assertions.assertEquals(emptyDummyArray, searchEvents("ikkenoesomskalmatchenoesomhelst"));
     }
 
+    /* 7C - Check if an array of Event objects are returned when searching for categories */
+
     @Test
     public void checkIfSearchEventByCategoryNameReturnsArrayOfEventObjects(){
         Assertions.assertEquals(eventList, searchCategory("friluft"));
     }
+
+    /* 7D - Check if empty array is returned when no matches are found when searching for categories */
 
     @Test
     public void checkIfSearchEventByCategoryReturnsEmptyArrayIfNoMatches(){

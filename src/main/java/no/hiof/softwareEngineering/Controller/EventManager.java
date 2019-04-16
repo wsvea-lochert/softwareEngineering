@@ -46,11 +46,14 @@ public class EventManager {
         }
     }
 
-    public static void printEventList(Organizer organizer){
+    public static ArrayList<Event> returnMyEvents(Organizer organizer){
+        ArrayList<Event> placeHolder = new ArrayList<>();
         for (Event e : eventList){
             if (e.getEventOwner().equals(organizer.getCompanyName()))
-            System.out.println(e);
+                placeHolder.add(e);
         }
+
+        return placeHolder;
     }
 
     public static void printTotalPrice(int ticketAmount, Event selectedEvent){
