@@ -1,4 +1,4 @@
-# softwareEngineering
+# Software Engineering project
 
 #### Prototype for a flexsible booking application.
 
