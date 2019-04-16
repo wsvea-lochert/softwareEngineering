@@ -72,10 +72,10 @@
 #### SearchEventTest is used for testing methods associated with the SearchEvent class. SearchEvent contains two methods for searching after event by event name, and searching trought different categories.
 
 ##### Index of unit tests
-- 7A - checkIfSearchEventByEventNameReturnsArrayOfEventObjects()
-- 7B - checkIfSearchEventByEventNameReturnsEmptyArrayIfNoMatches()
-- 7C - checkIfSearchEventByCategoryNameReturnsArrayOfEventObjects()
-- 7D - checkIfSearchEventByCategoryReturnsEmptyArrayIfNoMatches()
+- 7A - checkIfSearchEventByEventNameReturnsArrayOfEventObject()
+- 7B - checkIfSearchEventByEventNameReturnsEmptyArrayIfNoMatche()
+- 7C - checkIfSearchEventByCategoryNameReturnsArrayOfEventObject()
+- 7D - checkIfSearchEventByCategoryReturnsEmptyArrayIfNoMatche()
 
 <hr>
 
