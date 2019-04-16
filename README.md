@@ -57,6 +57,7 @@
 - 5E - checkPasswordTestReturnsTrue(String checkString)
 - 5F - checkPasswordTestReturnsFalse(String checkString)
 - 5G - checkIfUserIsAddedToList()
+- 5H - checkIfOrganizerIsAddedToList()
 
 ### 6 - PaymentTest
 #### PaymentTest is used for testing methods associated with the Payment class. Payment contains various methods for validating card information, such as cardnumber, cvc and date. 
