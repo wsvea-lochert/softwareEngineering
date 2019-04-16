@@ -46,28 +46,28 @@ public class SearchEventTest {
     /* 7A - Check if an array of Event objects are returned */
 
     @Test
-    public void checkIfSearchEventByEventNameReturnsArrayOfEventObjects(){
+    public void checkIfSearchEventByEventNameReturnsArrayOfEventObject(){
         Assertions.assertEquals(eventList.get(0), searchEvents("sopptur").get(0));
     }
 
     /* 7B - Check if empty array is returned when no matches are found */
 
     @Test
-    public void checkIfSearchEventByEventNameReturnsEmptyArrayIfNoMatches(){
+    public void checkIfSearchEventByEventNameReturnsEmptyArrayIfNoMatche(){
         Assertions.assertEquals(emptyDummyArray, searchEvents("ikkenoesomskalmatchenoesomhelst"));
     }
 
     /* 7C - Check if an array of Event objects are returned when searching for categories */
 
     @Test
-    public void checkIfSearchEventByCategoryNameReturnsArrayOfEventObjects(){
+    public void checkIfSearchEventByCategoryNameReturnsArrayOfEventObject(){
         Assertions.assertEquals(eventList, searchCategory("friluft"));
     }
 
     /* 7D - Check if empty array is returned when no matches are found when searching for categories */
 
     @Test
-    public void checkIfSearchEventByCategoryReturnsEmptyArrayIfNoMatches(){
+    public void checkIfSearchEventByCategoryReturnsEmptyArrayIfNoMatche(){
         Assertions.assertEquals(emptyDummyArray, searchCategory("ikkenoesomskalmatchenoesomhelst"));
     }
 }

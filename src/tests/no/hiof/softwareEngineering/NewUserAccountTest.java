@@ -3,6 +3,7 @@ package no.hiof.softwareEngineering;
 import no.hiof.softwareEngineering.Controller.NewUserAccount;
 import no.hiof.softwareEngineering.Model.Customer;
 
+import no.hiof.softwareEngineering.Model.Organizer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,7 +12,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static no.hiof.softwareEngineering.Controller.NewUserAccount.createNewCustomerAccount;
+import static no.hiof.softwareEngineering.Controller.NewUserAccount.createNewOrganizerAccount;
 import static no.hiof.softwareEngineering.Lists.ListManager.customerList;
+import static no.hiof.softwareEngineering.Lists.ListManager.organizerList;
 
 
 public class NewUserAccountTest {
@@ -19,15 +22,18 @@ public class NewUserAccountTest {
     /* 5. Tests for NewUserAccount class */
 
     private Customer customer;
+    private Organizer organizer;
 
     @BeforeEach
     public void setUp(){
         this.customer = new Customer("Enis", "Jasharaj", "enisj@hiof.no", "enisABC123");
+        this.organizer = new Organizer("Juicy J AS", "Enis", "Jasharaj", "enisj@hiof.no", "enisABC123");
     }
 
     @AfterEach
     public void tearDown(){
         customerList.clear();
+        organizerList.clear();
     }
 
 
@@ -93,5 +99,15 @@ public class NewUserAccountTest {
         createNewCustomerAccount(customer);
         Assertions.assertEquals(customerList.get(0), customer);
     }
+
+    /* 5H - Check if organizer is added to list */
+
+    @Test
+    public void checkIfOrganizerIsAddedToList(){
+        createNewOrganizerAccount(organizer);
+        Assertions.assertEquals(organizerList.get(0), organizer);
+    }
+
+
 
 }

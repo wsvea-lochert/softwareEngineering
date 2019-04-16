@@ -86,7 +86,7 @@ public class EventManagerTest {
     }
 
     /* 2G - Showing data about my events */
-    
+
     @Test
     public void checkIfEventStatisticsWorks(){
         Assertions.assertEquals(eventList.get(0), returnMyEvents(organizer).get(0));

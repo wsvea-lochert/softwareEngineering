@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 
 import static no.hiof.softwareEngineering.Controller.Payment.*;
+import static no.hiof.softwareEngineering.View.PaymentView.runPayment;
 
 public class PaymentTest {
 
@@ -47,4 +48,5 @@ public class PaymentTest {
     public void checkIfDateCheckMethodWorks(){
         Assertions.assertTrue(checkDate("01-11-19"));
     }
+
 }
