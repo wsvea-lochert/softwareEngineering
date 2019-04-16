@@ -17,7 +17,9 @@ public class MainView {
         Scanner scanner = new Scanner(System.in);
         int option = 0;
 
-        while(option < 6){
+        //while(option <= 6){
+        boolean exit = false;
+        while(!exit){
             System.out.print("\n(1) Arrangør seksjon // (2) Kunde seksjon // (3) Registrer kunde konto // (4) Registrer ny arrangør // (5) Søk etter arrangement og kategori // (6) Avslutt: ");
             option = scanner.nextInt();
             switch (option){
@@ -39,6 +41,7 @@ public class MainView {
                     search();
                     break;
                 case 6:
+                    exit = true;
                     break;
                 default:
                     System.out.println("Ikke gyldig valg.");
