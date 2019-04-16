@@ -8,6 +8,8 @@
 - Junit 5
 - Maven 3.3.9
 
+<hr>
+
 ## Table of contents for UNIT TESTS, contains classes and method index.
 ### 1 - BookingTest
 #### BookingTest is used for testing methods accociated with the Booking Class. Finding events, booking tickets, removing the booked tickets from available tickets and adding tickets to sold tickets list is some of the functioanlity that is tested.
@@ -74,6 +76,8 @@
 - 7C - Check if an array of Event objects are returned when searching for categories
 - 7D - Check if empty array is returned when no matches are found when searching for categories
 
+<hr>
+
 ## Developers
 
 - Martin Skåksrud
@@ -84,7 +88,6 @@
 
 
 <hr>
-
 
 
 <img height="87" width="421" src="https://blogg.hiof.no/fremmedsprak/files/2015/02/logo_hiof_sort.png"> </img>
