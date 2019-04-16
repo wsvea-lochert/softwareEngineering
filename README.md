@@ -21,7 +21,7 @@
 - 1D - checkIfTicketIsAddedToSoldTicketsListWhenPaymentIsAccepted()
 
 ### 2 - EventManagerTest
-#### EventManagerTest is used for testing methods associated with the EventManager class. EventManager contains methods for creating events, creating unique ID's for events, creating tickets ticket control and marking tickets as used. 
+#### EventManagerTest is used for testing methods associated with the EventManager class. EventManager contains methods for creating events, creating unique ID's for events, creating tickets, ticket control and marking tickets as used. 
 
 ##### Index of unit tests: 
 - 2A - checkIfMarkTicketMethodWorks()
