@@ -53,7 +53,7 @@ public class MainView {
 
     private void search(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Skriv inn '1' for å søke etter arrangement, eller '2' for å søke etter kategori." + "\nØnsker du å gå tilbake, trykk '3'.");
+        System.out.println("(1) Søk etter arrangementnavn // (2) Søk etter kategori // (3) Tilbake til forsiden ");
 
         try{
             int option = scanner.nextInt();
@@ -66,8 +66,10 @@ public class MainView {
             else if(option == 3){
                 userOptions();
             }
-            else
-                System.out.println("Skriv inn 1 eller 2!");
+            else {
+                System.out.println("Skriv inn 1, 2 eller 3!");
+                search();
+            }
         }
         catch(Exception exc){
             System.out.println("Skriv inn et tall!");
