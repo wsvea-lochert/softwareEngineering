@@ -5,6 +5,7 @@ import no.hiof.softwareEngineering.Model.Event;
 import java.util.Scanner;
 import static no.hiof.softwareEngineering.Controller.Booking.*;
 import static no.hiof.softwareEngineering.Controller.EventManager.printMyTickets;
+import static no.hiof.softwareEngineering.Controller.EventManager.printTotalPrice;
 import static no.hiof.softwareEngineering.View.PaymentView.runPayment;
 
 
@@ -45,6 +46,9 @@ public class CustomerView {
         System.out.print("Velg event: ");
         int selection = input.nextInt();
         selectedEvent = findEvent(selection);
+        if (selectedEvent == null){
+            return;
+        }
 
         System.out.print("Velg antall billetter: ");
         int ticketSelected = input.nextInt();
@@ -54,6 +58,9 @@ public class CustomerView {
             System.out.print("Velt antall billetter: ");
             ticketSelected = input.nextInt();
         }
+
+        printTotalPrice(ticketSelected, selectedEvent);
+
         if(runPayment()){
             bookTicket(selectedEvent, customer, ticketSelected);
             System.out.println("Booking godkjent!");

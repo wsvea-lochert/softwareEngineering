@@ -5,17 +5,21 @@ public class Ticket {
     private String ticketCode;
     private double price;
     private String customerEmail;
+    private int eventIndexforTickets;
+    private boolean status;
 
-    public Ticket(String ticketCode, double price) {
+    public Ticket(String ticketCode, double price, int eventIndexforTickets, boolean status) {
         this.ticketCode = ticketCode;
         this.price = price;
+        this.eventIndexforTickets = eventIndexforTickets;
+        this.status = status;
     }
 
-    public Ticket(String ticketCode, double price, String customerEmail){
+   /* public Ticket(String ticketCode, double price, String customerEmail){
         this.ticketCode = ticketCode;
         this.price = price;
         this.customerEmail = customerEmail;
-    }
+    }*/
 
 
     public String getTicketCode() {
@@ -42,8 +46,32 @@ public class Ticket {
         this.customerEmail = customerEmail;
     }
 
+    public int getEventIndexforTickets() {
+        return eventIndexforTickets;
+    }
+
+    public void setEventIndexforTickets(int eventIndexforTickets) {
+        this.eventIndexforTickets = eventIndexforTickets;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
-        return "    Bilettkode: " + ticketCode + "\n    Pris: " + price + "\n";
+        String ticketStatus;
+        if (!status){
+            ticketStatus = "ikke brukt";
+        }
+        else{
+            ticketStatus = "brukt";
+        }
+        return "    Bilettkode: " + ticketCode + "\n    Pris: " + price + "\n    Bruksstatus: " + ticketStatus + "\n";
     }
 }
+
