@@ -30,6 +30,7 @@
 - 2D - Creating tickets 
 - 2E - Ticket controll - failing correctly 
 - 2F - Ticket controll - working correctly
+- 2G - Showing data about my events 
 
 ### 3 - LoginCustomerTest
 #### LoginCustomerTest is used for testing the method associated with the Login class. The only thing this method does is checking if a customer exists in the customerList.
