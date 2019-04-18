@@ -1,6 +1,7 @@
 package no.hiof.softwareEngineering.View;
 
 import no.hiof.softwareEngineering.Controller.NewUserAccount;
+import no.hiof.softwareEngineering.Lists.ListManager;
 import no.hiof.softwareEngineering.Model.Customer;
 import no.hiof.softwareEngineering.Model.Organizer;
 
@@ -42,6 +43,9 @@ public class NewUserView {
     }
 
     public static void receiveNewCustomerInput() {
+        for (Customer c : ListManager.customerList) {
+            System.out.println(c.getEmail());
+        }
         String firstname = receiveString("Fornavn: ");
         String lastname = receiveString("Etternavn: ");
         String email = receiveEmail();
