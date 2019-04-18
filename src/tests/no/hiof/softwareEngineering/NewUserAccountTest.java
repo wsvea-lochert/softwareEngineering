@@ -1,6 +1,7 @@
 package no.hiof.softwareEngineering;
 
 import no.hiof.softwareEngineering.Controller.NewUserAccount;
+import no.hiof.softwareEngineering.Lists.ListManager;
 import no.hiof.softwareEngineering.Model.Customer;
 
 import no.hiof.softwareEngineering.Model.Organizer;
@@ -28,7 +29,7 @@ public class NewUserAccountTest {
     @BeforeEach
     public void setUp(){
         this.customer = new Customer("Enis", "Jasharaj", "enisj@hiof.no", "enisABC123");
-        this.organizer = new Organizer("Juicy J AS", "Enis", "Jasharaj", "enisj@hiof.no", "enisABC123");
+        this.organizer = new Organizer("Juicy J AS", "enisj@hiof.no", "Jasharaj", "Enis", "enisABC123");
     }
 
     @AfterEach
@@ -109,6 +110,34 @@ public class NewUserAccountTest {
         Assertions.assertEquals(organizerList.get(0), organizer);
     }
 
+    /* 5J - Check if returns true if new user does not already exists*/
 
+    @Test
+    public void checkIfCustomerExistsTestReturnsTrue() {
+        boolean result = NewUserAccount.checkIfCustomerExists("uniqueemail@unique.cool");
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void checkIfOrganizerExistsTestReturnsTrue() {
+        boolean result = NewUserAccount.checkIfOrganizerExists("uniqueemail@unique.cool");
+        Assertions.assertTrue(result);
+    }
+
+    /* 5J - Check if returns false if new user already exists*/
+
+    @Test
+    public void checkIfCustomerExistsTestReturnsFalse() {
+        customerList.add(customer);
+        boolean result = NewUserAccount.checkIfCustomerExists("enisj@hiof.no");
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    public void checkIfOrganizerExistsTestReturnsFalse() {
+        organizerList.add(organizer);
+        boolean result = NewUserAccount.checkIfOrganizerExists("enisj@hiof.no");
+        Assertions.assertFalse(result);
+    }
 
 }
