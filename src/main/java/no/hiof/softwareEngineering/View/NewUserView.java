@@ -43,9 +43,6 @@ public class NewUserView {
     }
 
     public static void receiveNewCustomerInput() {
-        for (Customer c : ListManager.customerList) {
-            System.out.println(c.getEmail());
-        }
         String firstname = receiveString("Fornavn: ");
         String lastname = receiveString("Etternavn: ");
         String email = receiveEmail();

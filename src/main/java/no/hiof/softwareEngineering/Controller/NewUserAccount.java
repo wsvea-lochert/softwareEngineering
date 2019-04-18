@@ -15,10 +15,6 @@ public class NewUserAccount {
         if (checkIfCustomerExists(customer.getEmail())) {
             customerList.add(customer);
             System.out.println("Din kundekonto er opprettet!");
-
-            for (Customer c : ListManager.customerList) {
-                System.out.println(c.getEmail());
-            }
         }
         else {
             NewUserView.receiveNewCustomerInput();
