@@ -12,7 +12,7 @@
 
 ## Table of contents for UNIT TESTS, contains classes and method index.
 ### 1 - BookingTest
-#### BookingTest is used for testing methods accociated with the Booking Class. Finding events, booking tickets, removing the booked tickets from available tickets and adding tickets to sold tickets list is some of the functioanlity that is tested.
+#### BookingTest is used for testing methods accociated with the Booking Class. Finding events, booking tickets, removing the booked tickets from available tickets and adding tickets to sold tickets list is some of the functionality that is tested.
 
 ##### Index of unit tests:
 - 1A - checkIfFindEventWorks()
