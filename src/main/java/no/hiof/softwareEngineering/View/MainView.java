@@ -88,7 +88,7 @@ public class MainView {
         if(!matches.isEmpty()){
             System.out.println("Følgende arrangment ble funnet:");
             for (Event evt : matches){
-                System.out.println("Arrangment index: " + evt.getEventIndex() + "\nNavn: " + evt.getEventName());
+                System.out.println("Arrangment index: " + evt.getEventIndex() + "\nNavn: " + evt.getEventName() +"\nLedige billetter: "+ evt.getTicketAmount());
             }
         } else {
             System.out.println("Fant ingen arrangement, vennligst prøv igjen med andre søkeord.");
@@ -107,7 +107,7 @@ public class MainView {
         if(!matches.isEmpty()){
             System.out.println("Følgende arrangment ble funnet:");
             for (Event evt : matches){
-                System.out.println("Arrangment index: " + evt.getEventIndex() + "\nNavn: " + evt.getEventName());
+                System.out.println("Arrangment index: " + evt.getEventIndex() + "\nNavn: " + evt.getEventName() +"\nLedige billetter: "+ evt.getTicketAmount());
             }
         }
         else {
