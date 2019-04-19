@@ -53,9 +53,9 @@ public class CustomerView {
         System.out.print("Velg antall billetter: ");
         int ticketSelected = input.nextInt();
 
-        while(ticketSelected >= selectedEvent.getTicketAmount() || ticketSelected <= 0){
+        while(ticketSelected > selectedEvent.getTicketAmount() || ticketSelected <= 0){
             System.out.println("Du har valgt for mange billetter eller ingen billetter.");
-            System.out.print("Velt antall billetter: ");
+            System.out.print("Velg antall billetter: ");
             ticketSelected = input.nextInt();
         }
 
