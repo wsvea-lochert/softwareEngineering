@@ -131,11 +131,12 @@ public class OrganizerView {
         Scanner userInput = new Scanner(System.in);
         System.out.print("Billett kode: ");
         String ticketCode = userInput.nextLine();
-        if(!controllTicket(ticketCode, organizer)){
+        controllTicket(ticketCode, organizer);
+        /*if(!controllTicket(ticketCode, organizer)){
             System.out.println("Billetten har ikke blitt brukt opp.");
         } else{
             System.out.println("Billetten har blitt brukt opp.");
-        }
+        }*/
     }
 
     private static void markTicketInput(Organizer organizer){

@@ -77,14 +77,18 @@ public class EventManager {
         for (Event event : eventList){
             for (Ticket ticket : soldTickets){
                 if (ticket.getTicketCode().equals(code) && ticket.getEventIndexforTickets() == event.getEventIndex() && event.getEventOwner().equals(organizer.getCompanyName())){
-                    return ticket.isStatus();
-                }
-                else{
-                    //error, ticket may not have been generated.
-                    return false;
+                    if (ticket.isStatus()){
+                        System.out.println("Billetten har blitt brukt opp.");
+                        return true;
+                    }
+                    else{
+                        System.out.println("Billetten har ikke blitt brukt opp.");
+                        return false;
+                    }
                 }
             }
         }
+        System.out.println("Du er ikke eier av dette eventet.");
         return false;
     }
 
