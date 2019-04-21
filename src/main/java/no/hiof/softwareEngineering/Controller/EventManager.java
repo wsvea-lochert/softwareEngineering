@@ -78,10 +78,12 @@ public class EventManager {
             for (Ticket ticket : soldTickets){
                 if (ticket.getTicketCode().equals(code) && ticket.getEventIndexforTickets() == event.getEventIndex() && event.getEventOwner().equals(organizer.getCompanyName())){
                     if (ticket.isStatus()){
+                        //System.out.println(ticket);
                         System.out.println("Billetten har blitt brukt opp.");
                         return true;
                     }
                     else{
+                        //System.out.println(ticket);
                         System.out.println("Billetten har ikke blitt brukt opp.");
                         return false;
                     }
