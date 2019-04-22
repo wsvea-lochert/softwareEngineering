@@ -84,13 +84,13 @@
 
 <hr>
 
-## Developers
+## Developers :computer:
 
-- :man:Martin Skåksrud
-- :woman:Elin Skaret Larald
-- :man:Enis Jasharaj
-- :woman:Ingrid Elise Krogh Dahl
-- :man:William Svea-Lochert    
+- :man: Martin Skåksrud
+- :woman: Elin Skaret Larald
+- :man: Enis Jasharaj
+- :woman: Ingrid Elise Krogh Dahl
+- :man: William Svea-Lochert    
 
 
 <hr>
