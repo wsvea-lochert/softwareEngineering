@@ -9,6 +9,9 @@ import static no.hiof.softwareEngineering.Lists.ListManager.*;
 public class Booking {
 
 
+    /*
+    * Finds event by looking at the event index
+    */
     public static Event findEvent(int eventToLookFor){
         for (Event event : eventList){
             if (eventToLookFor == event.getEventIndex()){
@@ -19,6 +22,9 @@ public class Booking {
         return null;
     }
 
+    /*
+    * prints event with their index for easy selection for users
+    */
     public static void printEventWithIndex(){
         for (Event event : eventList){
             System.out.println(event);
@@ -31,6 +37,9 @@ public class Booking {
         }
     }
 
+    /*
+    * Marks tickets with the customers email and moves the ticket(s) from availableTickets to soldTickets
+    */
     public static void bookTicket(Event selectedEvent, Customer customer, int ticketSelected){
         ArrayList<Ticket> deleteList = new ArrayList<>();
 
@@ -54,6 +63,9 @@ public class Booking {
         }
     }
 
+    /*
+    * Removes tickets from availableTickets list
+    */
     public static void removeSoldTickets(ArrayList<Ticket> deleteList){
         availableTickets.removeAll(deleteList);
     }

@@ -38,7 +38,10 @@ public class CustomerView {
             }
         }
     }
-
+    /*
+    * prompts user to select an event, input amount of wanted tickets,
+    * then runs payment and books the ticket.
+    * */
     public static void book(Customer customer){
         Event selectedEvent = null;
         printEventWithIndex();
@@ -67,7 +70,10 @@ public class CustomerView {
         }
 
     }
-
+    /*
+    * Prompts user to input the email they used to book their tickets
+    * Then displays the users booked tickets
+    */
     public static void printMyTicketsInput(){
         //input.close();
         Scanner inpt = new Scanner(System.in);

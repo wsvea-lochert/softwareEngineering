@@ -10,17 +10,19 @@ import static no.hiof.softwareEngineering.Lists.ListManager.*;
 
 public class EventManager {
 
+    /*
+    * Create events for Event manager
+    */
     public static void createEvent(String eventName, String category, String description, String date, String city, String street, String ageLimit, String tickets, String eventOwner, String price){
-
-       /* String regex = "^(?:[0-9]{2})?[0-9]{2}-[0-3]?[0-9]-[0-3]?[0-9]$";
-        Pattern pattern = Pattern.compile(regex);*/
-
         Event event = new Event(eventName, category, description, ageLimit, tickets, LocalDate.parse(date), new Location(city, street), createIndex(), eventOwner);
         createTickets(tickets, eventName, availableTickets, price, event.getEventIndex());
         eventList.add(event);
         System.out.println("Event laget.");
     }
 
+    /*
+    * Create index for a event thats one higher then the last event created
+    */
     public static int createIndex(){
         int tempIndex = 1;
 
@@ -36,6 +38,9 @@ public class EventManager {
         return tempIndex;
     }
 
+    /*
+    * Create tickets for events
+    */
     public static void createTickets(String ticketAmount, String eventName, ArrayList<Ticket> availableTickets, String price, int eventIndex){
         int tickets = Integer.parseInt(ticketAmount);
         int rightPrice = Integer.parseInt(price);
@@ -56,6 +61,9 @@ public class EventManager {
         return placeHolder;
     }
 
+    /*
+    * prints the total price of a users booking
+    */
     public static void printTotalPrice(int ticketAmount, Event selectedEvent){
         for (Ticket ticket : availableTickets){
             if(ticket.getEventIndexforTickets() == selectedEvent.getEventIndex()){
@@ -65,6 +73,9 @@ public class EventManager {
         }
     }
 
+    /*
+    * prints users tickets
+    */
     public static void printMyTickets(String email){
         for (Ticket ticket : soldTickets){
             if (ticket.getCustomerEmail().equals(email)){
@@ -73,6 +84,10 @@ public class EventManager {
         }
     }
 
+    /*
+    * Controlls the status of a ticket to see if it has been used or not.
+    * the organizer has to be the owner of the event to see the status.
+    */
     public static boolean controllTicket(String code, Organizer organizer){
         for (Event event : eventList){
             for (Ticket ticket : soldTickets){
@@ -94,6 +109,9 @@ public class EventManager {
         return false;
     }
 
+    /*
+    * The event owner can mark a ticket as used.
+    */
     public static void markTicketAsUsed(String code, Organizer organizer){
         for (Event event : eventList){
             for (Ticket ticket : soldTickets){

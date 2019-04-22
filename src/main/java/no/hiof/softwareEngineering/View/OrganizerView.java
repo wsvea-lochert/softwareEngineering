@@ -44,6 +44,7 @@ public class OrganizerView {
         }
     }
 
+
     private static void createEventInput(Organizer organizer){
         Scanner stringInput = new Scanner(System.in);
         String regex = "^(?:[0-9]{2})?[0-9]{2}-[0-3]?[0-9]-[0-3]?[0-9]$";
@@ -54,18 +55,21 @@ public class OrganizerView {
             System.out.println( "Ugyldig input skriv inn på nytt: " );
             eventName = stringInput.nextLine();
         }
+
         System.out.print("Kategori: ");
         String category = stringInput.nextLine();
         while(category.isEmpty()) {
             System.out.println( "Ugyldig input skriv inn på nytt: " );
             category = stringInput.nextLine();
         }
+
         System.out.print("Beskrivelse: ");
         String description = stringInput.nextLine();
         while(description.isEmpty()) {
             System.out.println( "Ugyldig input skriv inn på nytt: " );
             description = stringInput.nextLine();
         }
+
         System.out.print("Dato(YYYY-MM-DD): ");
         String date = stringInput.nextLine();
         Matcher matcher = pattern.matcher(date);
@@ -100,7 +104,6 @@ public class OrganizerView {
             ageLimit = stringInput.nextLine();
             matcherOnlyNum = patternOnlyNum.matcher(ageLimit);
         }
-
 
         System.out.print("Antall billetter: ");
         String tickets = stringInput.nextLine();
