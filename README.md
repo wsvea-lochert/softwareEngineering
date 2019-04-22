@@ -1,4 +1,4 @@
-# Software Engineering project - Event and ticket application
+# Software Engineering project - Event and ticket application :ticket:
 
 #### Prototype for a flexible booking application.
 
