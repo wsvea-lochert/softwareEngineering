@@ -2,7 +2,7 @@
 
 #### Prototype for a flexible booking application. :ticket:
 
-## Requirements to run the application (IMPORTANT)
+## Requirements to run the application (IMPORTANT) :exclamation::exclamation:
 #### These are the tools and versions we have used for this project, other versions of the tools may or may not work, so it is recommended to use exactly the versions that are stated below to avoid any potential problems:
 - Java version 11
 - Junit 5
