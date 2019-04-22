@@ -1,4 +1,4 @@
-# Software Engineering project
+# Software Engineering project - Event and ticket application
 
 #### Prototype for a flexible booking application.
 
