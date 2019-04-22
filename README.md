@@ -86,11 +86,11 @@
 
 ## Developers
 
-- Martin Skåksrud
-- Elin Skaret Larald
-- Enis Jasharaj
-- Ingrid Elise Krogh Dahl
-- William Svea-Lochert    
+- :man:Martin Skåksrud
+- :woman:Elin Skaret Larald
+- :man:Enis Jasharaj
+- :woman:Ingrid Elise Krogh Dahl
+- :man:William Svea-Lochert    
 
 
 <hr>
