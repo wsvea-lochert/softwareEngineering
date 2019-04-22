@@ -1,6 +1,6 @@
-# Software Engineering project-Event and ticket application :ticket:
+# Software Engineering project - Event and ticket application 
 
-#### Prototype for a flexible booking application.
+#### Prototype for a flexible booking application. :ticket:
 
 ## Requirements to run the application (IMPORTANT)
 #### These are the tools and versions we have used for this project, other versions of the tools may or may not work, so it is recommended to use exactly the versions that are stated below to avoid any potential problems:
