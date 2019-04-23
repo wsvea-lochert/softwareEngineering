@@ -50,23 +50,27 @@ public class Payment {
     public static boolean checkDate(String Date){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yy");
         LocalDate today = LocalDate.now();
-        LocalDate cardDate = LocalDate.parse(Date, formatter);
-
-
-        if(cardDate.getYear() > today.getYear()){
-            return true;
-        }
-        else if(cardDate.getYear() < today.getYear()){
-            return false;
-        }
-        else if (cardDate.getYear() == today.getYear()){
-            if (cardDate.getMonthValue() >= today.getMonthValue()){
+        try{
+            LocalDate cardDate = LocalDate.parse(Date, formatter);
+            if(cardDate.getYear() > today.getYear()){
                 return true;
             }
-            else{
+            else if(cardDate.getYear() < today.getYear()){
                 return false;
             }
+            else if (cardDate.getYear() == today.getYear()){
+                if (cardDate.getMonthValue() >= today.getMonthValue()){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+            return false;
         }
-        return false;
+        catch (Exception e){
+            return false;
+        }
+       // return false;
     }
 }
