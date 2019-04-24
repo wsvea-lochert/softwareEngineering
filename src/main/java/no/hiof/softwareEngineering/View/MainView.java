@@ -23,11 +23,9 @@ public class MainView {
             option = scanner.nextInt();
             switch (option){
                 case 1: //Organizer part
-                    // userLogin(Organizer.getOrganizerList());
                     runOrganizer();
                     break;
                 case 2: //Customer part
-                    //userLogin(Customer.getCustomerList());
                     runCustomerPart();
                     break;
                 case 3:
