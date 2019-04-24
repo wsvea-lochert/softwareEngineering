@@ -2,7 +2,6 @@ package no.hiof.softwareEngineering.Model;
 
 import java.time.LocalDate;
 
-
 public class Event {
     private String eventName;
     private String category;

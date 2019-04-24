@@ -15,12 +15,6 @@ public class Ticket {
         this.status = status;
     }
 
-   /* public Ticket(String ticketCode, double price, String customerEmail){
-        this.ticketCode = ticketCode;
-        this.price = price;
-        this.customerEmail = customerEmail;
-    }*/
-
 
     public String getTicketCode() {
         return ticketCode;

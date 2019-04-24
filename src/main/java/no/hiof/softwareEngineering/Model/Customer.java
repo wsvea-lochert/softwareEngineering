@@ -13,8 +13,6 @@ public class Customer {
         this.password = password;
     }
 
-    // ToDo: Hva med å arve fra Person? Skal vi droppe det?
-
     public String getFirstname() {
         return firstname;
     }

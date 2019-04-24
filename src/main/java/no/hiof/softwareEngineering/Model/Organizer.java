@@ -18,10 +18,6 @@ public class Organizer {
         this.fornavn = fornavn;
     }
 
-    //ToDo: Tanken var at Organizer arver fra Person siden vi trenger den samme info som for person
-    // Viktig å tenke på at det også er privat personer som skal kunne opprette arrangement og at orgNo ikke er obligatoisk da
-
-
     public String getCompanyName() {
         return companyName;
     }
@@ -46,9 +42,7 @@ public class Organizer {
         this.password = password;
     }
 
-    public String getFornavn() {
-        return fornavn;
-    }
+    public String getFornavn() { return fornavn; }
 
     public void setFornavn(String fornavn) {
         this.fornavn = fornavn;
