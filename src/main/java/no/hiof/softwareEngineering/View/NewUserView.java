@@ -1,7 +1,4 @@
 package no.hiof.softwareEngineering.View;
-
-import no.hiof.softwareEngineering.Controller.NewUserAccount;
-import no.hiof.softwareEngineering.Lists.ListManager;
 import no.hiof.softwareEngineering.Model.Customer;
 import no.hiof.softwareEngineering.Model.Organizer;
 

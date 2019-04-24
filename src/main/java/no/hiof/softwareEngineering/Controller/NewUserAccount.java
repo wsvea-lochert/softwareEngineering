@@ -1,6 +1,4 @@
 package no.hiof.softwareEngineering.Controller;
-
-import no.hiof.softwareEngineering.Lists.ListManager;
 import no.hiof.softwareEngineering.Model.Customer;
 import no.hiof.softwareEngineering.Model.Organizer;
 import no.hiof.softwareEngineering.View.NewUserView;
